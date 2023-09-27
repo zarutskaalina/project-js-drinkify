@@ -1,0 +1,1 @@
+import { makePaginator } from "./js/paginator";
