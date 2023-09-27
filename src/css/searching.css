@@ -58,49 +58,10 @@
     margin-left: 170px;
 }
 
-.hero-right .icon, 
-.hero-right .circle {
+.hero-right .icon {
     position: absolute;
 }
 
-.icon.one {
-    right: 0;
-    top: 0;
-}
-
-.icon.two {
-    left: 0;
-    top: 387px;
-}
-
-
-
-.circle#one {
-    top: 52px;
-    right: 183px;
-    width: 18px;
-    height: 18px;
-    background-color: #7E8FDD;
-    border-radius: 50%;
-}
-
-.circle#two {
-    bottom: 23px;
-    left: 121px;
-    width: 24px;
-    height: 24px;
-    background-color: #7E8FDD;
-    border-radius: 50%;
-}
-
-.circle#three {
-    bottom: 0;
-    left: 419px;
-    width: 18px;
-    height: 18px;
-    background-color: #9CDFDF;
-    border-radius: 50%;
-}
 
 .pic-container {
     position: relative;
