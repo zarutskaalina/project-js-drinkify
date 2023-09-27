@@ -60,6 +60,8 @@
 
 .hero-right .icon {
     position: absolute;
+    top: 0;
+    right: 0;
 }
 
 
