@@ -1,0 +1,198 @@
+.hero-left {
+    display: flex;
+    /* width: 371px; */
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-container {
+    display: flex;  
+
+}
+
+.hero-right{
+    position: relative;
+    width: 552px;
+    height: 672px;
+
+}
+
+.hero-title {
+    
+    color: #242424;
+    font-family: Poppins;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 109%;
+        width: 555px;
+        /* 109.091% */
+}
+.hero-title span {
+    color: var(--violet, #7E8FDD);
+    font-style: italic;
+}
+
+.hero-descr {
+    color: #242424;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+        /* 130% */
+}
+
+.descr-2 {
+    width: 219px;
+    color: #242424;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133%;
+    /* 133.333% */
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+    margin-top: 51px;
+    margin-left: 170px;
+}
+
+.hero-right .icon, 
+.hero-right .circle {
+    position: absolute;
+}
+
+.icon.one {
+    right: 0;
+    top: 0;
+}
+
+.icon.two {
+    left: 0;
+    top: 387px;
+}
+
+
+
+.circle#one {
+    top: 52px;
+    right: 183px;
+    width: 18px;
+    height: 18px;
+    background-color: #7E8FDD;
+    border-radius: 50%;
+}
+
+.circle#two {
+    bottom: 23px;
+    left: 121px;
+    width: 24px;
+    height: 24px;
+    background-color: #7E8FDD;
+    border-radius: 50%;
+}
+
+.circle#three {
+    bottom: 0;
+    left: 419px;
+    width: 18px;
+    height: 18px;
+    background-color: #9CDFDF;
+    border-radius: 50%;
+}
+
+.pic-container {
+    position: relative;
+    width: 410px;
+    height: 565px;
+    margin-top: 9px;
+    margin-right: 83px;
+    margin-left: auto;
+}
+
+.hero-pic {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 410px;
+    height: 565px;
+
+    background: url('../images/Girl.png') no-repeat;
+}
+.under-pic {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width: 380px;
+    height: 476px;
+    border-radius: 80px 0px;
+    background: #7E8FDD;
+    box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.50);
+}
+
+.hero-btn {
+    display: flex;
+        padding: 22px 44px;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 12px;
+        background: var(--violet, #7E8FDD);
+        color: #FDFDFF;
+            font-family: Poppins;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            /* 133.333% */
+            letter-spacing: 0.36px;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 44px;
+}
+
+
+.search-form input {
+    padding: 12px 12px 12px 42px;
+    background: none;
+    border-radius: 80px;
+    border: 2px solid #7E8FDD;
+    display: block;
+    color: black;
+    max-width: 300px;
+    width: 100%;
+    transition: 0.55s;
+    outline: rgba(31, 158, 222, 0) solid 1px;
+}
+
+.search-form button {
+    padding: 4px;
+    width: auto;
+    height: 31px;
+    min-width: 31px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.55s;
+    display: flex;
+    position: relative;
+    left: 30px;
+    outline: rgba(31, 158, 222, 0) solid 1px;
+    color: white;
+}
+
+.search-form .icon {
+    fill: #60676a;
+    transition: 0.55s;
+    stroke-width: 1px;
+}
+
