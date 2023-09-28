@@ -11,6 +11,7 @@
 }
 
 .cocktails-title {
+    margin-bottom: 14px;
     color: #242424;
     font-family: Poppins;
     font-size: 18px;
@@ -21,6 +22,7 @@
 }
 
 .cocktails-description {
+    margin-bottom: 20px;
     overflow: hidden;
         color: #242424;
         text-overflow: ellipsis;
@@ -37,6 +39,7 @@
 }
 
 .cocktails-button {
+    min-width: 233px;
     padding: 14px 71px;
     border-radius: 12px;
     border: 1px solid #7E8FDD;
@@ -45,7 +48,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 142.857%;
+    line-height: 142%;
     /* 142.857% */
     letter-spacing: 0.28px;
     text-transform: uppercase;
@@ -56,14 +59,11 @@
 }
 
 .cocktails-button-favorite {
-    display: flex;
     width: 48px;
     height: 48px;
     padding: 16px 32px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
     border-radius: 12px;
     background: #7E8FDD;
 }
@@ -72,5 +72,7 @@
     fill:#FDFDFF;
 }
 .cocktails-image {
+    border-radius: 16px;
     width: 100%;
+    margin-bottom: 20px;
 }
