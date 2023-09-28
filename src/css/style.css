@@ -41,6 +41,8 @@ body {
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
     );
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container {
