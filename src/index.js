@@ -1,1 +1,0 @@
-import { makePaginator } from "./js/searchByWord.js";
