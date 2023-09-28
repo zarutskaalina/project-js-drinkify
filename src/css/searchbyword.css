@@ -1,7 +1,49 @@
+:root {
+  --main-font-family: 'Poppins', sans-serif;
+  --accent-color: #7e8fdd;
+  --primary-color-text-them-light: #242424;
+  --primary-color-text-them-dark: #fdfdff;
+  --primary-color-interface-them-dark: #1a1a1a;
+  --primary-color-interface-them-light: #f8f9ff;
+  --additional-accent-color: #9cdfdf;
+}
+
 .empty-search-toggle {
   display: none;
 }
 
 .empty-search-hidden {
   display: inline-block;
+}
+.searching-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px 32px;
+}
+
+.cocktail-card {
+  max-width: 344px;
+}
+.cocktail-card {
+  width: 316px;
+}
+
+.cocktail-description {
+  overflow: hidden;
+  max-height: 72px;
+  width: 296px;
+  line-height: 24px;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.learn-more-button {
+}
+
+.favorite {
 }
