@@ -1,0 +1,76 @@
+.cocktails-item {
+    width: 100%;
+    padding: 14 14 20 14;
+    border-radius: 20px;
+    background: #FDFDFF;
+    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+}
+
+.cocktails-item:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.cocktails-title {
+    color: #242424;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 133.33%;
+        /* 133.333% */
+}
+
+.cocktails-description {
+    overflow: hidden;
+        color: #242424;
+        text-overflow: ellipsis;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 128.571%;
+        /* 128.571% */
+}
+.cocktails-buttons {
+    display: flex;
+    justify-content:space-between;   
+}
+
+.cocktails-button {
+    padding: 14px 71px;
+    border-radius: 12px;
+    border: 1px solid #7E8FDD;
+    color: #242424;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 142.857%;
+    /* 142.857% */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+}
+
+.cocktails-button:hover {
+    background: #7E8FDD;
+}
+
+.cocktails-button-favorite {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #7E8FDD;
+}
+
+.isFavorite {
+    fill:#FDFDFF;
+}
+.cocktails-image {
+    width: 100%;
+}

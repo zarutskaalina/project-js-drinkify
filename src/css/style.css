@@ -1,3 +1,5 @@
+@import url('../css/card-cocktail.css');
+
 :root {
   --main-font-family: 'Poppins', sans-serif;
   --accent-color: #7e8fdd;
@@ -81,3 +83,4 @@ body {
     width: 1080px;
   }
 }
+
