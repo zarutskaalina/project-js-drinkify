@@ -1,7 +1,46 @@
 // export const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
-const searchWord = document.querySelector(".input");
-const container = document.querySelector(".cocktails");
+const searchWord = document.querySelector('input');
+const button = document.querySelector(".searching-button");
+const searchForm = document.querySelector(".search-form");
+const resultsContainer = document.querySelector(".searching-results");
+
+const searchInfoCallback = (e) => {
+  e.preventDefault();
+//   galleryEl.innerHTML = '';
+//   loadMoreEl.classList.replace("load-more", "load-more-hidden");
+//     let page = 1;
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    console.log("data", data);
+    //  if (data.searchQuery.trim() === "" ) {
+    // return Notify.failure("Please write the word in  the field!");
+    
+  } 
+//   e.currentTarget.reset();
+  
+//   getImages(data, page);
+//   const totHits = await makeRequest(data, page);
+//   Notify.info(`Hooray! We found ${totHits.totalHits} images.`);
+ 
+//       const loadMoreHandler = () => {
+//       page += 1;
+//       getImages (data, page);
+//       };
+//       // loadMoreEl.onclick = () => {
+//       //   window.scrollTo({
+//       //     top: 0,
+//       //     left: 0,
+//       //     behavior: 'smooth'
+//       //   });
+//       // }
+//       loadMoreEl.addEventListener("click", loadMoreHandler);
+  
+//   };
+// console.log(searchWord);
+// console.log(button);
+// console.log(searchForm);
+// console.log(resultsContainer);
 // const getImages = async (data, page) => {
 //     // toggleLoader(loader, "show");
 //     const listImg = await makeRequest(data, page);
@@ -31,7 +70,7 @@ const container = document.querySelector(".cocktails");
    
 //     galleryEl.insertAdjacentHTML('beforeend', markup);
 // }
-// userForm.addEventListener("submit", searchInfoCallback);
+searchForm.addEventListener("submit", searchInfoCallback);
 // export const makeRequest = async (data, page) => {
       
 //     const searchParams = new URLSearchParams({

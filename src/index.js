@@ -1,1 +1,1 @@
-import { makePaginator } from "./js/paginator";
+import { makePaginator } from "./js/searchByWord.js";
