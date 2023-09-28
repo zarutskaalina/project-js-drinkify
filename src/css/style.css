@@ -1,3 +1,4 @@
+@import url('./theme.css');
 :root {
   --main-font-family: 'Poppins', sans-serif;
   --accent-color: #7e8fdd;
