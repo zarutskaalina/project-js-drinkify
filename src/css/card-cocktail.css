@@ -1,6 +1,9 @@
+.cocktails-list {
+    padding: 0;
+}
 .cocktails-item {
     width: 100%;
-    padding: 14 14 20 14;
+    padding: 14px 14px 20px 14px;
     border-radius: 20px;
     background: #FDFDFF;
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
@@ -9,6 +12,7 @@
 .cocktails-item:not(:last-child){
     margin-bottom: 20px;
 }
+
 
 .cocktails-title {
     margin-bottom: 14px;
@@ -35,11 +39,12 @@
 }
 .cocktails-buttons {
     display: flex;
+    align-items: center;
     justify-content:space-between;   
 }
 
 .cocktails-button {
-    min-width: 233px;
+    width: 233px;
     padding: 14px 71px;
     border-radius: 12px;
     border: 1px solid #7E8FDD;
@@ -60,12 +65,13 @@
 
 .cocktails-button-favorite {
     width: 48px;
-    height: 48px;
+    /* height: 48px; */
     padding: 16px 32px;
     justify-content: center;
     align-items: center;
     border-radius: 12px;
     background: #7E8FDD;
+
 }
 
 .isFavorite {
@@ -75,4 +81,35 @@
     border-radius: 16px;
     width: 100%;
     margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .cocktails-item {
+        width: calc((100% - 16px) / 2);
+    }
+
+    .cocktails-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .cocktails-button {
+        width: 228px;
+        padding: 16px 55px;
+        color: #242424;
+        font-size: 18px;
+        line-height: 133%;
+        letter-spacing: 0.36px;
+    }
+
+    .cocktails-button-favorite {
+        width: 56px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .cocktails-item {
+        width: calc((100% - 32px) / 3);
+    }
 }
