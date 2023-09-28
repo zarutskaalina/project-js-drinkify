@@ -1,0 +1,86 @@
+:root {
+  --main-font-family: 'Poppins', sans-serif;
+  --accent-color: #7e8fdd;
+  --primary-color-text-them-light: #242424;
+  --primary-color-text-them-dark: #fdfdff;
+  --primary-color-interface-them-dark: #1a1a1a;
+  --primary-color-interface-them-light: #f8f9ff;
+  --additional-accent-color: #9cdfdf;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.list {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+body {
+  font-family: var(--main-font-family);
+  background: rgb(248, 249, 255);
+  background-image: linear-gradient(
+      292deg,
+      rgba(248, 249, 255, 1) 84%,
+      rgba(156, 223, 223, 1) 104%
+    ),
+    linear-gradient(
+      117deg,
+      rgba(248, 249, 255, 1) 84%,
+      rgba(156, 223, 223, 1) 104%
+    );
+}
+
+.container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    width: 335px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    /* padding-left: 32px;
+    padding-right: 32px; */
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    /* padding-left: 100px;
+    padding-right: 100px; */
+    width: 1080px;
+  }
+}
