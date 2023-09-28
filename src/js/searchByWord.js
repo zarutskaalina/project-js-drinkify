@@ -85,7 +85,7 @@ const makeRequest = async (data) => {
         s: data.searchQuery,
      
     });
-    // const endpoint = BASE_URL + "/search/?" + searchParams.toString();
+    
   
     return axios.get(`${BASE_URL}search/?${searchParams.toString()}`)
         .then((res) => {
@@ -110,20 +110,8 @@ const makeRequest = async (data) => {
             return console.log("such cocktails not found");
         })
 }
-//   //     .finally(function () {
-//   //       console.log("finally");
-//   //       return 
-//   // });
-//   };
+
 function errorMsg() {
     emptySearch.classList.replace("empty-search-toggle", "empty-search-hidden");
     console.log(emptySearch);
 }
-
-// function infoMsg() {
-//   Notify.failure("We are sorry, but you've reached the end of search results.", {
-//     position: 'center-center',
-//     timeout: 5000,
-//     width: '400px',
-//     fontSize: '24px'});
-// }
