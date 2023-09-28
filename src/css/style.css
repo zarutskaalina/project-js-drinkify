@@ -45,11 +45,6 @@ body {
   background-size: contain; */
 }
 
-.container {
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
 @media screen and (min-width: 320px) {
   .container {
     margin-left: auto;
@@ -59,8 +54,8 @@ body {
 
 @media screen and (min-width: 375px) {
   .container {
-    /* padding-left: 20px;
-    padding-right: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
     width: 335px;
   }
 }
@@ -73,16 +68,16 @@ body {
 
 @media screen and (min-width: 768px) {
   .container {
-    /* padding-left: 32px;
-    padding-right: 32px; */
+    padding-left: 32px;
+    padding-right: 32px;
     width: 704px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
-    /* padding-left: 100px;
-    padding-right: 100px; */
+    padding-left: 100px;
+    padding-right: 100px;
     width: 1080px;
   }
 }
