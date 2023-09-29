@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import {paginator} from './paginator.js';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
@@ -8,6 +9,9 @@ const button = document.querySelector(".searching-button");
 const searchForm = document.querySelector(".search-form");
 const resultsContainer = document.querySelector(".searching-results");
 const emptySearch = document.querySelector(".empty-search");
+const listResults = document.querySelector(".searching-results");
+// console.log("paginatedList", listResults);
+
 // emptySearch.style.display = 'none';
 
 const getImages = async (data) => {
@@ -33,7 +37,8 @@ const searchInfoCallback = async (e) => {
     if (data.searchQuery.trim() === "") {
         return console.log("Please write the word in the field!");
     }
-     getImages(data);
+    getImages(data);
+    
       e.currentTarget.reset();
   } 
 
@@ -63,15 +68,26 @@ const searchInfoCallback = async (e) => {
 
 
 function renderImages(images) {
-   
-    const markup = images.map(({ drink, description, drinkThumb}) => `<div class="cocktail-card"> 
-        <img src="${drinkThumb}" alt="${drink}" loading="lazy" class="cocktail-card"/>
+   const markup = images.map(({ drink, description, drinkThumb}) => `
+    <li class="cocktail-card"><img src="${drinkThumb}" alt="${drink}" loading="lazy" class="cocktail-image"/>
         <h2>${drink}</h2> 
         <div class="info"><p class="cocktail-description"> ${description}</p></div>
-        <div class=""><button type="button" class="learn-more-button">Learn More</button> <button type="button" class="favorite"><svg class="icon" width="24px" height="24px"><use href="./images/sprite.svg#icon-favorites-tablet-desktop-white"></use></svg> </button> </div></div>`)
+        <div class=""><button type="button" class="learn-more-button">Learn More</button> <button type="button" class="favorite"><svg class="icon" width="24px" height="24px"><use href="./images/sprite.svg#icon-favorites-tablet-desktop-white"></use></svg> </button> </div></div></li> 
+        `)
         .join("");
    
-    resultsContainer.innerHTML = markup;
+    
+    // const markup = images.map(({ drink, description, drinkThumb}) => `<div class="cocktail-card"> 
+    //     <img src="${drinkThumb}" alt="${drink}" loading="lazy" class="cocktail-image"/>
+    //     <h2>${drink}</h2> 
+    //     <div class="info"><p class="cocktail-description"> ${description}</p></div>
+    //     <div class=""><button type="button" class="learn-more-button">Learn More</button> <button type="button" class="favorite"><svg class="icon" width="24px" height="24px"><use href="./images/sprite.svg#icon-favorites-tablet-desktop-white"></use></svg> </button> </div></div>`)
+    //     .join("");
+   
+    listResults.innerHTML = markup;
+  
+    // paginator();
+    
 }
 searchForm.addEventListener("submit", searchInfoCallback);
 const makeRequest = async (data) => {
@@ -117,3 +133,5 @@ function errorMsg() {
     emptySearch.style.display = 'block';
     console.log("emptySearch", emptySearch);
 }
+
+

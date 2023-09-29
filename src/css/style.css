@@ -1,4 +1,5 @@
 @import url('./theme.css');
+@import url('../css/searchbyword.css');
 
 html {
   scroll-behavior: smooth;

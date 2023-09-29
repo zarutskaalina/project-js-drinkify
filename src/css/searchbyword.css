@@ -20,12 +20,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 30px 32px;
+  list-style-type: none;
 }
 
 .cocktail-card {
   max-width: 344px;
 }
-.cocktail-card {
+
+.cocktail-image {
   width: 316px;
 }
 
@@ -46,4 +48,30 @@
 }
 
 .favorite {
+}
+
+.paginator {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.paginator-item {
+  display: flex;
+  width: 40px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.current-page {
+  color: var(--primary-color-text-them-dark);
+  background: var(--additional-accent-color);
 }
