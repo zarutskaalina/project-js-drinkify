@@ -1,9 +1,10 @@
 .header {
     background-color: #bd2f8d;
 }
-/* .header-list {
+
+.header-list {
     display: none;
-} */
+}
 
 .section-header {
     margin-top: 20px;
@@ -36,7 +37,6 @@
     width: 24px;
     height: 20px;
 }
-
 .header-open-modal-btn {
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -49,6 +49,11 @@
     display: block;
     width: 32px;
     height: 32px;
+}
+
+
+@media screen and (max-width: 767px) {
+
 }
 
 @media screen and (min-width: 768px) {
@@ -72,6 +77,9 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .header-open-modal-btn {
+        display: none;
+    }
     .header-nav {
         display: flex;
         
