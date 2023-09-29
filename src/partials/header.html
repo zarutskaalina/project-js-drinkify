@@ -5,22 +5,46 @@
         <li class="header-list-item">
           <a href="" class="header-list-link link">Home</a>
         </li>
-        <li>
-          <a href="" class="header-list-link link">Favorite</a>
-        </li>
+        <!-- ================== -->
+        <div class="header-list-link-container">
+          <li class="header-list-item">
+            <a href="" class="header-list-link js-header-list-link link"
+              >Favorite
+              <svg class="header-list-link-icon">
+                <use href="./images/sprite.svg#icon-chevron-down-white"></use>
+              </svg>
+            </a>
+            <ul class="header-dropdown js-header-dropdown list" id="menu">
+              <li class="header-dropdown-item">
+                <a href="#" class="header-dropdown-link link"
+                  >Favorite cocktails</a
+                >
+              </li>
+              <li class="header-dropdown-item">
+                <a href="#" class="header-dropdown-link link"
+                  >Favorite ingredients</a
+                >
+              </li>
+            </ul>
+          </li>
+        </div>
       </ul>
       <a href="" class="header-link link">
         <span class="header-link-text">Drinkify</span>
         <svg class="header-logo-icon">
-          <use href="./images/sprite.svg#icon-logo-mobile-menu"></use>
+          <use href="./images/sprite.svg#icon-logo-tablet-desktop"></use>
         </svg>
       </a>
     </nav>
 
-    <button type="button" class="header-open-modal-btn openModal">
+    <!-- <button type="button" class="header-open-modal-btn openModal">
       <svg class="header-burger-icon">
         <use href="./images/sprite.svg#icon-burger-mobile-black"></use>
       </svg>
-    </button>
+    </button> -->
+    <label id="switch-theme " class="switch-theme">
+      <input type="checkbox" onchange="" id="switch-theme-slider" />
+      <span class="switch-theme-slider round"></span>
+    </label>
   </div>
 </header>
