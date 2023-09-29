@@ -1,13 +1,4 @@
-@import url('../css/searchbyword.css');
-:root {
-  --main-font-family: 'Poppins', sans-serif;
-  --accent-color: #7e8fdd;
-  --primary-color-text-them-light: #242424;
-  --primary-color-text-them-dark: #fdfdff;
-  --primary-color-interface-them-dark: #1a1a1a;
-  --primary-color-interface-them-light: #f8f9ff;
-  --additional-accent-color: #9cdfdf;
-}
+@import url('./theme.css');
 
 html {
   scroll-behavior: smooth;
