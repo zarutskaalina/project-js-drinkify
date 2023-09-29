@@ -1,0 +1,28 @@
+:root {
+  --accent-color: #7e8fdd;
+  --additional-accent-color: #9cdfdf;
+  --primary-white-color: rgb(253, 253, 255);
+  --primary-black-color: rgb(36, 36, 36);
+  --opacity-50: 0.5;
+  --opacity-20: 0.2;
+  --opacity-10: 0.1;
+}
+
+[data-theme='light'] {
+  --primary-color-text: var(--primary-black-color);
+  --primary-color-interface: var(--primary-white-color);
+  --secondary-color-interface: rgb(248, 249, 255);
+}
+
+[data-theme='dark'] {
+  --primary-color-text: var(--primary-white-color);
+  --primary-color-interface: var(--primary-black-color);
+  --secondary-color-interface: rgb(35, 35, 48);
+}
+
+/* background-color: rgba(--primary-color-text), var(--opacity-10)); */
+
+/* .button {
+  background-color: var(--primary-color-interface);
+  color: var(--primary-color-interface);
+} */
