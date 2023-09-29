@@ -1,14 +1,14 @@
 import axios from "axios";
-import { createMarkupCocktail } from "./markup-cocktail";
+import { createMarkupCocktail } from "./createMarkupCocktail";
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector('.cocktails .list'); 
 
 const innerWidth = document.body.clientWidth;
 
-const numberOfRandomCoctails = (innerWidth) => {
+const numberOfRandomCocktails = (innerWidth) => {
     let amount = 8;
-    if (innerWidth > 768) {
+    if (innerWidth > 1279) {
         amount = 9; 
     } 
     console.log(innerWidth, amount);
