@@ -7,9 +7,10 @@ export const createMarkupCocktail = (cocktail) => {
                     <div class="cocktails-buttons">
                     <button class="cocktails-button">learn more</button>
                     <button class="cocktails-button-favorite">
-                    <svg class="icon" width="24px" height="24px">
-                        <use href="./images/sprite.svg#icon-favorites-mobile-white"></use>
-                    </svg></button>
+                        <svg class="icon">
+                            <use href="./images/sprite.svg#icon-favorites-mobile-white"></use>
+                        </svg>
+                    </button>
                     </div>
           </li>`
 }
