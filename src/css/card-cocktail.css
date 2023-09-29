@@ -35,7 +35,17 @@
         font-style: normal;
         font-weight: 400;
         line-height: 128.571%;
-        /* 128.571% */
+        /* 128.571% */ 
+        overflow: hidden;
+        max-height: 72px;
+        width: 296px;
+        line-height: 24px;
+        -webkit-box-orient: vertical;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
 }
 .cocktails-buttons {
     display: flex;
@@ -71,6 +81,7 @@
     align-items: center;
     border-radius: 12px;
     background: #7E8FDD;
+    border: none;
 
 }
 
