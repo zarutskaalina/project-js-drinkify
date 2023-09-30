@@ -1,7 +1,24 @@
 @import url('./theme.css');
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
 }
 
 .list {
@@ -10,10 +27,6 @@ html {
 
 .link {
   text-decoration: none;
-}
-
-.button {
-  cursor: pointer;
 }
 
 img {
