@@ -1,5 +1,5 @@
 @import url('./theme.css');
-
+@import url('./searchByLetter.css');
 html {
   scroll-behavior: smooth;
 }
