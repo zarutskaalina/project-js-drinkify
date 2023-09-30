@@ -1,42 +1,42 @@
-          <!-- Section Searching Coctails -->
-          <section class="searching-container container">
-          <!-- Keyboard -->
-            <!-- Для десктопной версии -->
-            <div class="alphabet-buttons">
-          <!-- Кнопки с буквами и цифрами будут добавлены с помощью JavaScript -->
-            </div>
+<!-- Section Searching Coctails -->
+<section class="searching-container container">
+  <!-- Keyboard -->
+  <!-- Для десктопной версии -->
+  <div class="alphabet-buttons">
+    <!-- Кнопки с буквами и цифрами будут добавлены с помощью JavaScript -->
+  </div>
+  <!-- Для мобильной версии -->
+  <select class="alphabet-select">
+    <option value="A"></option>
+    <!-- Опции с буквами и цифрами будут добавлены с помощью JavaScript -->
+  </select>
+  <!-- Search -->
+  <form class="search-form" id="search-form">
+    <button type="submit">
+      <svg class="icon" width="16px" height="16px">
+        <use href="./images/sprite.svg#icon-search-black"></use>
+      </svg>
+    </button>
+    <input
+      type="text"
+      name="searchQuery"
+      autocomplete="off"
+      placeholder="Search"
+    />
+  </form>
+  <!-- Searching results -->
+  <div class="searching-results">
+    <h2 class="searching-results-title">Searching results</h2>
 
-          <!-- Для мобильной версии -->
-            <select class="alphabet-select">
-          <!-- Опции с буквами и цифрами будут добавлены с помощью JavaScript -->
-            </select>
-          <div>
-          <!-- Search -->
-            <form class="search-form" id="search-form">
-            <button type="submit">
-              <svg class="icon" width="16px" height="16px">
-                <use href="./images/icons.svg#icon-search"></use>
-              </svg>
-            </button>  
-              <input
-                type="text"
-                name="searchQuery"
-                autocomplete="off"
-                placeholder="Search"
-            />  
-            </div>
-            <!-- Searching results -->
-            <h2>Searching results</h2>
-            <div class="searcing-results">
-              <div class="empty-search">
-                <svg class="icon" width="16px" height="16px">
-                  <use href="./images/icons.svg#icon-star"></use>
-                </svg>
-                <p calss= "description">Sorry, we <span>didn’t find</span> any cocktail for you</p>
-              </div>  
-            </div>
-          
-          </section>
-      
-     
+    <!-- if no found -->
 
+    <div class="empty-search">
+      <svg class="icon" width="142px" height="122px">
+        <use href="./images/sprite.svg#icon-shaker-mobile"></use>
+      </svg>
+      <p class="description">
+        Sorry, we <span>didn’t find</span> any cocktail for you
+      </p>
+    </div>
+  </div>
+</section>
