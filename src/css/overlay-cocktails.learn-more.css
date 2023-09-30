@@ -1,0 +1,30 @@
+.test {
+  display: none;
+  position: absolute;
+  height: 569px;
+  width: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+/* .backdrop {
+  position: relative;
+  background: rgba(21, 21, 21, 0.6);
+} */
+
+.cocktails-img {
+  width: 288px;
+  height: 277px;
+  border-radius: 16px;
+}
+
+.cocktails-container {
+  padding: 40px 40px;
+}
+
+.cocktails-item {
+  display: flex;
+}

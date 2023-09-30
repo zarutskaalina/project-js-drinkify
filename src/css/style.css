@@ -1,3 +1,5 @@
+@import url('./overlay-cocktails.learn-more.css');
+
 :root {
   --main-font-family: 'Poppins', sans-serif;
   --accent-color: #7e8fdd;
@@ -35,25 +37,14 @@ body {
       292deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
-    ),
-    linear-gradient(
+    );
+    background-image: linear-gradient(
       117deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
     );
   background-repeat: no-repeat;
   background-size: contain; */
-}
-
-.test {
-  display: none;
-  position: absolute;
-  height: 300px;
-  width: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: red;
 }
 
 @media screen and (min-width: 320px) {

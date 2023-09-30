@@ -57,12 +57,14 @@ function renderModalContent(chosenElement) {
     chosenElement;
   return `<div class="cocktails-container">
       <div class="cocktails-desc">
+      <div class="cocktails-item">
         <img src="${drinkThumb}" alt="${glass}" class="cocktails-img" width="200" />
+        <ul class="indredients-list">
         <h3 class="cocktails-title">${drink}<b></b></h3>
         <h3 class="cocktails-ingredients-title"><b>Indredients:</b></h3>
-        <ul class="indredients-list">
           <li>${ingredients}</li>
         </ul>
+        </div>
         <h3 class="cocktails-instructions-title"><b>Instructions:</b></h3>
         <p class="cocktails-instructions">${instructions}</p>
       </div>
@@ -76,8 +78,11 @@ const doSomeAction = async event => {
   const id = event.target.getAttribute('data-id');
   const cards = await fetchCards();
   const chosenElement = cards.find(item => item._id === id);
-  const modal = document.querySelector('.test');
-  modal.style.display = 'block';
-  const modalContent = renderModalContent(chosenElement);
-  modal.insertAdjacentHTML('beforeend', modalContent);
+
+  if (chosenElement) {
+    const modal = document.querySelector('.test');
+    modal.style.display = 'block';
+    const modalContent = renderModalContent(chosenElement);
+    modal.insertAdjacentHTML('beforeend', modalContent);
+  }
 };
