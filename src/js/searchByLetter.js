@@ -50,7 +50,7 @@ const alphabet = [
 ];
 
 // Создаем кнопки и добавляем их в контейнер
-function createAlphabetButtons() {
+export function createAlphabetButtons() {
   alphabet.forEach(letter => {
     const button = document.createElement('button');
     button.textContent = letter;
@@ -68,7 +68,7 @@ function createAlphabetButtons() {
 }
 
 // Функция для настройки выпадающего списка с буквами и добавления обработчика события
-function configureAlphabetSelect() {
+export function configureAlphabetSelect() {
   // Создаем опции для выпадающего списка
   alphabet.forEach(letter => {
     const option = document.createElement('option');
@@ -86,7 +86,7 @@ function configureAlphabetSelect() {
 }
 
 // Функция для отправки запроса по букве или цифре
-async function searchCocktails(letter) {
+export async function searchCocktails(letter) {
   // !!!! Очистить контейнер с результатами (там где коктейли будут отображаться), когда буду понимать как они называются
   // const resultsContainer = document.getElementById('searcing-results');
   // resultsContainer.innerHTML = '';
@@ -145,11 +145,5 @@ async function searchCocktails(letter) {
 //   allowHTML: true,
 // });
 
-export {
-  alphabetButtons,
-  alphabetSelect,
-  alphabet,
-  createAlphabetButtons,
-  configureAlphabetSelect,
-  searchCocktails,
-};
+createAlphabetButtons();
+configureAlphabetSelect();
