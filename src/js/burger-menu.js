@@ -1,22 +1,28 @@
+const openModalBtn = document.querySelector('.header-open-modal-btn'); // Кнопка, яка відкриває модальне вікно бургера
+const closeModalBtn = document.querySelector('.burger-close-modal-btn'); // Кнопка закриття модального вікна бургера
+const modalBackdrop = document.querySelector('.burger-backdrop'); // Задня підложка модального вікна бургера
+const modal = document.querySelector('.burger-modal'); // Модальне вікно бургера
 
-const openModalBtn = document.querySelector('.header-open-modal-btn');
-const closeModalBtn = document.querySelector('.burger-close-modal-btn');
-const modal = document.querySelector('.burger-backdrop');
-
+// Функція для відкриття модального вікна бургера
 function openModal() {
-    modal.style.display = 'block';
+    modalBackdrop.style.display = 'block'; // Показати задню підложку
+    modal.style.display = 'block'; // Показати модальне вікно
 }
 
+// Функція для закриття модального вікна бургера
 function closeModal() {
-    modal.style.display = 'none';
+    modalBackdrop.style.display = 'none'; // Приховати задню підложку
+    modal.style.display = 'none'; // Приховати модальне вікно
 }
 
+// Функція для закриття модального вікна за допомогою клавіші "Esc"
 function onKeyPress(event) {
     if (event.key === 'Escape') {
         closeModal();
     }
 }
 
-openModalBtn.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', closeModal);
-document.addEventListener('keydown', onKeyPress);
+// Додавання обробників подій
+openModalBtn.addEventListener('click', openModal); // При кліку на кнопку відкриття модального вікна
+closeModalBtn.addEventListener('click', closeModal); // При кліку на кнопку закриття модального вікна
+document.addEventListener('keydown', onKeyPress); // При натисканні клавіші "Esc"
