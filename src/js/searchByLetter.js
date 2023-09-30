@@ -1,4 +1,8 @@
 import axios from 'axios';
+
+// !!Импортируй после того как Алина пример ветку Антона
+// import { createMarkupCocktail } from './createMarkupCocktail';
+
 // import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
@@ -87,8 +91,8 @@ export function configureAlphabetSelect() {
 
 // Функция для отправки запроса по букве или цифре
 export async function searchCocktails(letter) {
-  // !!!! Очистить контейнер с результатами (там где коктейли будут отображаться), когда буду понимать как они называются
-  // const resultsContainer = document.getElementById('searcing-results');
+  // !!!! Очистить контейнер с результатами (там где коктейли будут отображаться) после того как Алина примет ветку Антона
+  // const resultsContainer = document.querySelector('.searcing-results');
   // resultsContainer.innerHTML = '';
 
   try {
@@ -98,10 +102,11 @@ export async function searchCocktails(letter) {
     const cocktails = response.data;
 
     if (cocktails.length === 0) {
-      //  !! вставить вывод модалки когда коктейли не найдены
+      //  !! вставить вывод модалки или что там когда коктейли не найдены
     } else {
-      // !! Вставить код для отображения результатов о коктейлях
-      console.log(cocktails);
+      // !! Вставить код для отображения карточек с коктейлями после того как Алина примет ветку Антона
+      // const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
+      // resultsContainer.innerHTML = markup;
     }
   } catch (error) {
     // Обработка ошибок при запросе к API
