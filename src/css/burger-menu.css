@@ -110,6 +110,16 @@ input:checked+.burger-switch-theme-slider:before {
     transform: translateX(25px);
 }  
 
+
+input:checked+.burger-switch-theme-slider {
+    background-color: #9CDFDF;
+}
+
+input:checked+.burger-switch-theme-slider:before {
+    background-color: rgb(255, 255, 255);
+}
+
+
 /* =================================burger-list======================================== */
   .burger-wrapper-list {
     margin-top: 180px;
@@ -171,6 +181,7 @@ input:checked+.burger-switch-theme-slider:before {
         
         background-size: 391px 391px;
         background-repeat: no-repeat;
+        
 }
 
     .burger-link-text {

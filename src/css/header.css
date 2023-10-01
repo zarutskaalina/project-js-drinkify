@@ -192,7 +192,7 @@ ol {
         background-color: #ffffff;
         transition: 0.4s;
         border-radius: 25px;
-        border: 2px solid #242424;
+        border: 1px solid #242424;
     }
     
     .header-switch-theme-slider:before {
@@ -218,6 +218,14 @@ ol {
     input:checked+.header-switch-theme-slider:before {
         transform: translateX(25px);
     } 
+
+        input:checked+.header-switch-theme-slider {
+            background-color: #9CDFDF;
+        }
+    
+        input:checked+.header-switch-theme-slider:before {
+            background-color: rgb(255, 255, 255);
+        }
         /* ==================================================== */
                  
     .header-list {
