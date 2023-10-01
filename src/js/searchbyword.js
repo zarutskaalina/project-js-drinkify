@@ -1,31 +1,40 @@
-
 import axios from 'axios';
-import { paginator } from './paginator.js';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { createMarkupCocktail } from "./createMarkupCocktail";
+// // import { paginator } from './paginator.js';
 
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
-const searchInput = document.querySelector(".search-input");
-const button = document.querySelector(".searching-button");
 const searchForm = document.querySelector(".search-form");
-const resultsContainer = document.querySelector(".searching-results");
 const emptySearch = document.querySelector(".empty-search");
-const listResults = document.querySelector(".searching-list");
-const searchTitle = document.querySelector(".search-title");
+const listResults = document.querySelector(".cocktails-list");
+const searchTitle = document.querySelector(".searching-results-title");
+const randomCocktails = document.querySelector(".random-cocktails");
+const searchContainer = document.querySelector(".searching-results");
 emptySearch.style.display = 'none';
+const innerWidth = document.body.clientWidth;
 
+const numberOfRandomCocktails = (innerWidth) => {
+    let amount = 8;
+    if (innerWidth > 1279) {
+        amount = 9; 
+    } 
+    console.log(innerWidth, amount);
+    return amount;
+} 
+    
 const getImages = async (data) => {
     const listImg = await makeRequest(data);
     if (listImg) {
         
         console.log("listImg", listImg.length);
         
-        
         if (listImg.length > 0) {
+            searchContainer.classList.remove("isHidden");
             emptySearch.style.display = 'none';
+            randomCocktails.style.display = 'none';
             searchTitle.style.display = 'block';
         }
         renderImages(listImg);
-        paginator();
+        // paginator();
         
     }
         
@@ -68,27 +77,13 @@ const searchInfoCallback = async (e) => {
 
 
 function renderImages(images) {
-   const markup = images.map(({ drink, description, drinkThumb}) => `
-    <li class="cocktail-card"><img src="${drinkThumb}" alt="${drink}" loading="lazy" class="cocktail-image"/>
-        <h2>${drink}</h2> 
-        <div class="info"><p class="cocktail-description"> ${description}</p></div>
-        <div class=""><button type="button" class="learn-more-button">Learn More</button> <button type="button" class="favorite"><svg class="icon" width="24px" height="24px"><use href="./images/sprite.svg#icon-favorites-tablet-desktop-white"></use></svg> </button> </div></div></li>
-        `)
-        .join("");
-   
-    
-    // const markup = images.map(({ drink, description, drinkThumb}) => `<div class="cocktail-card"> 
-    //     <img src="${drinkThumb}" alt="${drink}" loading="lazy" class="cocktail-image"/>
-    //     <h2>${drink}</h2> 
-    //     <div class="info"><p class="cocktail-description"> ${description}</p></div>
-    //     <div class=""><button type="button" class="learn-more-button">Learn More</button> <button type="button" class="favorite"><svg class="icon" width="24px" height="24px"><use href="./images/sprite.svg#icon-favorites-tablet-desktop-white"></use></svg> </button> </div></div>`)
-    //     .join("");
+    const markup = images
+        .map((item) => 
+            createMarkupCocktail(item)
+        )
+        .join('');
     
     listResults.insertAdjacentHTML("afterbegin", markup);
-    // searchTitle.style.display = 'block';
-    // resultsContainer.innerHTML = markup;
-  
-    // paginator();
     
 }
 searchForm.addEventListener("submit", searchInfoCallback);
@@ -103,7 +98,6 @@ const makeRequest = async (data) => {
         .then((res) => {
             if (res.status === 200) {
                 // console.log(res);
-                // searchTitle.style.display = 'block';
                 return res.data;
             }
         

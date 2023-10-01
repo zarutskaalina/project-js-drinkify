@@ -27,7 +27,12 @@
   <!-- Searching results -->
   <div class="searching-results isHidden">
     <h2 class="searching-results-title">Searching results</h2>
-    <ul class="cocktails-list list"></ul>
+    <ul
+      id="paginated-list"
+      class="cocktails-list list"
+      data-current-page="1"
+      aria-live="polite"
+    ></ul>
   </div>
   <!-- Random cocktails -->
   <div class="random-cocktails">

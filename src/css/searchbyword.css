@@ -7,122 +7,19 @@
   --primary-color-interface-them-light: #f8f9ff;
   --additional-accent-color: #9cdfdf;
 }
-
-.search-form-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.searching-results {
+  text-align: left;
 }
-.search-input {
-  padding: 12px 12px 12px 42px;
-  background: none;
-  border-radius: 80px;
-  border: 2px solid var(--accent-color);
-  display: block;
-  color: black;
-  max-width: 300px;
-  width: 100%;
-  transition: 0.55s;
-  outline: rgba(31, 158, 222, 0) solid 1px;
-}
-.search-input::placeholder {
-  color: rgba(36, 36, 36, 0.2);
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.search-form button {
-  padding: 4px;
-  width: auto;
-  height: 31px;
-  min-width: 31px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  border-radius: 50px;
-  justify-content: center;
-  align-items: center;
-  transition: 0.55s;
-  display: flex;
-  position: relative;
-  left: 30px;
-  outline: rgba(31, 158, 222, 0) solid 1px;
-  color: white;
-}
-
-.search-icon {
-  fill: #60676a;
-  stroke-width: 4px;
-  position: absolute;
-  left: 740px;
-  padding: 14px 13px;
-  transition: 0.3s;
-}
-
-.search-title {
-  display: none;
-}
-
-.search-title-show {
+.search-results-title {
   color: var(--primary-color-interface-them-dark);
-  font-family: Poppins;
+  font-family: var(--main-font-family);
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: 48px;
-  display: block;
+  display: none;
 }
 
-.searching-results {
-}
-.searching-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 30px 32px;
-}
-.cocktail-card {
-  max-width: 344px;
-}
-
-.cocktail-image {
-  width: 316px;
-}
-
-.cocktail-description {
-  overflow: hidden;
-  max-height: 72px;
-  width: 296px;
-  line-height: 24px;
-  -webkit-box-orient: vertical;
-  display: block;
-  display: -webkit-box;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-}
-
-.description {
-  color: #242424;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-}
-.description-span {
-  color: #9cdfdf;
-  font-family: Poppins;
-  font-size: 24px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 28px;
-}
 .paginator {
   display: flex;
   align-items: flex-start;
