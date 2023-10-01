@@ -63,7 +63,6 @@ body {
   .container {
     padding-left: 32px;
     padding-right: 32px;
-    width: 704px;
   }
 }
 
@@ -71,6 +70,5 @@ body {
   .container {
     padding-left: 100px;
     padding-right: 100px;
-    width: 1080px;
   }
 }
