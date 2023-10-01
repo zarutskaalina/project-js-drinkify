@@ -36,10 +36,10 @@
             <select class="alphabet-select">
           <!-- Опции с буквами и цифрами будут добавлены с помощью JavaScript -->
             </select>
-          <div>
+          <div class="search-form-container">
           <!-- Search -->
             <form class="search-form" id="search-form">
-            <button type="submit">
+            <button type="submit" class="searching-button">
               <svg class="icon" width="16px" height="16px">
                 <use href="./images/icons.svg#icon-search"></use>
               </svg>
@@ -49,16 +49,18 @@
                 name="searchQuery"
                 autocomplete="off"
                 placeholder="Search"
+                class="search-input"
             />  
             </div>
             <!-- Searching results -->
-            <h2>Searching results</h2>
-            <div class="searcing-results">
+            <h2 class="search-title">Searching results</h2>
+            <div class="searching-results">
+              <ul id="paginated-list" class="searching-list list" data-current-page="1" aria-live="polite"></ul>
               <div class="empty-search">
                 <svg class="icon" width="16px" height="16px">
                   <use href="./images/icons.svg#icon-star"></use>
                 </svg>
-                <p calss= "description">Sorry, we <span>didn’t find</span> any cocktail for you</p>
+                <p class= "description">Sorry, we <span class="description-span">didn’t find</span> any cocktail for you</p>
               </div>  
             </div>
           
