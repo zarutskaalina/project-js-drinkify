@@ -5,6 +5,8 @@ const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector('.random-cocktails .cocktails-list'); 
 
 const innerWidth = document.body.clientWidth;
+const emptySearchContainer = document.querySelector(".empty-search");
+const randomCocktailsContainer = document.querySelector(".random-cocktails")
 
 const numberOfRandomCocktails = (innerWidth) => {
     let amount = 8;
@@ -24,21 +26,21 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
                 r: numberOfRandomCocktails,
             },
         });
-        if (!response.data) {
-            console.log('frf');    
-        }
         console.log(response);
         return response.data; 
-        
-        
+       
     } catch (error) {
         console.log(error);
+        emptySearchContainer.classList.remove('isHidden');
+        randomCocktailsContainer.classList.add('isHidden');
     }
 };
 
 export function renderCocktails (arr, container) {
     if (!arr) {
         return;
+        emptySearchContainer.classList.remove('isHidden');
+        randomCocktailsContainer.classList.add('isHidden');
     }
     console.log(arr);
     const markup = arr
