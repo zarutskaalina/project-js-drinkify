@@ -1,5 +1,4 @@
 .hero-container {
-    /* display: flex; */
     margin-bottom: 33px;
     background-image: linear-gradient(292deg,
                 rgba(248, 249, 255, 1) 84%,
@@ -9,12 +8,6 @@
     outline: 0.1px solid red;
 } 
 
-/* .hero-left {
-    display: flex;
-    width: 371px;
-    flex-direction: column;
-    align-items: flex-start;
-} */
 .hero-title {
     color: var(--primary-black-color);
     font-family: Poppins;
@@ -125,7 +118,7 @@ span {
     .hero-container {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        /* align-items: center; */
         position: relative;
         height: 593px;
         margin-bottom: 100px;
@@ -152,12 +145,12 @@ span {
     }
 
     .hero-btn {
+        min-width: 245px;
+        /* margin-bottom: 237px; */
         margin-top: 48px;
         padding: 22px 44px;
         font-size: 18px;
-        line-height: 133%;
-        min-width: 245px; 
-        margin-bottom: 237px;      
+        line-height: 133%;   
     }
 
     .hero-thumb {
@@ -194,6 +187,67 @@ span {
         width: 198px;
         left: 131px;
         transform: translateX(0);
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .hero-container {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hero-left {
+        position:static;
+        margin-top: 127px;
+    }
+    .hero-title {
+        width: 555px;
+        font-size: 64px;
+    }
+
+    .description {
+        width: 480px;
+        font-size: 20px;
+        line-height: 130%;
+        margin-top: 28px;
+    }
+
+    .hero-btn {
+        margin-bottom: 0;
+    }
+    
+    .hero-thumb {
+        position: relative;
+        width: 552px;
+        height: 672px;  
+        right: -83px;
+    }
+
+    .hero-thumb .hero-elements {
+        z-index: 3;
+        background: url('../images/hero/elements-desctop-white.png') no-repeat;
+    }
+
+    .under-pic {
+        width: 380px;
+        height: 476px;
+        top: 98px;
+        right: 83px;
+    }
+
+    .hero-pic {
+        background: url('../images/hero/girl-desctop.png') no-repeat;
+        width: 410px;
+        height: 565px;
+    }
+
+    .hero-thumb .description {
+        width: 219px;
+        left: 170px;
+        font-size: 18px;
+        line-height: 133%;
     }
 }
     
