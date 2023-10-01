@@ -1,14 +1,7 @@
-@import url('./overlay-cocktails.learn-more.css');
-
-:root {
-  --main-font-family: 'Poppins', sans-serif;
-  --accent-color: #7e8fdd;
-  --primary-color-text-them-light: #242424;
-  --primary-color-text-them-dark: #fdfdff;
-  --primary-color-interface-them-dark: #1a1a1a;
-  --primary-color-interface-them-light: #f8f9ff;
-  --additional-accent-color: #9cdfdf;
-}
+@import url('./theme.css');
+@import url('./searchByLetter.css');
+@import url('./hero.css');
+@import url('./footer.css');
 
 html {
   scroll-behavior: smooth;
@@ -58,7 +51,7 @@ body {
   .container {
     padding-left: 20px;
     padding-right: 20px;
-    width: 335px;
+    width: 375px;
   }
 }
 
@@ -72,7 +65,7 @@ body {
   .container {
     padding-left: 32px;
     padding-right: 32px;
-    width: 704px;
+    width: 768px;
   }
 }
 
@@ -80,6 +73,6 @@ body {
   .container {
     padding-left: 100px;
     padding-right: 100px;
-    width: 1080px;
+    width: 1280px;
   }
 }

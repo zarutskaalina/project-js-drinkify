@@ -1,3 +1,9 @@
+:root {
+    --violet-color: #7e8fdd;
+    --turquoise-color: #9cdfdf;
+    --transition-dur-and-time-func: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer {
     padding-top: 40px;
     padding-bottom: 80px;
@@ -119,6 +125,4 @@
     }
 }
 
-@media screen and (min-width: 1280px) {
-    /* немає змін для десктоп версії */
-}
+@media screen and (min-width: 1280px) {}
