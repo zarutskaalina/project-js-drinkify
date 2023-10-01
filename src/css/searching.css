@@ -76,6 +76,10 @@
        /* 116.667% */
 }
 
+.searching-results-title {
+    display: none;
+}
+
 .empty-search{
     text-align: center;
 }
