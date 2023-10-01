@@ -1,28 +1,57 @@
-const openModalBtn = document.querySelector('.header-open-modal-btn'); // Кнопка, яка відкриває модальне вікно бургера
-const closeModalBtn = document.querySelector('.burger-close-modal-btn'); // Кнопка закриття модального вікна бургера
-const modalBackdrop = document.querySelector('.burger-backdrop'); // Задня підложка модального вікна бургера
-const modal = document.querySelector('.burger-modal'); // Модальне вікно бургера
+// const openModalBtn = document.querySelector('.header-open-modal-btn');
+// const closeModalBtn = document.querySelector('.burger-close-modal-btn');
+// const modalBackdrop = document.querySelector('.burger-backdrop');
+// const modal = document.querySelector('.burger-modal');
 
-// Функція для відкриття модального вікна бургера
+// function openModal() {
+//     modalBackdrop.style.display = 'block';
+//     modal.style.display = 'block';
+// }
+
+
+// function closeModal() {
+//     modalBackdrop.style.display = 'none';
+//     modal.style.display = 'none';
+// }
+
+
+// function onKeyPress(event) {
+//     if (event.key === 'Escape') {
+//         closeModal();
+//     }
+// }
+
+
+// openModalBtn.addEventListener('click', openModal);
+// closeModalBtn.addEventListener('click', closeModal);
+// document.addEventListener('keydown', onKeyPress); 
+const openModalBtn = document.querySelector('.header-open-modal-btn'); 
+const closeModalBtn = document.querySelector('.burger-close-modal-btn'); 
+const modalBackdrop = document.querySelector('.burger-backdrop'); 
+const modal = document.querySelector('.burger-modal'); 
+const favoriteLink = document.querySelector('.js-burger-list-link');
+
 function openModal() {
-    modalBackdrop.style.display = 'block'; // Показати задню підложку
-    modal.style.display = 'block'; // Показати модальне вікно
+    modalBackdrop.style.display = 'block'; 
+    modal.style.display = 'block'; 
 }
 
-// Функція для закриття модального вікна бургера
 function closeModal() {
-    modalBackdrop.style.display = 'none'; // Приховати задню підложку
-    modal.style.display = 'none'; // Приховати модальне вікно
+    modalBackdrop.style.display = 'none'; 
+    modal.style.display = 'none'; 
 }
 
-// Функція для закриття модального вікна за допомогою клавіші "Esc"
 function onKeyPress(event) {
     if (event.key === 'Escape') {
         closeModal();
     }
 }
 
-// Додавання обробників подій
-openModalBtn.addEventListener('click', openModal); // При кліку на кнопку відкриття модального вікна
-closeModalBtn.addEventListener('click', closeModal); // При кліку на кнопку закриття модального вікна
-document.addEventListener('keydown', onKeyPress); // При натисканні клавіші "Esc"
+
+favoriteLink.addEventListener('click', function (event) {
+    event.preventDefault();
+});
+
+openModalBtn.addEventListener('click', openModal); 
+closeModalBtn.addEventListener('click', closeModal); 
+document.addEventListener('keydown', onKeyPress);
