@@ -5,7 +5,7 @@
                 rgba(156, 223, 223, 1) 104%);
     background-repeat: no-repeat;
     background-size: contain;
-    outline: 0.1px solid red;
+    /* outline: 0.1px solid red; */
 } 
 
 .hero-title {
