@@ -1,3 +1,15 @@
+[data-theme='light'] {
+    --elements-desktop: url(/src/images/hero/elements-desktop-white.png);
+    --elements-tablet: url(/src/images/hero/elements-tablet-white.png);
+    --elements-mobile: url(/src/images/hero/elements-mobile-white.png);
+}
+
+[data-theme='dark'] {
+    --elements-desktop: url(/src/images/hero/elements-desktop-dark.png);
+    --elements-tablet: url(/src/images/hero/elements-tablet-dark.png);
+    --elements-mobile: url(/src/images/hero/elements-mobile-dark.png);
+}
+
 .hero-container {
     margin-bottom: 33px;
     background-image: linear-gradient(292deg,
@@ -73,7 +85,7 @@ span {
     top: 0;
     right: 0;
     z-index: 1;
-    background: url('../images/hero/elements-mobile-white.png');
+    background: var(--elements-mobile);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -164,7 +176,7 @@ span {
     }
 
     .hero-thumb .hero-elements {
-        background: url('../images/hero/elements-tablet-white.png') no-repeat;
+        background: var(--elements-tablet) no-repeat;
         
     }
 
@@ -227,7 +239,7 @@ span {
 
     .hero-thumb .hero-elements {
         z-index: 3;
-        background: url('../images/hero/elements-desctop-white.png') no-repeat;
+        background: var(--elements-desktop) no-repeat;
     }
 
     .under-pic {
@@ -238,7 +250,7 @@ span {
     }
 
     .hero-pic {
-        background: url('../images/hero/girl-desctop.png') no-repeat;
+        background: url('../images/hero/girl-desktop.png') no-repeat;
         width: 410px;
         height: 565px;
     }
