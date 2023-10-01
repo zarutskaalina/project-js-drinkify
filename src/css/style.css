@@ -1,7 +1,7 @@
 @import url('./theme.css');
+@import url('./searchByLetter.css');
 @import url('./hero.css');
 @import url('./footer.css');
-
 html {
   scroll-behavior: smooth;
 }
