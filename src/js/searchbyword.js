@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-// import {paginator} from './paginator.js';
+import { paginator } from './paginator.js';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
@@ -25,6 +25,7 @@ const getImages = async (data) => {
             searchTitle.style.display = 'block';
         }
         renderImages(listImg);
+        paginator();
         
     }
         
