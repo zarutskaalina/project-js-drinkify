@@ -1,5 +1,7 @@
 @import url('./theme.css');
-
+@import url('./searchByLetter.css');
+@import url('./hero.css');
+@import url('./footer.css');
 
 html {
   scroll-behavior: smooth;
@@ -49,7 +51,7 @@ body {
   .container {
     padding-left: 20px;
     padding-right: 20px;
-    width: 335px;
+    width: 375px;
   }
 }
 

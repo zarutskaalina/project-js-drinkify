@@ -1,0 +1,118 @@
+/* Стили для устройств с узким экраном (768px и меньше) */
+@media screen and (max-width: 768px) {
+  /* Скрываем список кнопок с буквами и цифрами*/
+  .alphabet-buttons {
+    display: none;
+  }
+  /* Показываем выпадающий список*/
+  .alphabet-select {
+    display: flex;
+
+    width: 90px;
+    height: 34px;
+
+    background-color: rgba(126, 143, 221, 0.4);
+    color: var(--primary-color-interface);
+
+    border-radius: 8px;
+    border: none;
+
+    padding: 8px 14px;
+
+    appearance: none;
+    background-image: url('../images/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: 80%; /* Положение cвг */
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .alphabet-select option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fdfdff;
+    color: #242424;
+    border-color: var(--additional-accent-color);
+    border-radius: 4px;
+
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .alphabet-select option:checked {
+    background-color: var(--accent-color); /* Цвет фона выбранной опции */
+    color: white; /* Цвет текста выбранной опции */
+  }
+
+  .alphabet-select:hover,
+  .alphabet-select:focus {
+    background-color: var(
+      --additional-accent-color
+    ); /* Изменяем цвет фона на акцентный при наведении и фокусе */
+    border: none;
+  }
+}
+
+/* ====================================================== */
+/* Стили для устройств с широким экраном (шире 768px) */
+@media screen and (min-width: 769px) {
+  /* Отображаем список кнопок с буквами и цифрами в виде горизонтальной строки с переносом на новую строку */
+  .alphabet-buttons {
+    display: flex;
+    row-gap: 16px;
+    column-gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+
+  /* Скрываем выпадающий список на широких экранах */
+  .alphabet-select {
+    display: none;
+  }
+}
+
+/* Стили для кнопок с буквами и цифрами */
+@media screen and (min-width: 769px) {
+  .letter-button {
+    width: 40px;
+    height: 40px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: rgba(126, 143, 221, 0.4);
+    color: var(--primary-color-interface);
+
+    border-radius: 8px;
+    border: none;
+
+    padding: 0;
+
+    /* Анимация изменения фона при наведении и фокусе */
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    color: #fdfdff;
+  }
+
+  /* Стили для кнопок с буквами и цифрами при наведении и фокусе */
+  .letter-button:hover,
+  .letter-button:focus {
+    background-color: var(--additional-accent-color);
+  }
+}

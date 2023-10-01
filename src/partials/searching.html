@@ -1,0 +1,46 @@
+<!-- Section Searching Coctails -->
+<section class="searching-container container">
+  <!-- Keyboard -->
+  <!-- Для десктопной версии -->
+  <div class="alphabet-buttons">
+    <!-- Кнопки с буквами и цифрами будут добавлены с помощью JavaScript -->
+  </div>
+
+  <!-- Для мобильной версии -->
+  <select class="alphabet-select">
+    <!-- Опции с буквами и цифрами будут добавлены с помощью JavaScript -->
+  </select>
+  <!-- Search -->
+  <form class="search-form" id="search-form">
+    <button type="submit">
+      <svg class="icon" width="16px" height="16px">
+        <use href="./images/sprite.svg#icon-search-black"></use>
+      </svg>
+    </button>
+    <input
+      type="text"
+      name="searchQuery"
+      autocomplete="off"
+      placeholder="Search"
+    />
+  </form>
+  <!-- Searching results -->
+  <div class="searching-results">
+    <h2 class="searching-results-title">Searching results</h2>
+    <ul class="cocktails-list list"></ul>
+  </div>
+  <!-- Random cocktails -->
+  <div class="random-cocktails">
+    <h2 class="random-cocktails">Coctails</h2>
+    <ul class="cocktails-list list"></ul>
+  </div>
+  <!-- if no found -->
+  <div class="empty-search isHidden">
+    <svg class="icon" width="142px" height="122px">
+      <use href="./images/sprite.svg#icon-shaker-mobile"></use>
+    </svg>
+    <p class="description">
+      Sorry, we <span>didn’t find</span> any cocktail for you
+    </p>
+  </div>
+</section>
