@@ -24,14 +24,22 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
                 r: numberOfRandomCocktails,
             },
         });
-        console.log(response.data);
-        return response.data;
+        if (!response.data) {
+            console.log('frf');    
+        }
+        console.log(response);
+        return response.data; 
+        
+        
     } catch (error) {
         console.log(error);
     }
 };
 
 export function renderCocktails (arr, container) {
+    if (!arr) {
+        return;
+    }
     console.log(arr);
     const markup = arr
         .map((item) => 
