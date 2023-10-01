@@ -3,9 +3,8 @@
     position: fixed;
     top: 0;
     left: 0;
-
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #7E8FDD;
     z-index: 10;
 }
@@ -16,9 +15,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #7E8FDD;
+    width: 100vw;
+        height: 100vh;
+    
 }
 
 .burger-modal-header {
@@ -164,8 +163,15 @@ input:checked+.burger-switch-theme-slider:before {
 @media screen and (min-width: 768px) {
     .burger-modal-header {
         max-width: 768px;
-
     }
+
+    .burger-modal {
+    background-color: #7E8FDD;
+    background: url('../images/background-burger.jpg') right bottom;
+        
+        background-size: 391px 391px;
+        background-repeat: no-repeat;
+}
 
     .burger-link-text {
         font-size: 22px;
