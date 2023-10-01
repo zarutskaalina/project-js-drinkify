@@ -1,5 +1,6 @@
 @import url('./theme.css');
 @import url('./hero.css');
+@import url('./footer.css');
 
 html {
   scroll-behavior: smooth;
