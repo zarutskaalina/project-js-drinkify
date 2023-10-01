@@ -25,18 +25,21 @@
   </form>
   <!-- Searching results -->
   <div class="searching-results">
-    <h2 class="random-cocktails">Coctails</h2>
     <h2 class="searching-results-title">Searching results</h2>
-
-    <!-- if no found -->
-
-    <div class="empty-search">
-      <svg class="icon" width="142px" height="122px">
-        <use href="./images/sprite.svg#icon-shaker-mobile"></use>
-      </svg>
-      <p class="description">
-        Sorry, we <span>didn’t find</span> any cocktail for you
-      </p>
-    </div>
+    <ul class="cocktails-list list"></ul>
+  </div>
+  <!-- Random cocktails -->
+  <div class="random-cocktails">
+    <h2 class="random-cocktails">Coctails</h2>
+    <ul class="cocktails-list list"></ul>
+  </div>
+  <!-- if no found -->
+  <div class="empty-search isHidden">
+    <svg class="icon" width="142px" height="122px">
+      <use href="./images/sprite.svg#icon-shaker-mobile"></use>
+    </svg>
+    <p class="description">
+      Sorry, we <span>didn’t find</span> any cocktail for you
+    </p>
   </div>
 </section>

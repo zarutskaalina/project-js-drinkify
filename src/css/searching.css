@@ -80,6 +80,10 @@
     display: none;
 }
 
+.isHidden {
+    display: none;
+}
+
 .empty-search{
     text-align: center;
 }
