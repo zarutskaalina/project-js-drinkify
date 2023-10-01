@@ -1,8 +1,7 @@
 import svg from 'bundle-text:/src/images/favorite.svg';
 
 export const createMarkupCocktail = (cocktail) => {
-
-    const { _id, drink, drinkThumb, description } = cocktail;
+   const { _id, drink, drinkThumb, description } = cocktail;
    return `<li class="cocktails-item" id="${_id}">
                     <img class="cocktails-image" src="${drinkThumb}" alt="foto ${drink}" />
                     <h3 class="cocktails-name">${drink}</h3>
