@@ -2,7 +2,7 @@ import axios from "axios";
 import { createMarkupCocktail } from "./createMarkupCocktail";
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
-const cocktailsListEl = document.querySelector('.cocktails-list'); 
+const cocktailsListEl = document.querySelector('.random-cocktails .cocktails-list'); 
 
 const innerWidth = document.body.clientWidth;
 
