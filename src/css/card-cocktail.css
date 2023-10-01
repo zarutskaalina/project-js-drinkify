@@ -1,3 +1,16 @@
+button {
+    cursor: pointer;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 .cocktails-list {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +31,6 @@
     margin-bottom: 20px;
     width: 307px;
     min-height: 257px;
-    /* height: 100%; */
 }
 
 .cocktails-name {
@@ -74,6 +86,7 @@
     /* 142.857% */
     letter-spacing: 0.28px;
     text-transform: uppercase;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cocktails-button:hover {
@@ -90,16 +103,15 @@
     background: var(--accent-color);
     border: none;
     line-height: 0;
-
 }
 
 .cocktails-list .icon {
     width: 18px;
     height: 18px;
-    stroke: #FDFDFF;
+    fill: none;
 }
 
-.isFavorite {
+.icon.isFavorite {
     fill:#FDFDFF;
 }
 
@@ -143,4 +155,7 @@
         width: calc((100% - 32px) / 3);
     }
 
+    .cocktails-image {
+        min-height: 316px;
+    }
 }
