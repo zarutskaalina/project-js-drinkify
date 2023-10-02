@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createMarkupCocktail } from "./createMarkupCocktail";
-// // import { paginator } from './paginator.js';
+// import { paginator } from './paginator.js';
 
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
 const searchForm = document.querySelector(".search-form");
@@ -9,17 +9,11 @@ const listResults = document.querySelector(".cocktails-list");
 const searchTitle = document.querySelector(".searching-results-title");
 const randomCocktails = document.querySelector(".random-cocktails");
 const searchContainer = document.querySelector(".searching-results");
+const pagContainer = document.querySelector(".pagination-container");
 emptySearch.style.display = 'none';
-const innerWidth = document.body.clientWidth;
 
-const numberOfRandomCocktails = (innerWidth) => {
-    let amount = 8;
-    if (innerWidth > 1279) {
-        amount = 9; 
-    } 
-    console.log(innerWidth, amount);
-    return amount;
-} 
+
+
     
 const getImages = async (data) => {
     const listImg = await makeRequest(data);
@@ -34,7 +28,6 @@ const getImages = async (data) => {
             searchTitle.style.display = 'block';
         }
         renderImages(listImg);
-        // paginator();
         
     }
         
@@ -54,28 +47,6 @@ const searchInfoCallback = async (e) => {
       e.currentTarget.reset();
   } 
 
-  
-        
-//   const totHits = await makeRequest(data, page);
-//   Notify.info(`Hooray! We found ${totHits.totalHits} images.`);
- 
-//       const loadMoreHandler = () => {
-//       page += 1;
-//       getImages (data, page);
-//       };
-//       // loadMoreEl.onclick = () => {
-//       //   window.scrollTo({
-//       //     top: 0,
-//       //     left: 0,
-//       //     behavior: 'smooth'
-//       //   });
-//       // }
-//       loadMoreEl.addEventListener("click", loadMoreHandler);
-  
-//   };
-
-
-
 function renderImages(images) {
     const markup = images
         .map((item) => 
@@ -86,6 +57,8 @@ function renderImages(images) {
     listResults.insertAdjacentHTML("afterbegin", markup);
     
 }
+
+
 searchForm.addEventListener("submit", searchInfoCallback);
 const makeRequest = async (data) => {
       
@@ -97,7 +70,6 @@ const makeRequest = async (data) => {
     return axios.get(`${BASE_URL}search/?${searchParams.toString()}`)
         .then((res) => {
             if (res.status === 200) {
-                // console.log(res);
                 return res.data;
             }
         
@@ -129,7 +101,6 @@ function errorMsg() {
     emptySearch.style.display = 'block';
     searchTitle.style.display = 'none'
     listResults.innerHTML = '';
-    // console.log("emptySearch", emptySearch);
 }
 
 

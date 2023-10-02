@@ -3,9 +3,20 @@ const paginationNumbers = document.getElementById(".pagination-numbers");
 const paginatedList = document.getElementById(".paginated-list");
 const listItems = paginatedList.querySelectorAll("li");
 const nextButton = document.getElementById(".next-button");
-const prevButton = document.getElementById(".prev-button");
-    // console.log("paginationNumbers:", paginationNumbers);
-const paginationLimit = 9;
+  const prevButton = document.getElementById(".prev-button");
+  const pagContainer = document.querySelector(".pagination-container");
+  const innerWidth = document.body.clientWidth;
+  console.log("paginationNumbers:", paginationNumbers);
+  console.log("paginatedList", paginatedList);
+  console.log("listItems", listItems);
+  console.log("pagContainer", pagContainer);
+    let paginationLimit = 8;
+    if (innerWidth > 1279) {
+        paginationLimit = 9; 
+    
+    } 
+    console.log(innerWidth, amount);
+ 
 const pageCount = Math.ceil(listItems.length / paginationLimit);
 let currentPage = 1;
 
