@@ -1,4 +1,4 @@
-const backdrop = document.querySelector('.backdrop');
+const backdrop = document.querySelector('.ingredient-modal-backdrop');
 const ingredientsLists = document.querySelectorAll('.ingredients-list');
 const ingredientModal = document.querySelector('.ingredient-modal');
 const ingredientModaCloseButton = document.querySelector('.ingredient-modal-close-btn');
