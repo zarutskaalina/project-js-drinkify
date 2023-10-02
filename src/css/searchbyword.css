@@ -76,3 +76,7 @@
   color: #fff;
   background: #0085b6;
 }
+
+.hidden {
+  display: none;
+}
