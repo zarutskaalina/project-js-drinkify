@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { createMarkupCocktail } from './createMarkupCocktail';
 
-// import Choices from 'choices.js';
+import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
@@ -74,10 +74,13 @@ export function createAlphabetButtons() {
 export function configureAlphabetSelect() {
   // Создаем опции для выпадающего списка
   alphabet.forEach(letter => {
-    const option = document.createElement('option');
-    option.value = letter;
-    option.textContent = letter;
-    alphabetSelect.insertAdjacentElement('beforeend', option);
+    if (letter.match(/[A-Z]/)) {
+      // Проверяем, является ли текущий элемент буквой (A-Z) так как в массиве еще цифры
+      const option = document.createElement('option');
+      option.value = letter;
+      option.textContent = letter;
+      alphabetSelect.insertAdjacentElement('beforeend', option);
+    }
   });
 
   // Добавляем обработчик события при выборе буквы в выпадающем списке
@@ -139,3 +142,16 @@ export async function searchCocktails(letter) {
 
 createAlphabetButtons();
 configureAlphabetSelect();
+
+alphabetSelect.classList.add('js-choice');
+
+const choices = new Choices(alphabetSelect, {
+  items: alphabet,
+  maxItemCount: 1,
+  allowHTML: true,
+  searchEnabled: false, // Убирает тсроку для поиска
+  shouldSortItems: false, //!предотвращает сортировку элементов. Так хули оно не с "А" начинается
+  itemSelectText: '', // Убирает текст "Press to select"
+  placeholder: false,
+  position: 'bottom',
+});

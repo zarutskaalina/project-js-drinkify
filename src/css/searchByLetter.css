@@ -7,62 +7,137 @@
   /* Показываем выпадающий список*/
   .alphabet-select {
     display: flex;
+  }
+  /* Скрывает псевдоэлемент ::after внутри элемента .choices, который имеет атрибут data-type с частичным совпадением "select-one"  ЭТО Стрелка вниз*/
+  .choices::after {
+    display: none;
+  }
 
+  /* Стили для внешнего контейнера .choices */
+  .choices {
+    width: 90px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* text-align: left; */
+  }
+
+  /* Стили для внутреннего контейнера .choices__inner */
+  .choices__inner {
     width: 90px;
     height: 34px;
-
     background-color: rgba(126, 143, 221, 0.4);
     color: var(--primary-color-interface);
-
     border-radius: 8px;
     border: none;
-
     padding: 8px 14px;
-
     appearance: none;
     background-image: url('../images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
+    margin-top: 40px;
+    margin-bottom: 40px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Стили для .choices__inner, когда .choices находится в открытом состоянии */
+  .is-open .choices__inner {
+    background-color: var(--additional-accent-color);
+    color: var(--primary-color-interface);
+    border-radius: 8px;
+    border: none;
+    padding: 8px 14px;
+    appearance: none;
+    background-image: url('../images/chevron-up.svg');
+    background-repeat: no-repeat;
+    background-position: 80%; /* Положение cвг */
     justify-content: space-between;
     align-items: center;
 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-
+    margin-bottom: 4px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-}
 
-@media screen and (max-width: 768px) {
-  .alphabet-select option {
+  .choices__list--dropdown,
+  .choices__list[aria-expanded] {
+    overflow-y: scroll;
+    max-height: 84px;
+  }
+
+  /* Стили для полосы прокрутки в выпадающем меню */
+  .choices__list--dropdown::-webkit-scrollbar {
+    width: 3px;
+    background-color: transparent;
+
+    /* ! НЕ РАБОТАЕТ отодвинуть полосу прокрутки внутри выпадающего списка ближе к центру на 4px */
+    right: 4px; /* Отодвигаем полосу прокрутки от правого края на 4px */
+  }
+
+  /* Стили для бегунка (ползунка) полосы прокрутки в выпадающем меню */
+  .choices__list--dropdown::-webkit-scrollbar-thumb {
+    height: 34px;
+    background-color: var(--additional-accent-color); /* Цвет бегунка */
+    border-radius: 4px; /* Скругление углов бегунка */
+  }
+
+  /* Стили для выпадающего списка .choices__list--dropdown и .choices__list[aria-expanded] */
+  .is-open .choices__list--dropdown,
+  .is-open .choices__list[aria-expanded] {
     padding: 10px;
     font-size: 16px;
     background-color: #fdfdff;
     color: #242424;
-    border-color: var(--additional-accent-color);
+    border: 1px solid var(--additional-accent-color);
     border-radius: 4px;
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    width: 90px;
+    height: 84px;
+  }
 
+  /* Стили для элементов списка .choices__item внутри выпадающего списка */
+  .choices__list--dropdown .choices__item,
+  .choices__list[aria-expanded] .choices__item {
+    padding: 4px 10px;
+  }
+
+  /* Стили для элементов списка .choices__item, когда .choices__list--single */
+  .choices__list--single .choices__item {
     font-family: 'Poppins', serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.2;
   }
 
-  .alphabet-select option:checked {
-    background-color: var(--accent-color); /* Цвет фона выбранной опции */
-    color: white; /* Цвет текста выбранной опции */
+  .choices__list--dropdown .choices__item--selectable.is-highlighted,
+  .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background-color: transparent;
   }
 
-  .alphabet-select:hover,
-  .alphabet-select:focus {
-    background-color: var(
-      --additional-accent-color
-    ); /* Изменяем цвет фона на акцентный при наведении и фокусе */
-    border: none;
+  /* !Эти стили нужно применить к  choices__inner после того как выбор из списка сделан и выбранная буква отображается в choices__inner  !!!НЕ РАБОТАЕТ*/
+  .choices__item--selectable .choices__inner {
+    background-color: var(--additional-accent-color);
+    color: var(--primary-color-interface);
+
+    background-image: url('../images/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: 80%; /* Положение cвг */
   }
+
+  .choices__list--dropdown .choices__item--selectable {
+    padding: 4px 10px;
+  }
+}
+
+/* Стили для меню прокрутки */
+.choices__list--dropdown .choices__list,
+.choices__list[aria-expanded] .choices__list {
+  position: relative;
+  max-height: 650px;
+  overflow: hidden;
 }
 
 /* ====================================================== */
@@ -81,7 +156,8 @@
   }
 
   /* Скрываем выпадающий список на широких экранах */
-  .alphabet-select {
+  .alphabet-select,
+  .choices {
     display: none;
   }
 }
