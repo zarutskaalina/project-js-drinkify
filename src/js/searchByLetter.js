@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// !!Импортируй после того как Алина пример ветку Антона
-// import { createMarkupCocktail } from './createMarkupCocktail';
+import { createMarkupCocktail } from './createMarkupCocktail';
 
 // import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
@@ -64,7 +63,7 @@ export function createAlphabetButtons() {
     // Добавляем асинхронный обработчик события для каждой кнопки
     button.addEventListener('click', async () => {
       const selectedLetter = letter;
-
+      console.log(selectedLetter);
       // Отправляем запрос для поиска коктейлей по выбранной букве или цифре
       await searchCocktails(selectedLetter);
     });
@@ -85,28 +84,51 @@ export function configureAlphabetSelect() {
   alphabetSelect.addEventListener('change', async () => {
     // Получаем выбранную букву или цифру
     const selectedLetter = alphabetSelect.value;
-    searchCocktails(selectedLetter);
+    await searchCocktails(selectedLetter);
   });
 }
 
+// Получаем элемент c рандомным списком коктейлей по его классу
+const randomCocktailsElement = document.querySelector('.random-cocktails');
+
+// Получаем cписок в который будем добавлять список коктейлей
+const resultsList = document.querySelector(
+  '.searching-results .cocktails-list'
+);
+
+// Получаем контейнер с которому убираем скрытый класс
+const resultsContainer = document.querySelector('.searching-results');
+
+// Получаем заголовок блока в который будем добавлять список коктейлей и который сделаем видимым
+const titleElement = document.querySelector('.searching-results-title');
+
 // Функция для отправки запроса по букве или цифре
 export async function searchCocktails(letter) {
-  // !!!! Очистить контейнер с результатами (там где коктейли будут отображаться) после того как Алина примет ветку Антона
-  // const resultsContainer = document.querySelector('.searcing-results');
-  // resultsContainer.innerHTML = '';
+  //  Очистить контейнер с результатами (там где коктейли будут отображаться)
+  resultsList.innerHTML = '';
+
+  // Убираем класс hidden
+  resultsContainer.classList.remove('isHidden');
+  // Добавляем класс hidden
+  randomCocktailsElement.classList.add('isHidden');
+
+  // Убираем стиль "display: none"
+  titleElement.style.display = 'block';
 
   try {
     const response = await axios.get(
       `${BASE_URL}cocktails/search/?f=${letter}`
     );
     const cocktails = response.data;
-
-    if (cocktails.length === 0) {
-      //  !! вставить вывод модалки или что там когда коктейли не найдены
+    console.log(cocktails);
+    if (cocktails.length !== 0) {
+      //   код для отображения карточек с коктейлями
+      const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
+      console.log(resultsList);
+      resultsList.insertAdjacentHTML('beforeend', markup);
+      console.log(resultsList);
     } else {
-      // !! Вставить код для отображения карточек с коктейлями после того как Алина примет ветку Антона
-      // const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
-      // resultsContainer.innerHTML = markup;
+      //  !! вставить вывод модалки или что там когда коктейли не найдены
     }
   } catch (error) {
     // Обработка ошибок при запросе к API
@@ -114,41 +136,6 @@ export async function searchCocktails(letter) {
     //!! Вставить код для отображения сообщения об ошибке или другой обработки ошибки
   }
 }
-
-// Функция для проверки размера экрана и отображения/скрытия элементов
-// function toggleElementsBasedOnScreenSize() {
-//   const screenWidth = window.innerWidth; // Получаем текущую ширину экрана
-
-//   // Получаем элементы, которые нужно скрыть/отобразить
-
-//   // Контейнер для кнопок с буквами и цифрами
-//   const alphabetButtons = document.querySelector('.alphabet-buttons');
-
-//   // Контейнер для выпадающего списка на мобильной версии
-//   const alphabetSelect = document.querySelector('.alphabet-select');
-
-//   if (screenWidth <= 768) {
-//     // Если экран меньше или равен 768px, скрываем кнопки и отображаем выпадающий список
-//     alphabetButtons.style.display = 'none';
-//     alphabetSelect.style.display = 'block';
-//   } else {
-//     // Если экран шире 768px, отображаем кнопки и скрываем выпадающий список
-//     alphabetButtons.style.display = 'flex';
-//     alphabetSelect.style.display = 'none';
-//   }
-// }
-
-// Вызываем функцию при загрузке страницы и при изменении размера окна
-// window.addEventListener('load', toggleElementsBasedOnScreenSize);
-// window.addEventListener('resize', toggleElementsBasedOnScreenSize);
-
-// alphabetSelect.classList.add('js-choice');
-
-// const choices = new Choices(alphabetSelect, {
-//   items: alphabet,
-//   maxItemCount: 1,
-//   allowHTML: true,
-// });
 
 createAlphabetButtons();
 configureAlphabetSelect();
