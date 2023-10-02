@@ -1,4 +1,6 @@
 @import url('./theme.css');
+@import url('./header.css');
+@import url('./burger-menu.css');
 @import url('./searchByLetter.css');
 @import url('./overlay-cocktails.learn-more.css');
 @import url('./hero.css');
@@ -47,18 +49,18 @@ ol {
 body {
   font-family: var(--main-font-family);
   background: rgb(248, 249, 255);
+  background-image: linear-gradient(
+    292deg,
+    rgba(248, 249, 255, 1) 84%,
+    rgba(156, 223, 223, 1) 104%
+  );
   /* background-image: linear-gradient(
-      292deg,
-      rgba(248, 249, 255, 1) 84%,
-      rgba(156, 223, 223, 1) 104%
-    );
-    background-image: linear-gradient(
       117deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
-    );
+    ); */
   background-repeat: no-repeat;
-  background-size: contain; */
+  background-size: contain;
 }
 
 @media screen and (min-width: 320px) {
