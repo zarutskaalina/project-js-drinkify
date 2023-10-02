@@ -63,28 +63,27 @@ export function getCardInfo(event) {
       const chosenElement = result.find(item => item._id === id);
       cocktailsCardInfo.style.display = 'none';
 
-      if (!chosenElement) {
-        Notify.failure('Soory');
-      } else {
+      if (chosenElement) {
         cocktailsCardInfo.style.display = 'block';
         const modalContent = renderModalContent(chosenElement);
         cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
 
         // const addFavoriteCocktailsBtn =
-        //   document.querySelectorAll('.add-favorite-btn');
-        // addFavoriteCocktailsBtn.forEach(button =>
-        //   button.addEventListener('click', handlerAddFavoriteCocktails)
+        //   document.querySelector('.add-favorite-btn');
+        // addFavoriteCocktailsBtn.addEventListener(
+        //   'click',
+        //   handlerAddFavoriteCocktails
         // );
 
         const backBtn = document.querySelectorAll('.back-btn');
-        console.log(backBtn);
-        backBtn.forEach(toggle =>
-          toggle.addEventListener('click', e => {
-            cocktailsCardInfo.classList.toggle('is-hidden');
-            console.log(e.target);
-          })
-        );
+        backBtn.addEventListener('click', () => {
+          cocktailsCardInfo.classList.toggle('is-hidden');
+        });
       }
     })
     .catch(err => console.log(err));
 }
+
+// function handlerAddFavoriteCocktails(e) {}
+
+// const dataCocktails = JSON.parse(localStorage.setItem('cocktails'));
