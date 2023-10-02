@@ -3,6 +3,13 @@ import { Notify } from 'notiflix';
 import { renderCocktails } from './get-random-cocktails';
 import { createMarkupCocktail } from './createMarkupCocktail';
 import { fetchRandomCocktails } from './get-random-cocktails';
+import { getIngredients } from './services';
+import {
+  setFavoriteButtonContent,
+  modalContent as modalIngredientContent,
+  handleAddToFavorite
+} from './ingredient-modal';
+import refs from './refs';
 
 const cocktailsCardInfo = document.querySelector('.cocktails-container');
 
@@ -61,6 +68,26 @@ export function getCardInfo(event) {
         cocktailsCardInfo.style.display = 'block';
         const modalContent = renderModalContent(chosenElement);
         cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
+
+        document.querySelectorAll('.ingredients-list').forEach((item) => { 
+          item.addEventListener('click', (e) => { 
+            if (e.target.nodeName === "BUTTON") { 
+              const ingredientId = e.target.dataset.id;
+              
+              getIngredients(ingredientId).then((res) => { 
+                currentIngredient = res[0];
+      
+                const modalContentMarkup = modalIngredientContent(res[0]);
+                refs.ingredientModaContent.insertAdjacentHTML('beforeend', modalContentMarkup);
+                localStorage.setItem('currentIngredient', JSON.stringify(currentIngredient));
+                refs.backdrop.classList.add('isShow');
+                refs.ingredientModal.classList.add('isShow');
+                setFavoriteButtonContent(ingredientId);
+                refs.ingredientModaFavoriteButton.addEventListener('click', handleAddToFavorite);
+              });
+            }
+          })
+        });
 
         // const addFavoriteCocktailsBtn =
         //   document.querySelectorAll('.add-favorite-btn');

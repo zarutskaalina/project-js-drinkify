@@ -1,9 +1,6 @@
 import refs from './refs';
-import { getIngredients } from './services';
 
-let currentIngredient = null;
-
-const setFavoriteButtonContent = (ingredientId) => {
+export const setFavoriteButtonContent = (ingredientId) => {
     const ingredients = localStorage.getItem('ingredients');
     
     if (ingredients) {
@@ -12,11 +9,13 @@ const setFavoriteButtonContent = (ingredientId) => {
 
         if (isIngredientInFavorite) {
             refs.ingredientModaFavoriteButton.textContent = "Remove from favorite";
+        } else { 
+            refs.ingredientModaFavoriteButton.textContent = "Add to favorite";
         }
     }
 };
 
-const makeCoctailBold = (coctailName, description) => {
+export const makeCoctailBold = (coctailName, description) => {
     const coctailIndex = description.toLowerCase().indexOf(coctailName.toLowerCase());
     const result =
         description.substring(0, coctailIndex)
@@ -25,7 +24,7 @@ const makeCoctailBold = (coctailName, description) => {
     return result;
 };
 
-const modalContent = ({ 
+export const modalContent = ({ 
     abv,
     alcohol,
     country,
@@ -41,28 +40,15 @@ const modalContent = ({
       ${makeCoctailBold(title, description)}
     </p>
     <ul class="ingredient-modal-list">
-      <li>Type: ${type.toLowerCase()}</li>
-      <li>Country of origin: ${country}</li>
+      ${type ? `<li>Type: ${type.toLowerCase()}</li>` : '<li>Type: not found</li>'}
+      ${country ? `<li>Country of origin: ${country}</li>` : '<li>Country of origin: not found</li>'}
       ${alcohol === 'Yes' ? `<li>Alcohol by volume: ${abv}%</li>` : ''}
-      <li>Flavour : ${flavour}</li>
+      ${flavour ? `<li>Flavour: ${flavour}</li>` : '<li>Flavour: not found</li>'}
     </ul>`;
 
-getIngredients('64aebb7f82d96cc69e0eb4b1').then((res) => { 
-    currentIngredient = res[0];
-    setFavoriteButtonContent(res[0]["_id"]);
-    makeCoctailBold(res[0].title, res[0].description);
-
-    const modalContentMarkup = modalContent(res[0]);
-    refs.ingredientModaContent.insertAdjacentHTML('beforeend', modalContentMarkup);
-});
-
-const handleClose = () => {
-    refs.backdrop.classList.remove('isShow');
-    refs.ingredientModal.classList.remove('isShow');
-}; 
-
-const handleAddToFavorite = () => {
+export const handleAddToFavorite = () => {
     const ingredients = localStorage.getItem('ingredients');
+    const currentIngredient = JSON.parse(localStorage.getItem('currentIngredient'));
 
     if (ingredients) {
         const parsedIngredients = JSON.parse(ingredients);
@@ -79,10 +65,17 @@ const handleAddToFavorite = () => {
     } else { 
         localStorage.setItem('ingredients', JSON.stringify([currentIngredient]));
     }
+
+    setFavoriteButtonContent(currentIngredient['_id']);
 };
 
-const handleBack = () => { };
+const handleClose = () => {
+    refs.backdrop.classList.remove('isShow');
+    refs.ingredientModal.classList.remove('isShow');
+    refs.ingredientModaContent.innerHTML = '';
+    refs.ingredientModaFavoriteButton.removeEventListener('click', handleAddToFavorite);
+}; 
 
-refs.ingredientModaFavoriteButton.addEventListener('click', handleAddToFavorite);
-refs.ingredientModaCloseButton.addEventListener('click', handleClose);
 refs.backdrop.addEventListener('click', handleClose);
+refs.ingredientModaCloseButton.addEventListener('click', handleClose);
+refs.ingredientModaBackButton.addEventListener('click', handleClose);
