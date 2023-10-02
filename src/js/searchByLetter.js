@@ -12,6 +12,23 @@ const alphabetButtons = document.querySelector('.alphabet-buttons');
 // Контейнер для выпадающего списка на мобильной версии
 const alphabetSelect = document.querySelector('.alphabet-select');
 
+// Получаем элемент c рандомным списком коктейлей по его классу
+const randomCocktailsElement = document.querySelector('.random-cocktails');
+
+// Получаем контейнер в котором будет список коктейлей при нажатии на кнопку
+const resultsContainer = document.querySelector('.searching-results');
+
+// Получаем cписок в который будем добавлять коктейли
+const resultsList = document.querySelector(
+  '.searching-results .cocktails-list'
+);
+
+// Получаем заголовок блока в который будем добавлять список коктейлей и который сделаем видимым
+const titleElement = document.querySelector('.searching-results-title');
+
+// Получаем элемент для случаев, когда поиск не дал результатов  тогда делаем его видимым
+const emptySearchElement = document.querySelector('.empty-search');
+
 // Массив с буквами и цифрами
 const alphabet = [
   'A',
@@ -91,20 +108,6 @@ export function configureAlphabetSelect() {
   });
 }
 
-// Получаем элемент c рандомным списком коктейлей по его классу
-const randomCocktailsElement = document.querySelector('.random-cocktails');
-
-// Получаем cписок в который будем добавлять список коктейлей
-const resultsList = document.querySelector(
-  '.searching-results .cocktails-list'
-);
-
-// Получаем контейнер с которому убираем скрытый класс
-const resultsContainer = document.querySelector('.searching-results');
-
-// Получаем заголовок блока в который будем добавлять список коктейлей и который сделаем видимым
-const titleElement = document.querySelector('.searching-results-title');
-
 // Функция для отправки запроса по букве или цифре
 export async function searchCocktails(letter) {
   //  Очистить контейнер с результатами (там где коктейли будут отображаться)
@@ -130,13 +133,13 @@ export async function searchCocktails(letter) {
       console.log(resultsList);
       resultsList.insertAdjacentHTML('beforeend', markup);
       console.log(resultsList);
-    } else {
-      //  !! вставить вывод модалки или что там когда коктейли не найдены
     }
   } catch (error) {
     // Обработка ошибок при запросе к API
     console.error('Произошла ошибка при отправке запроса:', error);
-    //!! Вставить код для отображения сообщения об ошибке или другой обработки ошибки
+    // Если поиск пустой, то
+    resultsContainer.classList.add('isHidden');
+    emptySearchElement.classList.remove('isHidden');
   }
 }
 
@@ -150,7 +153,7 @@ const choices = new Choices(alphabetSelect, {
   maxItemCount: 1,
   allowHTML: true,
   searchEnabled: false, // Убирает тсроку для поиска
-  shouldSortItems: false, //!предотвращает сортировку элементов. Так хули оно не с "А" начинается
+  shouldSortItems: false,
   itemSelectText: '', // Убирает текст "Press to select"
   placeholder: false,
   position: 'bottom',
