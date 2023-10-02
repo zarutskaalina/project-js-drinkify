@@ -1,8 +1,13 @@
 @import url('./searchbyword.css');
 @import url('./theme.css');
 @import url('./searchByLetter.css');
+@import url('./overlay-cocktails.learn-more.css');
 @import url('./hero.css');
 @import url('./footer.css');
+
+:root {
+  --main-font-family: 'Poppins', sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
@@ -24,6 +29,22 @@ img {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
 body {
   font-family: var(--main-font-family);
   background: rgb(248, 249, 255);
@@ -31,8 +52,8 @@ body {
       292deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
-    ),
-    linear-gradient(
+    );
+    background-image: linear-gradient(
       117deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
