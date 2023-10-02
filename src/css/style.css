@@ -1,6 +1,6 @@
 @import url('./theme.css');
-@import url(../css/header.css);
-@import url(../css/burger-menu.css);
+@import url('./header.css');
+@import url('./burger-menu.css');
 @import url('./searchByLetter.css');
 @import url('./overlay-cocktails.learn-more.css');
 @import url('./hero.css');
