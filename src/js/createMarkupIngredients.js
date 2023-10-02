@@ -116,6 +116,7 @@ localStorage.setItem('cocktails', JSON.stringify(cocktails));
 
 
 import spriteUrl from '../images/sprite.svg';
+// import * as ingredientModal from '../js/ingredient-modal.js';
 
 const cocktailsContainer = document.querySelector(".ingredients-cards");
 const dataPlaceholder = document.querySelector(".ingredients-placeholder");
