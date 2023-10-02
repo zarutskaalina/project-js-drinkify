@@ -8,31 +8,37 @@ const cocktailsListEl = document.querySelector(
 );
 
 const innerWidth = document.body.clientWidth;
+const emptySearchContainer = document.querySelector(".empty-search");
+const randomCocktailsContainer = document.querySelector(".random-cocktails")
 
-const numberOfRandomCocktails = innerWidth => {
-  let amount = 8;
-  if (innerWidth > 1279) {
-    amount = 9;
-  }
-  console.log(innerWidth, amount);
-  return amount;
-};
+const numberOfRandomCocktails = (innerWidth) => {
+    let amount = 8;
+    if (innerWidth > 1279) {
+        amount = 9; 
+    } 
+    console.log(innerWidth, amount);
+    return amount;
+}
 
 export async function fetchRandomCocktails(numberOfRandomCocktails) {
-  try {
-    const finalUrl = BASE_URL + 'cocktails';
-    console.log(finalUrl);
-    const response = await axios.get(finalUrl, {
-      params: {
-        r: numberOfRandomCocktails,
-      },
-    });
+    try {
+        const finalUrl = BASE_URL + "cocktails"
+        console.log(finalUrl)
+        const response = await axios.get(finalUrl, {
+            params: {
+                r: numberOfRandomCocktails,
+            },
+        });
+        console.log(response);
+        return response.data; 
+       
+    } catch (error) {
+        console.log(error);
+        emptySearchContainer.classList.remove('isHidden');
+        randomCocktailsContainer.classList.add('isHidden');
+    }
+};
 
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export function renderCocktails(arr, container) {
   const markup = arr.map(item => createMarkupCocktail(item)).join('');
