@@ -24,20 +24,28 @@ function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
   return `<div class="cocktails-info">
+  <div class="backdrop">
   <div class="modal">
-  <div class="cocktails-desc">
     <img
       src="${drinkThumb}"
       alt="${glass}"
       class="cocktails-img"
       width="288"
     />
-
-    <div>
+    <div class="cocktails-desc">
       <h3 class="cocktails-title">${drink}<b></b></h3>
       <h3 class="cocktails-ingredients-title"><b>INGREDIENTS:</b></h3>
       <ul class="ingredients-list">
-        ${ingredients.map(({ title, ingredientId }) => `<li><button type="button" data-id="${ingredientId}">${title}</button></li>`).join('')}
+        ${ingredients
+          .map(
+            ({ measure, title, ingredientId }) =>
+              `<li>
+                <button type="button" class="ingredient-element" data-id="${ingredientId}">
+                  ${measure} ${title}
+                </button>
+            </li>`
+          )
+          .join('')}
       </ul>
     </div>
   </div>
