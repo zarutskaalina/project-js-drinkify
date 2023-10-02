@@ -11,15 +11,6 @@ const alphabetButtons = document.querySelector('.alphabet-buttons');
 
 // Контейнер для выпадающего списка на мобильной версии
 const alphabetSelect = document.querySelector('.alphabet-select');
-<<<<<<< HEAD
-// Items for pagination
-const pagContainer = document.querySelector(".pagination-container");
-const paginationNumbers = document.querySelector('#pagination-numbers');
-const nextButton = document.querySelector('#next-button');
-const prevButton = document.querySelector('#prev-button');
-const innerWidthScreen = document.body.clientWidth;
-const paginatedList = document.querySelector('#paginated-list');
-=======
 
 // Получаем элемент c рандомным списком коктейлей по его классу
 const randomCocktailsElement = document.querySelector('.random-cocktails');
@@ -38,7 +29,6 @@ const titleElement = document.querySelector('.searching-results-title');
 // Получаем элемент для случаев, когда поиск не дал результатов  тогда делаем его видимым
 const emptySearchElement = document.querySelector('.empty-search');
 
->>>>>>> 2b260377cab8d9b165b91a8f541612c1abd7f6e0
 // Массив с буквами и цифрами
 const alphabet = [
   'A',
