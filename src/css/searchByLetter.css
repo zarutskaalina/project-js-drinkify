@@ -19,7 +19,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    /* text-align: left; */
+    text-align: left;
   }
 
   /* Стили для внутреннего контейнера .choices__inner */
@@ -36,7 +36,8 @@
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    /* ! МНЕ это не нравится */
     margin-bottom: 40px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -47,7 +48,7 @@
     color: var(--primary-color-interface);
     border-radius: 8px;
     border: none;
-    padding: 8px 14px;
+    padding: 8px 15px;
     appearance: none;
     background-image: url('../images/chevron-up.svg');
     background-repeat: no-repeat;
@@ -55,6 +56,7 @@
     justify-content: space-between;
     align-items: center;
 
+    /* ! МНЕ это не нравится */
     margin-bottom: 4px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -70,8 +72,11 @@
     width: 3px;
     background-color: transparent;
 
-    /* ! НЕ РАБОТАЕТ отодвинуть полосу прокрутки внутри выпадающего списка ближе к центру на 4px */
-    right: 4px; /* Отодвигаем полосу прокрутки от правого края на 4px */
+    /* ! НЕ РАБОТАЕТ ничего!!!!  отодвинуть полосу прокрутки внутри выпадающего списка ближе к центру на 4px */
+    /* Отодвигаем полосу прокрутки от правого края на 4px */
+    /* right: 4px;  */
+    /* margin-right: 4px; */
+    /* margin-right: auto; */
   }
 
   /* Стили для бегунка (ползунка) полосы прокрутки в выпадающем меню */
@@ -84,7 +89,6 @@
   /* Стили для выпадающего списка .choices__list--dropdown и .choices__list[aria-expanded] */
   .is-open .choices__list--dropdown,
   .is-open .choices__list[aria-expanded] {
-    padding: 10px;
     font-size: 16px;
     background-color: #fdfdff;
     color: #242424;
@@ -125,10 +129,6 @@
     background-image: url('../images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
-  }
-
-  .choices__list--dropdown .choices__item--selectable {
-    padding: 4px 10px;
   }
 }
 
