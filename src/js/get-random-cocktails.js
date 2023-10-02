@@ -1,8 +1,11 @@
-import axios from "axios";
-import { createMarkupCocktail } from "./createMarkupCocktail";
+import axios from 'axios';
+import { createMarkupCocktail } from './createMarkupCocktail';
+import { getCardInfo } from './overlay-cocktails-learm-more';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
-const cocktailsListEl = document.querySelector('.random-cocktails .cocktails-list'); 
+const cocktailsListEl = document.querySelector(
+  '.random-cocktails .cocktails-list'
+);
 
 const innerWidth = document.body.clientWidth;
 const emptySearchContainer = document.querySelector(".empty-search");
@@ -36,22 +39,16 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
     }
 };
 
-export function renderCocktails (arr, container) {
-    if (!arr) {
-        return;
-        emptySearchContainer.classList.remove('isHidden');
-        randomCocktailsContainer.classList.add('isHidden');
-    }
-    console.log(arr);
-    const markup = arr
-        .map((item) => 
-            createMarkupCocktail(item)
-        )
-        .join('');
 
-    // console.log(markup);
-    container.innerHTML = markup;
+export function renderCocktails(arr, container) {
+  const markup = arr.map(item => createMarkupCocktail(item)).join('');
+  container.innerHTML = markup;
+  const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+  learnMoreBtns.forEach(button => {
+    button.addEventListener('click', getCardInfo);
+  });
 }
 
-fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then((res) => renderCocktails(res, cocktailsListEl));
-
+fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then(res =>
+  renderCocktails(res, cocktailsListEl)
+);
