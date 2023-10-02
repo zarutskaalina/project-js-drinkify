@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #7E8FDD;
+    background-color: var(--accent-color);
     z-index: 10;
 }
 
@@ -16,22 +16,24 @@
     top: 0;
     left: 0;
     width: 100vw;
-        height: 100vh;
-    
+    height: 100vh;    
 }
 
-.burger-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.burger-modal-wrapper {
     max-width: 375px;
     margin-left: auto;
     margin-right: auto;
     padding: 20px 20px 0 20px;
 }
 
+.burger-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .burger-link-text {
-    color: #ffffff;
+    color: var(--primary-white-color);
     font-family: var(--main-font-family);
     font-size: 16px;
     font-style: normal;
@@ -44,7 +46,6 @@
 .burger-header-link {
     display: flex;
     align-items: center;
-
 }
 
 .burger-btn-wrapper {
@@ -99,20 +100,19 @@
 }
 
 input:checked+.burger-switch-theme-slider {
-    background-color: #7E8FDD;
+    background-color: var(--accent-color);
 }
 
 input:focus+.burger-switch-theme-slider {
-    box-shadow: 0 0 1px #7E8FDD;
+    box-shadow: 0 0 1px var(--accent-color);
 }
 
 input:checked+.burger-switch-theme-slider:before {
     transform: translateX(25px);
 }  
 
-
 input:checked+.burger-switch-theme-slider {
-    background-color: #9CDFDF;
+    background-color: var(--additional-accent-color);
 }
 
 input:checked+.burger-switch-theme-slider:before {
@@ -134,7 +134,7 @@ input:checked+.burger-switch-theme-slider:before {
 }
 
 .burger-list-link {
-    color: #FDFDFF;
+    color: var(--primary-white-color);
     font-family: var(--main-font-family);
     font-size: 18px;
     font-weight: 400;
@@ -155,7 +155,7 @@ input:checked+.burger-switch-theme-slider:before {
 .burger-dropdown-link:hover,
 .burger-dropdown-link:focus,
 .burger-dropdown-link:active {
-    color: #FDFDFF; 
+    color: var(--primary-white-color); 
 }
 
  .burger-dropdown {
@@ -171,18 +171,18 @@ input:checked+.burger-switch-theme-slider:before {
  }
 
 @media screen and (min-width: 768px) {
-    .burger-modal-header {
-        max-width: 768px;
+    .burger-modal {
+       background-color: var(--accent-color);
+       background: url('../images/burger-menu/background-burger.jpg') right bottom;
+       background-size: 391px 391px;
+       background-repeat: no-repeat;
+       padding: 24px 32px 569 24px;        
     }
 
-    .burger-modal {
-    background-color: #7E8FDD;
-    background: url('../images/background-burger.jpg') right bottom;
-        
-        background-size: 391px 391px;
-        background-repeat: no-repeat;
-        
-}
+    .burger-modal-wrapper {
+        max-width: 768px;
+        background-color: var(--accent-color);    
+    }
 
     .burger-link-text {
         font-size: 22px;
@@ -196,3 +196,6 @@ input:checked+.burger-switch-theme-slider:before {
         letter-spacing: 0.48px;
     }
 }
+
+
+

@@ -1,60 +1,67 @@
 <div class="burger-backdrop">
   <div class="burger-modal">
-    <div class="burger-modal-header">
-      <a href="./index.html" class="burger-header-link link">
-        <span class="burger-link-text">Drinkify</span>
-        <svg width="24" height="20" class="header-logo-icon">
-          <use href="./images/sprite.svg#icon-logo-mobile-menu"></use>
-        </svg>
-      </a>
-      <div class="burger-btn-wrapper">
-        <label
-          id="burger-switch-theme"
-          class="burger-switch-theme burger-switch-theme"
-        >
-          <input type="checkbox" onchange="" id="burger-switch-theme-slider" />
-          <span class="burger-switch-theme-slider round"></span>
-        </label>
-
-        <button type="button" class="burger-close-modal-btn closeModal">
-          <svg width="32" height="32" class="burger-close-modal-icon">
-            <use
-              href="./images/sprite.svg#icon-x-close-modal-learn-mobile-white"
-            ></use>
+    <div class="burger-modal-wrapper">
+      <div class="burger-modal-header">
+        <a href="./index.html" class="burger-header-link link">
+          <span class="burger-link-text">Drinkify</span>
+          <svg width="24" height="20" class="header-logo-icon">
+            <use href="./images/sprite.svg#icon-logo-mobile-menu"></use>
           </svg>
-        </button>
-      </div>
-    </div>
-    <div class="burger-wrapper-list">
-      <ul class="burger-list list">
-        <li class="burger-list-item">
-          <a href="./index.html" class="burger-list-link link">Home</a>
-        </li>
-        <li>
-          <a href="" class="burger-list-link js-burger-list-link link"
-            >Favorite
-            <svg width="20" height="20">
-              <use href="./images/sprite.svg#icon-chevron-down-white"></use>
+        </a>
+        <div class="burger-btn-wrapper">
+          <label
+            id="burger-switch-theme"
+            class="burger-switch-theme burger-switch-theme"
+          >
+            <input
+              class="switch-theme-input"
+              type="checkbox"
+              onchange=""
+              id="burger-switch-theme-slider"
+            />
+            <span class="burger-switch-theme-slider round"></span>
+          </label>
+
+          <button type="button" class="burger-close-modal-btn closeModal">
+            <svg width="32" height="32" class="burger-close-modal-icon">
+              <use
+                href="./images/sprite.svg#icon-x-close-modal-learn-mobile-white"
+              ></use>
             </svg>
-          </a>
-          <ul class="burger-dropdown js-header-dropdown list" id="menu">
-            <li class="burger-dropdown-item">
-              <a
-                href="#section-favorite-cocktails"
-                class="burger-dropdown-link link"
-                >Favorite cocktails</a
-              >
-            </li>
-            <li class="burger-dropdown-item">
-              <a
-                href="#section-favorite-ingredients"
-                class="burger-dropdown-link link"
-                >Favorite ingredients</a
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
+          </button>
+        </div>
+      </div>
+      <div class="burger-wrapper-list">
+        <ul class="burger-list list">
+          <li class="burger-list-item">
+            <a href="./index.html" class="burger-list-link link">Home</a>
+          </li>
+          <li>
+            <a href="" class="burger-list-link js-burger-list-link link"
+              >Favorite
+              <svg width="20" height="20">
+                <use href="./images/sprite.svg#icon-chevron-down-white"></use>
+              </svg>
+            </a>
+            <ul class="burger-dropdown js-header-dropdown list" id="menu">
+              <li class="burger-dropdown-item">
+                <a
+                  href="#section-favorite-cocktails"
+                  class="burger-dropdown-link link"
+                  >Favorite cocktails</a
+                >
+              </li>
+              <li class="burger-dropdown-item">
+                <a
+                  href="#section-favorite-ingredients"
+                  class="burger-dropdown-link link"
+                  >Favorite ingredients</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
