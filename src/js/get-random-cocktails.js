@@ -1,10 +1,15 @@
-import axios from "axios";
-import { createMarkupCocktail } from "./createMarkupCocktail";
+import axios from 'axios';
+import { createMarkupCocktail } from './createMarkupCocktail';
+import { getCardInfo } from './overlay-cocktails-learm-more';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
-const cocktailsListEl = document.querySelector('.random-cocktails .cocktails-list'); 
+const cocktailsListEl = document.querySelector(
+  '.random-cocktails .cocktails-list'
+);
 
 const innerWidth = document.body.clientWidth;
+const emptySearchContainer = document.querySelector(".empty-search");
+const randomCocktailsContainer = document.querySelector(".random-cocktails")
 
 const numberOfRandomCocktails = (innerWidth) => {
     let amount = 8;
@@ -24,24 +29,26 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
                 r: numberOfRandomCocktails,
             },
         });
-        console.log(response.data);
-        return response.data;
+        console.log(response);
+        return response.data; 
+       
     } catch (error) {
         console.log(error);
+        emptySearchContainer.classList.remove('isHidden');
+        randomCocktailsContainer.classList.add('isHidden');
     }
 };
 
-export function renderCocktails (arr, container) {
-    console.log(arr);
-    const markup = arr
-        .map((item) => 
-            createMarkupCocktail(item)
-        )
-        .join('');
 
-    // console.log(markup);
-    container.innerHTML = markup;
+export function renderCocktails(arr, container) {
+  const markup = arr.map(item => createMarkupCocktail(item)).join('');
+  container.innerHTML = markup;
+  const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+  learnMoreBtns.forEach(button => {
+    button.addEventListener('click', getCardInfo);
+  });
 }
 
-fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then((res) => renderCocktails(res, cocktailsListEl));
-
+fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then(res =>
+  renderCocktails(res, cocktailsListEl)
+);
