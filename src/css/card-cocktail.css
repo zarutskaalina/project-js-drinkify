@@ -129,6 +129,7 @@ button:active {
 
     .cocktails-description {
         margin-bottom: 24px;
+        min-height: 72px;
     }
 
     .cocktails-button {
