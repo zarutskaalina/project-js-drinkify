@@ -26,11 +26,13 @@ function renderModalContent(chosenElement) {
       width="288"
     />
 
-    <ul class="ingredients-list">
+    <div>
       <h3 class="cocktails-title">${drink}<b></b></h3>
       <h3 class="cocktails-ingredients-title"><b>INGREDIENTS:</b></h3>
-      <li>${ingredients}</li>
-    </ul>
+      <ul class="ingredients-list">
+        ${ingredients.map(({ title, ingredientId }) => `<li><button type="button" data-id="${ingredientId}">${title}</button></li>`).join('')}
+      </ul>
+    </div>
   </div>
 
     <h3 class="cocktails-instructions-title"><b>INSTRUCTIONS:</b></h3>

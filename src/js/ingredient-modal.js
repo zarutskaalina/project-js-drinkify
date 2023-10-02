@@ -58,6 +58,7 @@ getIngredients('64aebb7f82d96cc69e0eb4b1').then((res) => {
 
 const handleClose = () => {
     refs.backdrop.classList.remove('isShow');
+    refs.ingredientModal.classList.remove('isShow');
 }; 
 
 const handleAddToFavorite = () => {
@@ -84,3 +85,4 @@ const handleBack = () => { };
 
 refs.ingredientModaFavoriteButton.addEventListener('click', handleAddToFavorite);
 refs.ingredientModaCloseButton.addEventListener('click', handleClose);
+refs.backdrop.addEventListener('click', handleClose);

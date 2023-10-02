@@ -20,8 +20,7 @@
 
 .modal {
   position: absolute;
-  padding: 40px 40px;
-  height: 569px;
+  padding: 40px;
   width: 600px;
   left: 50%;
   top: 50%;

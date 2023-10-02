@@ -10,7 +10,8 @@
 }
 
 .ingredient-modal {
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: calc(100% - 50px);
