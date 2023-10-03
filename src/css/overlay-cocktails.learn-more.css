@@ -13,9 +13,7 @@
 }
 
 .cocktails-container.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .backdrop {

@@ -41,7 +41,7 @@ function renderModalContent(chosenElement) {
             ({ measure, title, ingredientId }) =>
               `<li>
                 <button type="button" class="ingredient-element" data-id="${ingredientId}">
-                  ${measure} ${title}
+                 ${title}
                 </button>
             </li>`
           )
@@ -68,12 +68,8 @@ export function getCardInfo(event) {
     .then(result => {
       const id = event.target.getAttribute('data-id');
       const chosenElement = result.find(item => item._id === id);
-      cocktailsCardInfo.style.display = 'none';
 
-      if (!chosenElement) {
-        Notify.failure('Soory');
-      } else {
-        cocktailsCardInfo.style.display = 'block';
+      if (chosenElement) {
         const modalContent = renderModalContent(chosenElement);
         cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
 
@@ -98,20 +94,25 @@ export function getCardInfo(event) {
         });
 
         // const addFavoriteCocktailsBtn =
-        //   document.querySelectorAll('.add-favorite-btn');
-        // addFavoriteCocktailsBtn.forEach(button =>
-        //   button.addEventListener('click', handlerAddFavoriteCocktails)
+        //   document.querySelector('.add-favorite-btn');
+        // addFavoriteCocktailsBtn.addEventListener(
+        //   'click',
+        //   handlerAddFavoriteCocktails
         // );
 
         const backBtn = document.querySelectorAll('.back-btn');
-        console.log(backBtn);
-        backBtn.forEach(toggle =>
-          toggle.addEventListener('click', e => {
-            cocktailsCardInfo.classList.toggle('is-hidden');
-            console.log(e.target);
+        backBtn.forEach(button =>
+          button.addEventListener('click', () => {
+            cocktailsCardInfo.innerHTML = '';
+            cocktailsCardInfo.classList.add('is-hidden');
           })
         );
+        cocktailsCardInfo.classList.remove('is-hidden');
       }
     })
     .catch(err => console.log(err));
 }
+
+// function handlerAddFavoriteCocktails(e) {}
+
+// const dataCocktails = JSON.parse(localStorage.setItem('cocktails'));
