@@ -121,23 +121,25 @@
     background-color: transparent;
   }
 
-  /* !Эти стили нужно применить к  choices__inner после того как выбор из списка сделан и выбранная буква отображается в choices__inner  !!!НЕ РАБОТАЕТ*/
-  .choices__item--selectable .choices__inner {
+  /* Эти стили нужно применить к  choices__inner после того как выбор из списка сделан и выбранная буква отображается в choices__inner */
+  .choices.is-focused .choices__inner {
     background-color: var(--additional-accent-color);
     color: var(--primary-color-interface);
 
     background-image: url('../images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
-  }
-}
 
-/* Стили для меню прокрутки */
-.choices__list--dropdown .choices__list,
-.choices__list[aria-expanded] .choices__list {
-  position: relative;
-  max-height: 650px;
-  overflow: hidden;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Стили для меню прокрутки */
+  .choices__list--dropdown .choices__list,
+  .choices__list[aria-expanded] .choices__list {
+    position: relative;
+    max-height: 650px;
+    overflow: hidden;
+  }
 }
 
 /* ====================================================== */
