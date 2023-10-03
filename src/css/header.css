@@ -1,10 +1,3 @@
-ul,
-ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-}
-
 .header-list {
     display: none;
 }
@@ -42,7 +35,6 @@ ol {
 
 .header-logo-icon {
     stroke: var(--accent-color);
-    /* display: block; */
     width: 24px;
     height: 20px;
 }
