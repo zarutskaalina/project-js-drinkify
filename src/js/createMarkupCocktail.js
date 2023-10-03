@@ -8,8 +8,8 @@ export const createMarkupCocktail = (cocktail) => {
                     <p class="cocktails-description">${description}</p>
                     <div class="cocktails-buttons">
                     <button class="cocktails-button" data-id="${_id}">learn more</button>
-                    <button class="cocktails-button-favorite">
-                    <svg class="icon" viewBox="0 0 24 24">
+                    <button class="cocktails-button-favorite" data-id="${_id}">
+                    <svg class="icon" data-id="${_id}" viewBox="0 0 24 24">
                     ${svg}
                     </svg>
                     </button>
