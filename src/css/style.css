@@ -1,3 +1,4 @@
+@import url('./searchbyword.css');
 @import url('./theme.css');
 @import url('./header.css');
 @import url('./burger-menu.css');
@@ -5,6 +6,13 @@
 @import url('./overlay-cocktails.learn-more.css');
 @import url('./hero.css');
 @import url('./footer.css');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --main-font-family: 'Poppins', sans-serif;
@@ -14,20 +22,20 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
 .list {
   list-style: none;
 }
 
 .link {
   text-decoration: none;
-}
-
-.button {
-  cursor: pointer;
-}
-
-img {
-  display: block;
 }
 
 h1,
