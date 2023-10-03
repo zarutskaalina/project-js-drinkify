@@ -1,3 +1,4 @@
+@import url('./searchbyword.css');
 @import url('./theme.css');
 @import url('./header.css');
 @import url('./burger-menu.css');
@@ -23,8 +24,6 @@ html {
 
 img {
   display: block;
-  width: 100%;
-  height: auto;
 }
 
 button {
