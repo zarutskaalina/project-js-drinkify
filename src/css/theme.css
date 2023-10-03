@@ -1,8 +1,17 @@
 :root {
+  --main-font-family: 'Poppins', sans-serif;
   --accent-color: #7e8fdd;
   --additional-accent-color: #9cdfdf;
   --primary-white-color: rgb(253, 253, 255);
+  --primary-transparent-white-color: rgb(253, 253, 255, 0.5);
   --primary-black-color: rgb(36, 36, 36);
+  --primary-transparent-black-color: rgb(36, 36, 36, 0.5);
+  --primary-button-backgroun: rgba(126, 143, 221, 1);
+  --primary-button-accent-backgroun: rgba(110, 127, 207, 1);
+  --secondary-button-backgroun: rgba(36, 36, 36, 0.1);
+  --secondary-button-accent-backgroun: rgba(36, 36, 36, 0.2);
+  --secondary-button-backgroun-dark: rgba(253, 253, 255, 0.1);
+  --secondary-button-accent-backgroun-dark: rgba(253, 253, 255, 0.2);
   --opacity-50: 0.5;
   --opacity-20: 0.2;
   --opacity-10: 0.1;
@@ -10,8 +19,11 @@
 
 [data-theme='light'] {
   --primary-color-text: var(--primary-black-color);
+  --primary-transparent-color-text: var(--primary-transparent-black-color);
   --primary-color-interface: var(--primary-white-color);
   --secondary-color-interface: rgb(248, 249, 255);
+  --back-button-background: var(--secondary-button-backgroun);
+  --back-button-accent-background: var(--secondary-button-accent-backgroun);
   --bg-color: rgb(248, 249, 255);
   --bg-color-checked: transparent;
   --border-checked: var(--primary-black-color);
@@ -20,8 +32,13 @@
 
 [data-theme='dark'] {
   --primary-color-text: var(--primary-white-color);
+  --primary-transparent-color-text: var(--primary-transparent-white-color);
   --primary-color-interface: var(--primary-black-color);
   --secondary-color-interface: rgb(35, 35, 48);
+  --back-button-background: var(--secondary-button-backgroun-dark);
+  --back-button-accent-background: var(
+    --secondary-button-accent-backgroun-dark
+  );
   --bg-color: rgb(0, 0, 0);
   --bg-color-checked: var(--additional-accent-color);
   --border-checked: var(--accent-color);
