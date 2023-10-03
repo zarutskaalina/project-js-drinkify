@@ -63,7 +63,6 @@
 /* ====================================BUTTON-LIGHT-DARK============================================== */
   .burger-switch-theme {
     position: relative;
-    /* display: inline-block; */
     width: 50px;
     height: 26px;
 }
