@@ -1,0 +1,142 @@
+:root {
+  --main-font-family: 'Poppins', sans-serif;
+  --accent-color: #7e8fdd;
+  --primary-color-text-them-light: #242424;
+  --primary-color-text-them-dark: #fdfdff;
+  --primary-color-interface-them-dark: #1a1a1a;
+  --primary-color-interface-them-light: #f8f9ff;
+  --additional-accent-color: #9cdfdf;
+}
+.searching-results {
+  text-align: left;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.paginator {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.paginator-item {
+  display: flex;
+  width: 40px;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.current-page {
+  color: var(--primary-color-text-them-dark);
+  background: var(--additional-accent-color);
+}
+
+.pagination-container {
+  width: 334px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 39px;
+
+}
+
+.pagination-number,
+.pagination-button {
+  font-size: 16px;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+  padding: 8px 0px 7px 0px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: Montserrat;
+
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: #fff;
+}
+
+.pagination-number.active {
+  color: #fff;
+  border-radius: 4px;
+  background: var(--additional-accent-color);  
+}
+
+.arrow-button {
+ display: flex;
+ width: 32px;
+ height: 32px;
+ padding: 7px;
+ justify-content: center;
+ align-items: center;
+}
+
+@media screen and (min-width: 375px) {
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+  .searching-results {
+    text-align: left;
+    margin-bottom: 100px;
+  }
+  .search-results-title {
+    color: var(--primary-color-interface-them-dark);
+    font-family: var(--main-font-family);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px;
+    display: none;
+  }
+ 
+  .pagination-container {
+    width: 880px;
+    margin-top: 44px;
+    margin-bottom: 100px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 198px;
+  
+  }
+  .pagination-number,
+  .pagination-button {
+  font-size: 16px;
+  background-color: transparent;
+  font-weight: 400;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: Montserrat;
+
+}
+}
+
+
+.hidden {
+  display: none;
+}

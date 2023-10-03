@@ -17,20 +17,30 @@ function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
   return `<div class="cocktails-info">
+  <div class="backdrop">
   <div class="modal">
-  <div class="cocktails-desc">
     <img
       src="${drinkThumb}"
       alt="${glass}"
       class="cocktails-img"
       width="288"
     />
-
-    <ul class="ingredients-list">
+    <div class="cocktails-desc">
       <h3 class="cocktails-title">${drink}<b></b></h3>
       <h3 class="cocktails-ingredients-title"><b>INGREDIENTS:</b></h3>
-      <li>${ingredients}</li>
-    </ul>
+      <ul class="ingredients-list">
+        ${ingredients
+          .map(
+            ({ measure, title, ingredientId }) =>
+              `<li>
+                <button type="button" class="ingredient-element" data-id="${ingredientId}">
+                 ${title}
+                </button>
+            </li>`
+          )
+          .join('')}
+      </ul>
+    </div>
   </div>
 
     <h3 class="cocktails-instructions-title"><b>INSTRUCTIONS:</b></h3>
@@ -51,30 +61,31 @@ export function getCardInfo(event) {
     .then(result => {
       const id = event.target.getAttribute('data-id');
       const chosenElement = result.find(item => item._id === id);
-      cocktailsCardInfo.style.display = 'none';
 
-      if (!chosenElement) {
-        Notify.failure('Soory');
-      } else {
-        cocktailsCardInfo.style.display = 'block';
+      if (chosenElement) {
         const modalContent = renderModalContent(chosenElement);
         cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
 
         // const addFavoriteCocktailsBtn =
-        //   document.querySelectorAll('.add-favorite-btn');
-        // addFavoriteCocktailsBtn.forEach(button =>
-        //   button.addEventListener('click', handlerAddFavoriteCocktails)
+        //   document.querySelector('.add-favorite-btn');
+        // addFavoriteCocktailsBtn.addEventListener(
+        //   'click',
+        //   handlerAddFavoriteCocktails
         // );
 
         const backBtn = document.querySelectorAll('.back-btn');
-        console.log(backBtn);
-        backBtn.forEach(toggle =>
-          toggle.addEventListener('click', e => {
-            cocktailsCardInfo.classList.toggle('is-hidden');
-            console.log(e.target);
+        backBtn.forEach(button =>
+          button.addEventListener('click', () => {
+            cocktailsCardInfo.innerHTML = '';
+            cocktailsCardInfo.classList.add('is-hidden');
           })
         );
+        cocktailsCardInfo.classList.remove('is-hidden');
       }
     })
     .catch(err => console.log(err));
 }
+
+// function handlerAddFavoriteCocktails(e) {}
+
+// const dataCocktails = JSON.parse(localStorage.setItem('cocktails'));
