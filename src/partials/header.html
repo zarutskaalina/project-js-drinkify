@@ -1,0 +1,56 @@
+<header class="header container">
+  <div class="section-header">
+    <nav class="header-nav">
+      <ul class="header-list list">
+        <li class="header-list-item">
+          <a href="./index.html" class="header-list-link link">Home</a>
+        </li>
+
+        <li class="header-list-item">
+          <a href="" class="header-list-link js-header-list-link link"
+            >Favorite
+            <svg class="header-list-link-icon">
+              <use href="./images/sprite.svg#icon-chevron-down-violet"></use>
+            </svg>
+          </a>
+          <ul class="header-dropdown js-header-dropdown list" id="menu">
+            <li class="header-dropdown-item">
+              <a
+                href="#section-favorite-cocktails"
+                class="header-dropdown-link link"
+                >Favorite cocktails</a
+              >
+            </li>
+            <li class="header-dropdown-item">
+              <a
+                href="#section-favorite-ingredients"
+                class="header-dropdown-link link"
+                >Favorite ingredients</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <a href="./index.html" class="header-link link">
+      <span class="header-link-text">Drinkify</span>
+      <svg class="header-logo-icon">
+        <use href="./images/sprite.svg#icon-logo-tablet-desktop"></use>
+      </svg>
+    </a>
+    <button type="button" class="header-open-modal-btn openModal">
+      <svg class="header-burger-icon">
+        <use href="./images/sprite.svg#icon-burger-mobile-black"></use>
+      </svg>
+    </button>
+    <label id="switch-theme" class="switch-theme header-switch-theme">
+      <input
+        class="switch-theme-input"
+        type="checkbox"
+        onchange=""
+        id="switch-theme-slider"
+      />
+      <span class="header-switch-theme-slider round"></span>
+    </label>
+  </div>
+</header>

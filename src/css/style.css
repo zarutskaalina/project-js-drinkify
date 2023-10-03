@@ -1,11 +1,14 @@
+@import url('./searchbyword.css');
+@import url('./theme.css');
+@import url('./header.css');
+@import url('./burger-menu.css');
+@import url('./searchByLetter.css');
+@import url('./overlay-cocktails.learn-more.css');
+@import url('./hero.css');
+@import url('./footer.css');
+
 :root {
   --main-font-family: 'Poppins', sans-serif;
-  --accent-color: #7e8fdd;
-  --primary-color-text-them-light: #242424;
-  --primary-color-text-them-dark: #fdfdff;
-  --primary-color-interface-them-dark: #1a1a1a;
-  --primary-color-interface-them-light: #f8f9ff;
-  --additional-accent-color: #9cdfdf;
 }
 
 html {
@@ -28,21 +31,37 @@ img {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
 body {
   font-family: var(--main-font-family);
   background: rgb(248, 249, 255);
+  background-image: linear-gradient(
+    292deg,
+    rgba(248, 249, 255, 1) 84%,
+    rgba(156, 223, 223, 1) 104%
+  );
   /* background-image: linear-gradient(
-      292deg,
-      rgba(248, 249, 255, 1) 84%,
-      rgba(156, 223, 223, 1) 104%
-    ),
-    linear-gradient(
       117deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
-    );
+    ); */
   background-repeat: no-repeat;
-  background-size: contain; */
+  background-size: contain;
 }
 
 @media screen and (min-width: 320px) {
@@ -56,7 +75,7 @@ body {
   .container {
     padding-left: 20px;
     padding-right: 20px;
-    width: 335px;
+    width: 375px;
   }
 }
 
@@ -70,7 +89,7 @@ body {
   .container {
     padding-left: 32px;
     padding-right: 32px;
-    width: 704px;
+    width: 768px;
   }
 }
 
@@ -78,6 +97,6 @@ body {
   .container {
     padding-left: 100px;
     padding-right: 100px;
-    width: 1080px;
+    width: 1280px;
   }
 }
