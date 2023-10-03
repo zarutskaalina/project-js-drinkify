@@ -9,6 +9,7 @@
 }
 .searching-results {
   text-align: left;
+  margin-bottom: 100px;
 }
 .search-results-title {
   color: var(--primary-color-interface-them-dark);

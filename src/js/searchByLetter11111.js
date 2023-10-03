@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { createMarkupCocktail } from './createMarkupCocktail';
 
-import Choices from 'choices.js';
+// import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
@@ -11,24 +11,6 @@ const alphabetButtons = document.querySelector('.alphabet-buttons');
 
 // Контейнер для выпадающего списка на мобильной версии
 const alphabetSelect = document.querySelector('.alphabet-select');
-
-// Получаем элемент c рандомным списком коктейлей по его классу
-const randomCocktailsElement = document.querySelector('.random-cocktails');
-
-// Получаем контейнер в котором будет список коктейлей при нажатии на кнопку
-const resultsContainer = document.querySelector('.searching-results');
-
-// Получаем cписок в который будем добавлять коктейли
-const resultsList = document.querySelector(
-  '.searching-results .cocktails-list'
-);
-
-// Получаем заголовок блока в который будем добавлять список коктейлей и который сделаем видимым
-const titleElement = document.querySelector('.searching-results-title');
-
-// Получаем элемент для случаев, когда поиск не дал результатов  тогда делаем его видимым
-const emptySearchElement = document.querySelector('.empty-search');
-
 // Items for pagination
 const pagContainer = document.querySelector(".pagination-container");
 const paginationNumbers = document.querySelector('#pagination-numbers');
@@ -36,7 +18,6 @@ const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
 const innerWidthScreen = document.body.clientWidth;
 const paginatedList = document.querySelector('#paginated-list');
-
 // Массив с буквами и цифрами
 const alphabet = [
   'A',
@@ -89,10 +70,11 @@ export function createAlphabetButtons() {
     button.addEventListener('click', async () => {
       const selectedLetter = letter;
       paginatedList.innerHTML = '';
-      console.log('paginatedList', paginatedList);
+      console.log("paginatedList", paginatedList)
       console.log(selectedLetter);
       // Отправляем запрос для поиска коктейлей по выбранной букве или цифре
       await searchCocktails(selectedLetter);
+      
     });
   });
 }
@@ -101,13 +83,11 @@ export function createAlphabetButtons() {
 export function configureAlphabetSelect() {
   // Создаем опции для выпадающего списка
   alphabet.forEach(letter => {
-    if (letter.match(/[A-Z]/)) {
-      // Проверяем, является ли текущий элемент буквой (A-Z) так как в массиве еще цифры
-      const option = document.createElement('option');
-      option.value = letter;
-      option.textContent = letter;
-      alphabetSelect.insertAdjacentElement('beforeend', option);
-    }
+    const option = document.createElement('option');
+    option.value = letter;
+    option.textContent = letter;
+    alphabetSelect.insertAdjacentElement('beforeend', option);
+    
   });
   paginatedList.innerHTML = '';
   // Добавляем обработчик события при выборе буквы в выпадающем списке
@@ -116,8 +96,23 @@ export function configureAlphabetSelect() {
     const selectedLetter = alphabetSelect.value;
     paginatedList.innerHTML = '';
     await searchCocktails(selectedLetter);
+    
   });
 }
+
+// Получаем элемент c рандомным списком коктейлей по его классу
+const randomCocktailsElement = document.querySelector('.random-cocktails');
+
+// Получаем cписок в который будем добавлять список коктейлей
+const resultsList = document.querySelector(
+  '.searching-results .cocktails-list'
+);
+
+// Получаем контейнер с которому убираем скрытый класс
+const resultsContainer = document.querySelector('.searching-results');
+
+// Получаем заголовок блока в который будем добавлять список коктейлей и который сделаем видимым
+const titleElement = document.querySelector('.searching-results-title');
 
 // Функция для отправки запроса по букве или цифре
 export async function searchCocktails(letter) {
@@ -145,32 +140,19 @@ export async function searchCocktails(letter) {
       resultsList.insertAdjacentHTML('beforeend', markup);
       paginator();
       console.log(resultsList);
+    } else {
+      //  !! вставить вывод модалки или что там когда коктейли не найдены
     }
   } catch (error) {
     // Обработка ошибок при запросе к API
     listResults.innerHTML = '';
     console.error('Произошла ошибка при отправке запроса:', error);
-    // Если поиск пустой, то
-    resultsContainer.classList.add('isHidden');
-    emptySearchElement.classList.remove('isHidden');
+    //!! Вставить код для отображения сообщения об ошибке или другой обработки ошибки
   }
 }
 
 createAlphabetButtons();
 configureAlphabetSelect();
-
-alphabetSelect.classList.add('js-choice');
-
-const choices = new Choices(alphabetSelect, {
-  items: alphabet,
-  maxItemCount: 1,
-  allowHTML: true,
-  searchEnabled: false, // Убирает тсроку для поиска
-  shouldSortItems: false,
-  itemSelectText: '', // Убирает текст "Press to select"
-  placeholder: false,
-  position: 'bottom',
-});
 
 function paginator() {
 
