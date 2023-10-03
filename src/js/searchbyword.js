@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createMarkupCocktail } from "./createMarkupCocktail";
 
+
 const BASE_URL = "https://drinkify.b.goit.study/api/v1/cocktails/";
 const searchForm = document.querySelector(".search-form");
 const emptySearch = document.querySelector(".empty-search");
@@ -14,7 +15,6 @@ const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
 const innerWidthScreen = document.body.clientWidth;
 const paginatedList = document.querySelector('#paginated-list');
-
 emptySearch.style.display = 'none';
 pagContainer.style.display = 'none';  
 const getImages = async (data) => {
@@ -48,7 +48,7 @@ const searchInfoCallback = async (e) => {
     }
     paginatedList.innerHTML = '';
     getImages(data);
-   
+    
     e.currentTarget.reset();
     
   } 
@@ -62,6 +62,7 @@ function renderImages(images) {
     
     listResults.insertAdjacentHTML("afterbegin", markup);
     paginator();
+    
    
 }
 
@@ -91,6 +92,7 @@ function errorMsg() {
     pagContainer.style.display = 'none'; 
     searchTitle.style.display = 'none'
     randomCocktails.style.display = 'none';
+    searchContainer.classList.add("isHidden");
     listResults.innerHTML = '';
 }
 
@@ -105,6 +107,8 @@ function paginator() {
      } 
      console.log(innerWidthScreen, paginationLimit);
      console.log ("listItems",  listItems);
+     console.log("paginationNumbers!!!!!!!!!!!!!");
+    //  console.log("paginationNumbers last3", paginationNumbers.lastChild(n-3));
  const pageCount = Math.ceil(listItems.length / paginationLimit);
   console.log("pageCount", pageCount);
      if (pageCount === 1) {
@@ -155,6 +159,8 @@ function paginator() {
      pageNumber.setAttribute("aria-label", "Page " + index);
    
      paginationNumbers.appendChild(pageNumber);
+     
+    //  console.log("paginationNumbers last3", paginationNumbers.lastChild(n-3));
    };
    const getPaginationNumbers = () => {
      for (let i = 1; i <= pageCount; i++) {

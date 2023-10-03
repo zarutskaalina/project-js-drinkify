@@ -122,7 +122,7 @@ export function configureAlphabetSelect() {
 // Функция для отправки запроса по букве или цифре
 export async function searchCocktails(letter) {
   //  Очистить контейнер с результатами (там где коктейли будут отображаться)
-  resultsList.innerHTML = '';
+  // resultsList.innerHTML = '';
   paginationNumbers.innerHTML = '';
   // Убираем класс hidden
   resultsContainer.classList.remove('isHidden');
@@ -142,17 +142,19 @@ export async function searchCocktails(letter) {
       //   код для отображения карточек с коктейлями
       const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
       console.log(resultsList);
+      emptySearchElement.style.display = 'none';
       resultsList.insertAdjacentHTML('beforeend', markup);
       paginator();
       console.log(resultsList);
     }
   } catch (error) {
     // Обработка ошибок при запросе к API
-    listResults.innerHTML = '';
+    pagContainer.style.display = 'none';
     console.error('Произошла ошибка при отправке запроса:', error);
     // Если поиск пустой, то
     resultsContainer.classList.add('isHidden');
-    emptySearchElement.classList.remove('isHidden');
+    emptySearchElement.style.display = 'block';
+    resultsList.innerHTML = '';
   }
 }
 
@@ -172,6 +174,7 @@ const choices = new Choices(alphabetSelect, {
   position: 'bottom',
 });
 
+
 function paginator() {
 
   pagContainer.style.display = 'flex'; 
@@ -183,8 +186,8 @@ function paginator() {
   } 
   console.log(innerWidthScreen, paginationLimit);
   console.log ("listItems",  listItems);
-const pageCount = Math.ceil(listItems.length / paginationLimit);
-console.log("pageCount", pageCount);
+  const pageCount = Math.ceil(listItems.length / paginationLimit);
+  console.log("pageCount", pageCount);
   if (pageCount === 1) {
       pagContainer.style.display = 'none';
       paginationNumbers.innerHTML = '';
@@ -277,4 +280,4 @@ if (listItems.length > paginationLimit) {
     }
   });
 }
-} 
+}
