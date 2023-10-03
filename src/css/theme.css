@@ -12,17 +12,20 @@
   --primary-color-text: var(--primary-black-color);
   --primary-color-interface: var(--primary-white-color);
   --secondary-color-interface: rgb(248, 249, 255);
+  --bg-color: rgb(248, 249, 255);
+  --bg-color-checked: transparent;
+  --border-checked: var(--primary-black-color);
+  --span-checked: var(--additional-accent-color);
 }
 
 [data-theme='dark'] {
   --primary-color-text: var(--primary-white-color);
   --primary-color-interface: var(--primary-black-color);
   --secondary-color-interface: rgb(35, 35, 48);
+  --bg-color: rgb(0, 0, 0);
+  --bg-color-checked: var(--additional-accent-color);
+  --border-checked: var(--accent-color);
+  --span-checked: var(--primary-white-color);
 }
 
-/* background-color: rgba(--primary-color-text), var(--opacity-10)); */
-
-/* .button {
-  background-color: var(--primary-color-interface);
-  color: var(--primary-color-interface);
-} */
+/* background-color: rgba(var(--primary-color-text), var(--opacity-10)); */
