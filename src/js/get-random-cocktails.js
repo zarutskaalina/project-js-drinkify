@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createMarkupCocktail } from './createMarkupCocktail';
-import { getCardInfo } from './overlay-cocktails-learm-more';
+import { createMarkupCocktail } from './create-markup-cocktail';
+import { getCardInfo } from './cocktails-modal';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector(

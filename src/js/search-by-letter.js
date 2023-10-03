@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { createMarkupCocktail } from './createMarkupCocktail';
-import { getCardInfo } from './overlay-cocktails-learm-more';
+import { createMarkupCocktail } from './create-markup-cocktail';
+import { getCardInfo } from './cocktails-modal';
 
 import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========

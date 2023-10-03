@@ -1,7 +1,8 @@
 // import axios from 'axios';
+import { getCocktails } from './cocktail-api';
 import { Notify } from 'notiflix';
 import { renderCocktails } from './get-random-cocktails';
-import { createMarkupCocktail } from './createMarkupCocktail';
+import { createMarkupCocktail } from './create-markup-cocktail';
 import { fetchRandomCocktails } from './get-random-cocktails';
 import { getIngredients } from './services';
 import {
@@ -14,13 +15,6 @@ import refs from './refs';
 // Зміна з дівом, куди записується розмітка модалки
 const cocktailsCardInfo = document.querySelector('.cocktails-container');
 const backdrop = document.querySelector('body');
-
-function fetchCards() {
-  return fetch('https://drinkify.b.goit.study/api/v1/cocktails/lookup')
-    .then(resp => resp.json())
-    .then(data => data)
-    .catch(err => err);
-}
 
 // Розмітка для модалки
 function renderModalContent(chosenElement) {
@@ -68,11 +62,12 @@ function renderModalContent(chosenElement) {
 
 // Фунуція для виклику модалки
 export function getCardInfo(event) {
-  fetchCards()
-    .then(result => {
-      cocktailsCardInfo.classList.remove('is-hidden');
-      const id = event.target.getAttribute('data-id');
-      const chosenElement = result.find(item => item._id === id);
+  cocktailsCardInfo.classList.remove('is-hidden');
+  const cocktailsId = event.target.getAttribute('data-id');
+
+  getCocktails()
+    .then(resp => {
+      const chosenElement = resp.find(item => item._id === cocktailsId);
 
       const modalContent = renderModalContent(chosenElement);
       cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
@@ -114,10 +109,10 @@ export function getCardInfo(event) {
       // );
 
       // Клік по бекдропу закриває модалку
-      backdrop.addEventListener('click', () => {
-        cocktailsCardInfo.innerHTML = '';
-        cocktailsCardInfo.classList.add('is-hidden');
-      });
+      // backdrop.addEventListener('click', () => {
+      //   cocktailsCardInfo.innerHTML = '';
+      //   cocktailsCardInfo.classList.add('is-hidden');
+      // });
 
       // Кнопка, що закриває модалку
       const backBtn = document.querySelectorAll('.back-btn');
@@ -130,7 +125,3 @@ export function getCardInfo(event) {
     })
     .catch(err => console.log(err));
 }
-
-// function handlerAddFavoriteCocktails(e) {}
-
-// const dataCocktails = JSON.parse(localStorage.setItem('cocktails'));
