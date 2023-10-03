@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { createMarkupCocktail } from './createMarkupCocktail';
+import { getCardInfo } from './overlay-cocktails-learm-more';
 
 import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
@@ -80,7 +81,6 @@ export function createAlphabetButtons() {
     // Добавляем асинхронный обработчик события для каждой кнопки
     button.addEventListener('click', async () => {
       const selectedLetter = letter;
-      console.log(selectedLetter);
       // Отправляем запрос для поиска коктейлей по выбранной букве или цифре
       await searchCocktails(selectedLetter);
     });
@@ -126,13 +126,16 @@ export async function searchCocktails(letter) {
       `${BASE_URL}cocktails/search/?f=${letter}`
     );
     const cocktails = response.data;
-    console.log(cocktails);
     if (cocktails.length !== 0) {
       //   код для отображения карточек с коктейлями
       const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
-      console.log(resultsList);
       resultsList.insertAdjacentHTML('beforeend', markup);
-      console.log(resultsList);
+
+      // Підключення модалки коктелів
+      const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+      learnMoreBtns.forEach(button => {
+        button.addEventListener('click', getCardInfo);
+      });
     }
   } catch (error) {
     // Обработка ошибок при запросе к API

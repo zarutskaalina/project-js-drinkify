@@ -1,10 +1,8 @@
 // import axios from 'axios';
-import { Notify } from 'notiflix';
-import { renderCocktails } from './get-random-cocktails';
-import { createMarkupCocktail } from './createMarkupCocktail';
-import { fetchRandomCocktails } from './get-random-cocktails';
 
+// Зміна з дівом, куди записується розмітка модалки
 const cocktailsCardInfo = document.querySelector('.cocktails-container');
+const backdrop = document.querySelector('body');
 
 function fetchCards() {
   return fetch('https://drinkify.b.goit.study/api/v1/cocktails/lookup')
@@ -13,6 +11,7 @@ function fetchCards() {
     .catch(err => err);
 }
 
+// Розмітка для модалки
 function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
@@ -56,32 +55,38 @@ function renderModalContent(chosenElement) {
 </div>`;
 }
 
+// Фунуція для виклику модалки
 export function getCardInfo(event) {
   fetchCards()
     .then(result => {
+      cocktailsCardInfo.classList.remove('is-hidden');
       const id = event.target.getAttribute('data-id');
       const chosenElement = result.find(item => item._id === id);
 
-      if (chosenElement) {
-        const modalContent = renderModalContent(chosenElement);
-        cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
+      const modalContent = renderModalContent(chosenElement);
+      cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
 
-        // const addFavoriteCocktailsBtn =
-        //   document.querySelector('.add-favorite-btn');
-        // addFavoriteCocktailsBtn.addEventListener(
-        //   'click',
-        //   handlerAddFavoriteCocktails
-        // );
+      // const addFavoriteCocktailsBtn =
+      //   document.querySelector('.add-favorite-btn');
+      // addFavoriteCocktailsBtn.addEventListener(
+      //   'click',
+      //   handlerAddFavoriteCocktails
+      // );
 
-        const backBtn = document.querySelectorAll('.back-btn');
-        backBtn.forEach(button =>
-          button.addEventListener('click', () => {
-            cocktailsCardInfo.innerHTML = '';
-            cocktailsCardInfo.classList.add('is-hidden');
-          })
-        );
-        cocktailsCardInfo.classList.remove('is-hidden');
-      }
+      // Клік по бекдропу закриває модалку
+      backdrop.addEventListener('click', () => {
+        cocktailsCardInfo.innerHTML = '';
+        cocktailsCardInfo.classList.add('is-hidden');
+      });
+
+      // Кнопка, що закриває модалку
+      const backBtn = document.querySelectorAll('.back-btn');
+      backBtn.forEach(button =>
+        button.addEventListener('click', () => {
+          cocktailsCardInfo.innerHTML = '';
+          cocktailsCardInfo.classList.add('is-hidden');
+        })
+      );
     })
     .catch(err => console.log(err));
 }
