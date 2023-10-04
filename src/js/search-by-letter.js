@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { createMarkupCocktail } from './createMarkupCocktail';
+import { createMarkupCocktail } from './create-markup-cocktail';
+import { getCardInfo } from './cocktails-modal';
 
 import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
@@ -30,7 +31,7 @@ const titleElement = document.querySelector('.searching-results-title');
 const emptySearchElement = document.querySelector('.empty-search');
 
 // Items for pagination
-const pagContainer = document.querySelector(".pagination-container");
+const pagContainer = document.querySelector('.pagination-container');
 const paginationNumbers = document.querySelector('#pagination-numbers');
 const nextButton = document.querySelector('#next-button');
 const prevButton = document.querySelector('#prev-button');
@@ -137,7 +138,6 @@ export async function searchCocktails(letter) {
       `${BASE_URL}cocktails/search/?f=${letter}`
     );
     const cocktails = response.data;
-    console.log(cocktails);
     if (cocktails.length !== 0) {
       //   код для отображения карточек с коктейлями
       const markup = cocktails.map(item => createMarkupCocktail(item)).join('');
@@ -174,110 +174,106 @@ const choices = new Choices(alphabetSelect, {
   position: 'bottom',
 });
 
-
 function paginator() {
-
-  pagContainer.style.display = 'flex'; 
-  const listItems = paginatedList.querySelectorAll("li");
+  pagContainer.style.display = 'flex';
+  const listItems = paginatedList.querySelectorAll('li');
   let paginationLimit = 8;
   if (innerWidthScreen > 1279) {
-      paginationLimit = 9; 
-  
-  } 
+    paginationLimit = 9;
+  }
   console.log(innerWidthScreen, paginationLimit);
-  console.log ("listItems",  listItems);
+  console.log('listItems', listItems);
   const pageCount = Math.ceil(listItems.length / paginationLimit);
-  console.log("pageCount", pageCount);
+  console.log('pageCount', pageCount);
   if (pageCount === 1) {
-      pagContainer.style.display = 'none';
-      paginationNumbers.innerHTML = '';
-
+    pagContainer.style.display = 'none';
+    paginationNumbers.innerHTML = '';
   }
-let currentPage = 1;
+  let currentPage = 1;
 
-const disableButton = (button) => {
-  button.classList.add("disabled");
-  button.setAttribute("disabled", true);
-};
+  const disableButton = button => {
+    button.classList.add('disabled');
+    button.setAttribute('disabled', true);
+  };
 
-const enableButton = (button) => {
-  button.classList.remove("disabled");
-  button.removeAttribute("disabled");
-};
+  const enableButton = button => {
+    button.classList.remove('disabled');
+    button.removeAttribute('disabled');
+  };
 
-const handlePageButtonsStatus = () => {
-  if (currentPage === 1) {
-    disableButton(prevButton);
-  } else {
-    enableButton(prevButton);
-  }
-
-  if (pageCount === currentPage) {
-    disableButton(nextButton);
-  } else {
-    enableButton(nextButton);
-  }
-};
-const handleActivePageNumber = () => {
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    button.classList.remove("active");
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex == currentPage) {
-      button.classList.add("active");
+  const handlePageButtonsStatus = () => {
+    if (currentPage === 1) {
+      disableButton(prevButton);
+    } else {
+      enableButton(prevButton);
     }
-  });
-};  
-const appendPageNumber = (index) => {
-  const pageNumber = document.createElement("button");
-  pageNumber.className = "pagination-number";
-  pageNumber.innerHTML = index;
-  console.log("index", index);
-  pageNumber.setAttribute("page-index", index);
-  pageNumber.setAttribute("aria-label", "Page " + index);
 
-  paginationNumbers.appendChild(pageNumber);
-};
-const getPaginationNumbers = () => {
-  for (let i = 1; i <= pageCount; i++) {
-    appendPageNumber(i);
+    if (pageCount === currentPage) {
+      disableButton(nextButton);
+    } else {
+      enableButton(nextButton);
+    }
+  };
+  const handleActivePageNumber = () => {
+    document.querySelectorAll('.pagination-number').forEach(button => {
+      button.classList.remove('active');
+      const pageIndex = Number(button.getAttribute('page-index'));
+      if (pageIndex == currentPage) {
+        button.classList.add('active');
+      }
+    });
+  };
+  const appendPageNumber = index => {
+    const pageNumber = document.createElement('button');
+    pageNumber.className = 'pagination-number';
+    pageNumber.innerHTML = index;
+    console.log('index', index);
+    pageNumber.setAttribute('page-index', index);
+    pageNumber.setAttribute('aria-label', 'Page ' + index);
+
+    paginationNumbers.appendChild(pageNumber);
+  };
+  const getPaginationNumbers = () => {
+    for (let i = 1; i <= pageCount; i++) {
+      appendPageNumber(i);
+    }
+  };
+  const setCurrentPage = pageNum => {
+    currentPage = pageNum;
+
+    handleActivePageNumber();
+    handlePageButtonsStatus();
+
+    const prevRange = (pageNum - 1) * paginationLimit;
+    const currRange = pageNum * paginationLimit;
+
+    listItems.forEach((item, index) => {
+      item.classList.add('hidden');
+      if (index >= prevRange && index < currRange) {
+        item.classList.remove('hidden');
+      }
+    });
+  };
+  if (listItems.length > paginationLimit) {
+    getPaginationNumbers();
+    setCurrentPage(1);
+
+    prevButton.addEventListener('click', () => {
+      setCurrentPage(currentPage - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      setCurrentPage(currentPage + 1);
+    });
+
+    document.querySelectorAll('.pagination-number').forEach(button => {
+      const pageIndex = Number(button.getAttribute('page-index'));
+
+      if (pageIndex) {
+        button.addEventListener('click', () => {
+          setCurrentPage(pageIndex);
+        });
+      }
+    });
   }
-};
-const setCurrentPage = (pageNum) => {
-  currentPage = pageNum;
-
-  handleActivePageNumber();
-  handlePageButtonsStatus();
-  
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
-
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
-  });
-};
-if (listItems.length > paginationLimit) {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  prevButton.addEventListener("click", () => {
-    setCurrentPage(currentPage - 1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    setCurrentPage(currentPage + 1);
-  });
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
-  });
-}
 }

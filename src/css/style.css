@@ -1,10 +1,10 @@
-@import url('./searchbyword.css');
 @import url('./theme.css');
 @import url('./header.css');
-@import url('./burger-menu.css');
-@import url('./searchByLetter.css');
-@import url('./overlay-cocktails.learn-more.css');
 @import url('./hero.css');
+@import url('./burger-menu.css');
+@import url('./search-by-letter.css');
+@import url('./search-by-word.css');
+@import url('./cocktails-modal.css');
 @import url('./footer.css');
 
 *,
