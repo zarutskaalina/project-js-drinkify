@@ -1,4 +1,4 @@
-<section class="container ingredients" id="section-favorite-ingredients">
+<!-- <section class="container ingredients" id="section-favorite-ingredients">
 <h2 class="ingredients-main-title">Favorite ingredients</h2>
 <ul class="ingredients-cards" id="paginated-list"></ul>
 <div class="ingredients-placeholder">
@@ -7,4 +7,47 @@
     </svg>
         <p class="placeholder-text">You haven't added any <span class="placeholder-text-colored">favorite cocktails</span> yet</p>
 </div>
+</section> -->
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drinkify</title>
+    <link rel="icon" type="image/png" href="./images/favicon/logo.png" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <include src="./partials/example.html"></include> -->
+    <include src="./partials/header.html"></include>
+    <include src="./partials/burger-menu.html"></include>
+    <main>
+<section class="container ingredients" id="section-favorite-ingredients">
+    <h2 class="ingredients-main-title">Favorite ingredients</h2>
+    <ul class="ingredients-cards" id="paginated-list"></ul>
+    <div class="ingredients-placeholder">
+        <svg class="icon-placeholder" width="142" height="122">
+            <use href="./images/sprite.svg#icon-shaker-mobile"></use>
+        </svg>
+        <p class="placeholder-text">You haven't added any <span class="placeholder-text-colored">favorite
+                cocktails</span> yet</p>
+    </div>
 </section>
+    </main>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/ingredient-modal.html"></include>
+    <script src="./ingredients-page.js" type="module"></script>
+</body>
+
+</html>
