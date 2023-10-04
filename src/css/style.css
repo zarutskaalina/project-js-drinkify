@@ -57,17 +57,10 @@ ol {
 
 body {
   font-family: var(--main-font-family);
-  background: rgb(248, 249, 255);
-  background-image: linear-gradient(
-    292deg,
-    rgba(248, 249, 255, 1) 84%,
-    rgba(156, 223, 223, 1) 104%
-  );
-  /* background-image: linear-gradient(
-      117deg,
-      rgba(248, 249, 255, 1) 84%,
-      rgba(156, 223, 223, 1) 104%
-    ); */
+  background: var(--bg-color);
+  background-image: var(--bg-image);
+  
+  
   background-repeat: no-repeat;
   background-size: contain;
 }

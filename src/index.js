@@ -6,3 +6,4 @@ import './js/get-random-cocktails';
 import './js/cocktails-modal';
 import './js/ingredient-modal';
 import './js/search-by-word';
+import './js/theme';

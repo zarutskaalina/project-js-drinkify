@@ -1,6 +1,4 @@
-/* @import '../node_modules/bootstrap/scss/functions'; */
-
-.cocktails-info {
+.cocktails-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +14,7 @@
   display: none;
 }
 
-.backdrop {
+.cocktails-modal {
   position: absolute;
   padding: 40px;
   width: 600px;
@@ -27,7 +25,7 @@
   border-radius: 20px;
 }
 
-.modal {
+.cocktails-modal-content {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
