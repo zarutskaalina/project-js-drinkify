@@ -12,7 +12,7 @@ function renderCocktails() {
   const ingredientsCards = dataCocktails
     .slice(0, displayedCards)
     .map((cocktail) => `
-    <div class="ingredient-card" data-id="${cocktail._id}">
+    <li class="ingredient-card" data-id="${cocktail._id}">
       <h2 class="ingredient-title">${cocktail.title}</h2>
       <p class="alcohol-level">${cocktail.alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</p>
       <p class="ingredient-description">${cocktail.description}</p>
@@ -24,7 +24,7 @@ function renderCocktails() {
           </svg>
         </button>
       </div>
-    </div>
+    </li>
   `).join("");
   cocktailsContainer.innerHTML = ingredientsCards;
 
@@ -37,8 +37,6 @@ function renderCocktails() {
 };
 
 renderCocktails();
-
-
 
 
 function onDeleteCardBtn(event) {
@@ -58,6 +56,3 @@ function onDeleteCardBtn(event) {
 }
 
 cocktailsContainer.addEventListener('click', onDeleteCardBtn);
-
-
-
