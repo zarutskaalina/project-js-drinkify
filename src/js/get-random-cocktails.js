@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { getCardInfo } from './cocktails-modal';
+import { favoriteHandler } from './favorite';
+import { chekFavorite } from './favorite';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector(
@@ -45,9 +47,11 @@ export function renderCocktails(arr, container) {
   learnMoreBtns.forEach(button => {
     button.addEventListener('click', getCardInfo);
   });
+
   const favBtn = document.querySelectorAll('.cocktails-button-favorite');
   favBtn.forEach(bfv => {
-    bfv.addEventListener('click', e=>handleAddToFavorite(e,'cocktails'));
+    chekFavorite(bfv);
+    bfv.addEventListener('click', favoriteHandler);
   });
 }
 
