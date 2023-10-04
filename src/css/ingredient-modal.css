@@ -1,0 +1,212 @@
+.ingredient-modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #15151599;
+  z-index: 99;
+}
+
+.ingredient-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 50px);
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-color: var(--secondary-color-interface);
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 375px) {
+  .ingredient-modal {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal {
+    width: 600px;
+    padding: 40px;
+  }
+}
+
+.ingredient-modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transform 300ms ease;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-close-btn {
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.ingredient-modal-close-btn:hover {
+  transform: rotate(180deg);
+}
+
+.close-icon {
+  transform-origin: center;
+  transition: transform 300ms ease;
+}
+
+.ingredient-modal-close-btn > .close-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary-color-text);
+}
+
+.ingredient-modal-title {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--primary-color-text);
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-title {
+    margin-bottom: 12px;
+  }
+}
+
+.ingredient-modal-subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-family: Poppins;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 18px;
+  color: var(--primary-color-text);
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-subtitle {
+    margin-bottom: 22px;
+  }
+}
+
+.ingredient-modal-description {
+  max-height: 300px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--primary-transparent-color-text);
+  overflow-y: auto;
+}
+
+.ingredient-modal-description > b {
+  color: var(--primary-color-text);
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-description {
+    margin-top: 18px;
+  }
+}
+
+.ingredient-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  font-size: 14px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--primary-color-text);
+  opacity: 0.8;
+}
+
+.ingredient-modal-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-btn-wrapper {
+    flex-direction: row;
+  }
+}
+
+.ingredient-modal-favorite-btn,
+.ingredient-modal-back-btn {
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-favorite-btn,
+  .ingredient-modal-back-btn {
+    padding: 16px 32px;
+  }
+
+  .ingredient-modal-favorite-btn {
+    min-width: 251px;
+  }
+
+  .ingredient-modal-back-btn {
+    width: 172px;
+  }
+}
+
+.ingredient-modal-favorite-btn {
+  color: var(--primary-white-color);
+  background-color: var(--primary-button-backgroun);
+}
+
+.ingredient-modal-favorite-btn:hover {
+  background-color: var(--primary-button-accent-backgroun);
+}
+
+.ingredient-modal-back-btn {
+  color: var(--primary-color-text);
+  background-color: var(--back-button-background);
+}
+
+.ingredient-modal-back-btn:hover {
+  background-color: var(--back-button-accent-background);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-color-text);
+  opacity: 0.1;
+}
+
+.isShow {
+  display: block;
+}

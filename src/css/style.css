@@ -1,8 +1,34 @@
 @import url('./theme.css');
 @import url('./ingredients.css');
+@import url('./header.css');
+@import url('./hero.css');
+@import url('./burger-menu.css');
+@import url('./search-by-letter.css');
+@import url('./search-by-word.css');
+@import url('./cocktails-modal.css');
+@import url('./footer.css');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-font-family: 'Poppins', sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
 }
 
 .list {
@@ -13,29 +39,37 @@ html {
   text-decoration: none;
 }
 
-.button {
-  cursor: pointer;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-img {
-  display: block;
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 body {
   font-family: var(--main-font-family);
   background: rgb(248, 249, 255);
+  background-image: linear-gradient(
+    292deg,
+    rgba(248, 249, 255, 1) 84%,
+    rgba(156, 223, 223, 1) 104%
+  );
   /* background-image: linear-gradient(
-      292deg,
-      rgba(248, 249, 255, 1) 84%,
-      rgba(156, 223, 223, 1) 104%
-    ),
-    linear-gradient(
       117deg,
       rgba(248, 249, 255, 1) 84%,
       rgba(156, 223, 223, 1) 104%
-    );
+    ); */
   background-repeat: no-repeat;
-  background-size: contain; */
+  background-size: contain;
 }
 
 @media screen and (min-width: 320px) {
