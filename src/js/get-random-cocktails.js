@@ -1,6 +1,9 @@
 import axios from 'axios';
+
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { getCardInfo } from './cocktails-modal';
+import { favoriteHandler } from './favorite';
+import { chekFavorite } from './favorite';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector(
@@ -29,6 +32,7 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
         r: numberOfRandomCocktails,
       },
     });
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -44,8 +48,15 @@ export function renderCocktails(arr, container) {
   learnMoreBtns.forEach(button => {
     button.addEventListener('click', getCardInfo);
   });
+
+  const favBtn = document.querySelectorAll('.cocktails-button-favorite');
+  favBtn.forEach(bfv => {
+    chekFavorite(bfv);
+    bfv.addEventListener('click', favoriteHandler);
+  });
 }
 
 fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then(res =>
   renderCocktails(res, cocktailsListEl)
 );
+
