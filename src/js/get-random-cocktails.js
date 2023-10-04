@@ -32,6 +32,7 @@ export async function fetchRandomCocktails(numberOfRandomCocktails) {
         r: numberOfRandomCocktails,
       },
     });
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
