@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { getCardInfo } from './cocktails-modal';
+import { favoriteHandler } from './favorite';
+import { chekFavorite } from './favorite';
 
 import Choices from 'choices.js';
 // ============ КЛАВИАТУРА ===========
@@ -144,6 +146,12 @@ export async function searchCocktails(letter) {
       console.log(resultsList);
       emptySearchElement.style.display = 'none';
       resultsList.insertAdjacentHTML('beforeend', markup);
+      // избранное
+      const favBtn = document.querySelectorAll('.cocktails-button-favorite');
+      favBtn.forEach(bfv => {
+        chekFavorite(bfv);
+        bfv.addEventListener('click', favoriteHandler);
+      });
       paginator();
       console.log(resultsList);
     }
