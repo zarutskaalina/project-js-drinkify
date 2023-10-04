@@ -1,11 +1,10 @@
 import spriteUrl from '../images/sprite.svg';
-// import * as ingredientModal from '../js/ingredient-modal.js';
 
 const cocktailsContainer = document.querySelector(".ingredients-cards");
 const dataPlaceholder = document.querySelector(".ingredients-placeholder");
 
 
-const dataCocktails = JSON.parse(localStorage.getItem('cocktails'));
+const dataCocktails = JSON.parse(localStorage.getItem('currentLS'));
 
 let displayedCards = 6;
 
@@ -52,7 +51,7 @@ function onDeleteCardBtn(event) {
 
     dataCocktails.splice(indexToDelete, 1);
 
-    localStorage.setItem('cocktails', JSON.stringify(dataCocktails));
+    localStorage.setItem('currentLS', JSON.stringify(dataCocktails));
 
     renderCocktails();
   }
