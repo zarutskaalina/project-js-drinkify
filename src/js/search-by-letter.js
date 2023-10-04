@@ -87,7 +87,8 @@ export function createAlphabetButtons() {
     alphabetButtons.appendChild(button);
 
     // Добавляем асинхронный обработчик события для каждой кнопки
-    button.addEventListener('click', async () => {
+    button.addEventListener('click', async evt => {
+      evt.preventDefault();
       const selectedLetter = letter;
       paginatedList.innerHTML = '';
       console.log('paginatedList', paginatedList);
@@ -112,7 +113,9 @@ export function configureAlphabetSelect() {
   });
   paginatedList.innerHTML = '';
   // Добавляем обработчик события при выборе буквы в выпадающем списке
-  alphabetSelect.addEventListener('change', async () => {
+  alphabetSelect.addEventListener('change', async evt => {
+    evt.preventDefault();
+
     // Получаем выбранную букву или цифру
     const selectedLetter = alphabetSelect.value;
     paginatedList.innerHTML = '';
