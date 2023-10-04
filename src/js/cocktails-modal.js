@@ -12,17 +12,21 @@ import {
 } from './ingredient-modal';
 import refs from './refs';
 
+let cocktails = [];
+getCocktails().then(data => {
+  cocktails = data;
+});
+
 // Зміна з дівом, куди записується розмітка модалки
 const cocktailsCardInfo = document.querySelector('.cocktails-container');
-const backdrop = document.querySelector('body');
 
 // Розмітка для модалки
 function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
-  return `<div class="cocktails-info">
-  <div class="backdrop">
-  <div class="modal">
+  return `<div class="cocktails-modal-backdrop">
+  <div class="cocktails-modal">
+  <div class="cocktails-modal-content">
     <img
       src="${drinkThumb}"
       alt="${glass}"
@@ -52,7 +56,7 @@ function renderModalContent(chosenElement) {
 
     <div class="cocktails-btn">
       <button class="add-favorite-btn" type="button" data-id="${_id}">
-        ADD TO fAVORITE
+        ADD TO FAVORITE
       </button>
       <button class="back-btn" type="button" data-modal-close >BACK</button>
     </div>
@@ -60,68 +64,83 @@ function renderModalContent(chosenElement) {
 </div>`;
 }
 
+let modalBtn = {};
+
 // Фунуція для виклику модалки
 export function getCardInfo(event) {
   cocktailsCardInfo.classList.remove('is-hidden');
   const cocktailsId = event.target.getAttribute('data-id');
+  const chosenElement = cocktails.find(item => item._id === cocktailsId);
+  const modalContent = renderModalContent(chosenElement);
+  cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
 
-  getCocktails()
-    .then(resp => {
-      const chosenElement = resp.find(item => item._id === cocktailsId);
+  modalBtn = {
+    backdrop: document.querySelector('.cocktails-modal-backdrop'),
+    cocktailsModal: document.querySelector('.cocktails-modal'),
+    cocktailModaFavoriteBtn: document.querySelector('.add-favorite-btn'),
+    backBtn: document.querySelectorAll('.back-btn'),
+  };
 
-      const modalContent = renderModalContent(chosenElement);
-      cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
+  modalBtn.cocktailModaFavoriteBtn.addEventListener(
+    'click',
+    handlerAddToFavotiteCocktail
+  );
 
-      document.querySelectorAll('.ingredients-list').forEach(item => {
-        item.addEventListener('click', e => {
-          if (e.target.nodeName === 'BUTTON') {
-            const ingredientId = e.target.dataset.id;
+  document.querySelectorAll('.ingredients-list').forEach(item => {
+    item.addEventListener('click', e => {
+      if (e.target.nodeName === 'BUTTON') {
+        const ingredientId = e.target.dataset.id;
 
-            getIngredients(ingredientId).then(res => {
-              currentIngredient = res[0];
+        getIngredients(ingredientId).then(res => {
+          currentIngredient = res[0];
+          console.log(res[0]);
 
-              const modalContentMarkup = modalIngredientContent(res[0]);
-              refs.ingredientModaContent.insertAdjacentHTML(
-                'beforeend',
-                modalContentMarkup
-              );
-              localStorage.setItem(
-                'currentIngredient',
-                JSON.stringify(currentIngredient)
-              );
-              refs.backdrop.classList.add('isShow');
-              refs.ingredientModal.classList.add('isShow');
-              setFavoriteButtonContent(ingredientId);
-              refs.ingredientModaFavoriteButton.addEventListener(
-                'click',
-                handleAddToFavorite
-              );
-            });
-          }
+          const modalContentMarkup = modalIngredientContent(res[0]);
+          refs.ingredientModaContent.insertAdjacentHTML(
+            'beforeend',
+            modalContentMarkup
+          );
+          localStorage.setItem(
+            'currentIngredient',
+            JSON.stringify(currentIngredient)
+          );
+          refs.backdrop.classList.add('isShow');
+          refs.ingredientModal.classList.add('isShow');
+          setFavoriteButtonContent(ingredientId);
+          refs.ingredientModaFavoriteButton.addEventListener(
+            'click',
+            handleAddToFavorite
+          );
         });
-      });
+      }
+    });
+  });
 
-      // const addFavoriteCocktailsBtn =
-      //   document.querySelector('.add-favorite-btn');
-      // addFavoriteCocktailsBtn.addEventListener(
-      //   'click',
-      //   handlerAddFavoriteCocktails
-      // );
-
-      // Клік по бекдропу закриває модалку
-      // backdrop.addEventListener('click', () => {
-      //   cocktailsCardInfo.innerHTML = '';
-      //   cocktailsCardInfo.classList.add('is-hidden');
-      // });
-
-      // Кнопка, що закриває модалку
-      const backBtn = document.querySelectorAll('.back-btn');
-      backBtn.forEach(button =>
-        button.addEventListener('click', () => {
-          cocktailsCardInfo.innerHTML = '';
-          cocktailsCardInfo.classList.add('is-hidden');
-        })
-      );
+  // Кнопка, що закриває модалку
+  modalBtn.backBtn.forEach(button =>
+    button.addEventListener('click', () => {
+      cocktailsCardInfo.innerHTML = '';
+      cocktailsCardInfo.classList.add('is-hidden');
     })
-    .catch(err => console.log(err));
+  );
 }
+
+const handlerAddToFavotiteCocktail = e => {
+  const ADD_TO_FAVORITE = 'ADD TO FAVORITE';
+  const REMOVE_FROM_FAVORITE = 'REMOVE FROM FAVORITE';
+  const id = e.target.getAttribute('data-id');
+  const chosenCocktail = cocktails.find(item => item._id === id);
+  const favoriteCocktails =
+    JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+  if (e.target.innerText === ADD_TO_FAVORITE) {
+    localStorage.setItem(
+      'favoriteCocktails',
+      JSON.stringify([...favoriteCocktails, chosenCocktail])
+    );
+    modalBtn.cocktailModaFavoriteBtn.textContent = REMOVE_FROM_FAVORITE;
+  } else {
+    const filteredArr = favoriteCocktails.filter(item => item._id !== id);
+    localStorage.setItem('favoriteCocktails', JSON.stringify(filteredArr));
+    modalBtn.cocktailModaFavoriteBtn.textContent = ADD_TO_FAVORITE;
+  }
+};
