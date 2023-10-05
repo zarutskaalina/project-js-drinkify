@@ -1,121 +1,121 @@
 // import axios from 'axios';
-const cocktails = [
-  {
-    _id: '1',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '2',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '3',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '4',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '5',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '6',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '7',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '8',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '9',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '10',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '11',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '12',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-  {
-    _id: '13',
-    title: 'Applejack',
-    thumb:
-      'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
-    description:
-      'Applejack is a strong apple-flavored alcoholic beverage produced from …',
-  },
-];
+// const cocktails = [
+//   {
+//     _id: '1',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '2',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '3',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '4',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '5',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '6',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '7',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '8',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '9',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '10',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '11',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '12',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+//   {
+//     _id: '13',
+//     title: 'Applejack',
+//     thumb:
+//       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
+//     description:
+//       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
+//   },
+// ];
 
-function fun(cocktails) {
-  localStorage.setItem('cocktails', JSON.stringify(cocktails));
-}
-fun(cocktails);
+// function fun(cocktails) {
+//   localStorage.setItem('cocktails', JSON.stringify(cocktails));
+// }
+// fun(cocktails);
 
 const ulList = document.querySelector('.cocktails-list');
 
 function createCocktails() {
   try {
-    const theme = localStorage.getItem('cocktails');
+    const theme = localStorage.getItem('currentLS');
     const cocktailsArr = JSON.parse(theme);
     return cocktailsArr;
   } catch (error) {
@@ -167,7 +167,7 @@ function onBtnDelCard(event) {
 
     cocktailsArr.splice(indexToDelete, 1);
 
-    localStorage.setItem('cocktails', JSON.stringify(cocktailsArr));
+    localStorage.setItem('currentLS', JSON.stringify(cocktailsArr));
 
     createCard(cocktailsArr);
   }
