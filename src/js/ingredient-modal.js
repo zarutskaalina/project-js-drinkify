@@ -12,7 +12,7 @@ export const setFavoriteButtonContent = ingredientId => {
     if (isIngredientInFavorite) {
       refs.ingredientModaFavoriteButton.textContent = 'Remove from favorite';
     } else {
-      refs.ingredientModaFavoriteButton.textContent = 'Add to favorite';
+      refs.ingredientModaFavoriteButton.textContent = 'Add to favoritesfgt';
     }
   }
 };
@@ -78,7 +78,7 @@ export const handleAddToFavorite = () => {
         ({ _id }) => currentIngredient['_id'] !== _id
       );
       localStorage.setItem('ingredients', JSON.stringify(filteredIngredients));
-      refs.ingredientModaFavoriteButton.textContent = 'Add to favorite';
+      refs.ingredientModaFavoriteButton.textContent = 'Add to favoritedfdg';
     } else {
       localStorage.setItem(
         'ingredients',
