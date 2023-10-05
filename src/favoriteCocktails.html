@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./css/favoriteCocktails.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" type="image/png" href="./images/favicon/logo.png" />
-    <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,28 +14,37 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/favoriteCocktails.css" />
+
+    <link rel="icon" type="image/png" href="./images/favicon/logo.png" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
     <title>Document</title>
   </head>
   <body>
+    <include src="./partials/header.html"></include>
+    <include src="./partials/burger-menu.html"></include>
     <main>
       <section class="container-f">
         <div>
           <h2 class="title-fc">Favorite cocktails</h2>
-          <ul class="cocktails-list list">
-            <div class="empty-search isHidden">
-              <svg class="icon" width="142px" height="122px">
-                <use href="./images/sprite.svg#icon-shaker-mobile"></use>
-              </svg>
-              <p class="description">
-                Sorry, we <span>didn’t find</span> any cocktail for you
-              </p>
-            </div>
-          </ul>
+          <ul class="cocktails-list list"></ul>
+          <div class="empty-search isHidden">
+            <svg class="icon" width="142px" height="122px">
+              <use href="./images/sprite.svg#icon-shaker-mobile"></use>
+            </svg>
+            <p class="description">
+              Sorry, we <span>didn’t find</span> any cocktail for you
+            </p>
+          </div>
         </div>
       </section>
     </main>
-  </body>
 
-  <script src="./js/favoriteCocktails.js"></script>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/ingredient-modal.html"></include>
+    <script src="./js/favoriteCocktails.js"></script>
+  </body>
 </html>
