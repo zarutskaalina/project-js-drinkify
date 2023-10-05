@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { createMarkupCocktail } from './create-markup-cocktail';
+import { favoriteHandler } from './favorite';
+import { chekFavorite } from './favorite';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/cocktails/';
 const searchForm = document.querySelector('.search-form');
@@ -51,6 +53,13 @@ function renderImages(images) {
   const markup = images.map(item => createMarkupCocktail(item)).join('');
 
   listResults.insertAdjacentHTML('afterbegin', markup);
+
+  const favBtn = document.querySelectorAll('.cocktails-button-favorite');
+  favBtn.forEach(bfv => {
+    chekFavorite(bfv);
+    bfv.addEventListener('click', favoriteHandler);
+  });
+
   paginator();
 }
 
