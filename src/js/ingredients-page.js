@@ -1,3 +1,5 @@
+const cocktailsContainer = document.querySelector(".ingredients-cards");
+
 import spriteUrl from '../images/sprite.svg';
 
 const cocktailsContainer = document.querySelector(".ingredients-cards");
