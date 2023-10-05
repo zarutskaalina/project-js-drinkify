@@ -1,7 +1,7 @@
 // import axios from 'axios';
 const cocktails = [
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '1',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -9,7 +9,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '2',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -17,7 +17,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '3',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -25,7 +25,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '4',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -33,7 +33,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '5',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -41,7 +41,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '6',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -49,7 +49,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '7',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -57,7 +57,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '8',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -65,7 +65,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '9',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -73,7 +73,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '10',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -81,7 +81,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '11',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -89,7 +89,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '12',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -97,7 +97,7 @@ const cocktails = [
       'Applejack is a strong apple-flavored alcoholic beverage produced from …',
   },
   {
-    _id: '64aebb7f82d96cc69e0eb4a5',
+    _id: '13',
     title: 'Applejack',
     thumb:
       'https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/Irish_Coffee.jpg',
@@ -111,14 +111,17 @@ function fun(cocktails) {
 }
 fun(cocktails);
 
-// import svg from 'bundle-text:/src/images/favorite.svg';
-
 const ulList = document.querySelector('.cocktails-list');
 
 function createCocktails() {
-  const theme = localStorage.getItem('cocktails');
-  const cocktailsArr = JSON.parse(theme);
-  return cocktailsArr;
+  try {
+    const theme = localStorage.getItem('cocktails');
+    const cocktailsArr = JSON.parse(theme);
+    return cocktailsArr;
+  } catch (error) {
+    console.log(error.name); // "SyntaxError"
+    console.log(error.message); // Unexpected token W in JSON at position 0
+  }
 }
 
 const cocktailsArr = createCocktails();
@@ -133,8 +136,8 @@ function createCard(array) {
                     <p class="cocktails-description">${array.description}</p>
                     <div class="cocktails-buttons">
                     <button class="cocktails-button" data-id="${array._id}">learn more</button>
-                    <button class="cocktails-button-favorite">
-                    <svg class="icon" viewBox="0 0 24 24">
+                    <button class="cocktails-button-favorite trash-btn">
+                    <svg class="icon">
                     <use href="../images/sprite.svg#icon-trash-mobile-white"></use>
                     </svg>
                     </button>
@@ -145,9 +148,32 @@ function createCard(array) {
   ulList.innerHTML = markupLoad;
 }
 
-if (cocktailsArr) {
-  createCard(cocktailsArr);
+createCard(cocktailsArr);
+
+ulList.addEventListener('click', onBtnDelCard);
+
+function onBtnDelCard(event) {
+  const clickedElement = event.target;
+  if (clickedElement.classList.contains('trash-btn')) {
+    const cocktailId = clickedElement
+      .closest('.cocktails-item')
+      .getAttribute('id');
+
+    console.log(cocktailId);
+
+    const indexToDelete = cocktailsArr.findIndex(
+      cocktail => cocktail._id === cocktailId
+    );
+
+    cocktailsArr.splice(indexToDelete, 1);
+
+    localStorage.setItem('cocktails', JSON.stringify(cocktailsArr));
+
+    createCard(cocktailsArr);
+  }
 }
+
+// currentLS
 
 // --------------------------------------------------------------------------
 
