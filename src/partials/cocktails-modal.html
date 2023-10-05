@@ -1,1 +1,21 @@
-<div class="cocktails-container"></div>
+<div class="cocktails-modal-backdrop is-hidden"></div>
+<div class="cocktails-modal is-hidden">
+  <button type="button" class="modal-close-btn">
+    <svg class="close-icon">
+      <use
+        href="./images/sprite.svg#icon-x-close-modal-learn-tablet-desktop-black"
+      />
+    </svg>
+  </button>
+
+  <div class="cocktails-modal-content"></div>
+
+  <div class="cocktails-btn">
+    <button class="cocktail-add-favorite-btn" type="button" data-id="${_id}">
+      ADD TO FAVORITE
+    </button>
+    <button class="cocktail-back-btn" type="button" data-modal-close>
+      BACK
+    </button>
+  </div>
+</div>

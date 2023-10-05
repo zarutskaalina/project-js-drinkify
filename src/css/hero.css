@@ -16,7 +16,7 @@
 }
 
 .hero-title {
-  color: var(--primary-black-color);
+  color: var(--secondary-color-interface);
   font-family: Poppins;
   font-size: 32px;
   font-style: normal;
