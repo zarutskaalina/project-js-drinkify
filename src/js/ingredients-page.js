@@ -9,6 +9,7 @@ const dataCocktails = JSON.parse(localStorage.getItem('currentLS'));
 let displayedCards = 6;
 
 function renderCocktails() {
+  if (!dataCocktails) return;
   const ingredientsCards = dataCocktails
     .slice(0, displayedCards)
     .map((cocktail) => `
