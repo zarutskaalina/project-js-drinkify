@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { getCardInfo } from './cocktails-modal';
 import { createMarkupCocktail } from './create-markup-cocktail';
+import { favoriteHandler } from './favorite';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/cocktails/';
 const searchForm = document.querySelector('.search-form');
@@ -16,6 +18,7 @@ const innerWidthScreen = document.body.clientWidth;
 const paginatedList = document.querySelector('#paginated-list');
 emptySearch.style.display = 'none';
 pagContainer.style.display = 'none';
+let cocktails = [];
 const getImages = async data => {
   const listImg = await makeRequest(data);
   if (listImg) {
@@ -51,6 +54,17 @@ function renderImages(images) {
   const markup = images.map(item => createMarkupCocktail(item)).join('');
 
   listResults.insertAdjacentHTML('afterbegin', markup);
+
+  const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+  learnMoreBtns.forEach(button => {
+    button.addEventListener('click', getCardInfo);
+  });
+
+  const favBtn = document.querySelectorAll('.cocktails-button-favorite');
+  favBtn.forEach(bfv => {
+    bfv.addEventListener('click', event => favoriteHandler(event, cocktails));
+  });
+
   paginator();
 }
 
@@ -64,6 +78,7 @@ const makeRequest = async data => {
     .get(`${BASE_URL}search/?${searchParams.toString()}`)
     .then(res => {
       if (res.status === 200) {
+        cocktails = res.data;
         return res.data;
       }
 
