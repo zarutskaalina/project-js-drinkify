@@ -10,9 +10,9 @@ export const setFavoriteButtonContent = ingredientId => {
     );
 
     if (isIngredientInFavorite) {
-      refs.ingredientModaFavoriteButton.textContent = 'Remove from favorite';
+      refs.ingredientModalFavoriteButton.textContent = 'Remove from favorite';
     } else {
-      refs.ingredientModaFavoriteButton.textContent = 'Add to favoritesfgt';
+      refs.ingredientModalFavoriteButton.textContent = 'Add to favorite';
     }
   }
 };
@@ -78,13 +78,13 @@ export const handleAddToFavorite = () => {
         ({ _id }) => currentIngredient['_id'] !== _id
       );
       localStorage.setItem('ingredients', JSON.stringify(filteredIngredients));
-      refs.ingredientModaFavoriteButton.textContent = 'Add to favoritedfdg';
+      refs.ingredientModalFavoriteButton.textContent = 'Add to favorite';
     } else {
       localStorage.setItem(
         'ingredients',
         JSON.stringify([...parsedIngredients, currentIngredient])
       );
-      refs.ingredientModaFavoriteButton.textContent = 'Remove from favorite';
+      refs.ingredientModalFavoriteButton.textContent = 'Remove from favorite';
     }
   } else {
     localStorage.setItem('ingredients', JSON.stringify([currentIngredient]));
@@ -96,13 +96,13 @@ export const handleAddToFavorite = () => {
 const handleClose = () => {
   refs.backdrop.classList.remove('isShow');
   refs.ingredientModal.classList.remove('isShow');
-  refs.ingredientModaContent.innerHTML = '';
-  refs.ingredientModaFavoriteButton.removeEventListener(
+  refs.ingredientModalContent.innerHTML = '';
+  refs.ingredientModalFavoriteButton.removeEventListener(
     'click',
     handleAddToFavorite
   );
 };
 
 refs.backdrop.addEventListener('click', handleClose);
-refs.ingredientModaCloseButton.addEventListener('click', handleClose);
-refs.ingredientModaBackButton.addEventListener('click', handleClose);
+refs.ingredientModalCloseButton.addEventListener('click', handleClose);
+refs.ingredientModalBackButton.addEventListener('click', handleClose);
