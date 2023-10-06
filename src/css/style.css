@@ -7,6 +7,7 @@
 @import url('./search-by-word.css');
 @import url('./cocktails-modal.css');
 @import url('./footer.css');
+@import url('./ingredient-modal.css');
 
 *,
 *::before,
@@ -59,8 +60,7 @@ body {
   font-family: var(--main-font-family);
   background: var(--bg-color);
   background-image: var(--bg-image);
-  
-  
+
   background-repeat: no-repeat;
   background-size: contain;
 }

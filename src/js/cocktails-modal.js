@@ -1,6 +1,5 @@
-// import axios from 'axios';
 import { getCocktails } from './cocktail-api';
-import { Notify } from 'notiflix';
+import { favoriteHandler, markAsFavorite } from './favorite';
 import { renderCocktails } from './get-random-cocktails';
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { fetchRandomCocktails } from './get-random-cocktails';
@@ -15,75 +14,102 @@ import refs from './refs';
 let cocktails = [];
 getCocktails().then(data => {
   cocktails = data;
+  console.log(data);
 });
 
-// Зміна з дівом, куди записується розмітка модалки
-const cocktailsCardInfo = document.querySelector('.cocktails-container');
+const ADD_TO_FAVORITE = 'ADD TO FAVORITE';
+const REMOVE_FROM_FAVORITE = 'REMOVE FROM FAVORITE';
+
+console.log(cocktails);
+
+const modal = {
+  backdrop: document.querySelector('.cocktails-modal-backdrop'),
+  cocktailsModal: document.querySelector('.cocktails-modal'),
+  cocktailsModalContent: document.querySelector('.cocktails-modal-content'),
+  modalCloseBtn: document.querySelector('.modal-close-btn'),
+};
 
 // Розмітка для модалки
 function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
-  return `<div class="cocktails-modal-backdrop">
-  <div class="cocktails-modal">
-  <div class="cocktails-modal-content">
-    <img
-      src="${drinkThumb}"
-      alt="${glass}"
-      class="cocktails-img"
-      width="288"
-    />
-    <div class="cocktails-desc">
-      <h3 class="cocktails-title">${drink}<b></b></h3>
-      <h3 class="cocktails-ingredients-title"><b>INGREDIENTS:</b></h3>
-      <ul class="ingredients-list">
-        ${ingredients
-          .map(
-            ({ measure, title, ingredientId }) =>
-              `<li>
-                <button type="button" class="ingredient-element" data-id="${ingredientId}">
-                 ${title}
-                </button>
-            </li>`
-          )
-          .join('')}
-      </ul>
-    </div>
-  </div>
-
-    <h3 class="cocktails-instructions-title"><b>INSTRUCTIONS:</b></h3>
-    <p class="cocktails-instructions">${instructions}</p>
-
-    <div class="cocktails-btn">
-      <button class="add-favorite-btn" type="button" data-id="${_id}">
-        ADD TO FAVORITE
+  const favoriteCocktails =
+    JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+  const isCocktailInStorage =
+    favoriteCocktails.findIndex(item => item._id === _id) !== -1;
+  const btnText = !isCocktailInStorage ? ADD_TO_FAVORITE : REMOVE_FROM_FAVORITE;
+  return `<div class="cocktails-info">
+  <img
+  src="${drinkThumb}"
+  alt="${glass}"
+  class="cocktails-img"
+  width="288"
+/>
+<div class="cocktails-desc">
+  <h3 class="cocktails-title">${drink}<b></b></h3>
+  <h3 class="cocktails-ingredients-title"><b>INGREDIENTS:</b></h3>
+  <ul class="ingredients-list">
+    ${ingredients
+      .map(
+        ({ title, ingredientId }) => `
+    <li>
+      <button
+        type="button"
+        class="ingredient-element"
+        data-id="${ingredientId}"
+      >
+        ${title}
       </button>
-      <button class="back-btn" type="button" data-modal-close >BACK</button>
-    </div>
-  </div>
-</div>`;
-}
+    </li>
+    `
+      )
+      .join('')}
+  </ul>
+</div>
+</div>
 
-let modalBtn = {};
+<h3 class="cocktails-instructions-title"><b>INSTRUCTIONS:</b></h3>
+<p class="cocktails-instructions">${instructions}</p>
+<div class="cocktails-btn">
+    <button class="cocktail-add-favorite-btn" type="button">
+      ${btnText}
+    </button>
+    <button class="cocktail-back-btn" type="button" data-modal-close>
+      BACK
+    </button>
+  </div>`;
+}
 
 // Фунуція для виклику модалки
 export function getCardInfo(event) {
-  cocktailsCardInfo.classList.remove('is-hidden');
+  // З'являється модалка
+  modal.backdrop.classList.remove('is-hidden');
+  modal.cocktailsModal.classList.remove('is-hidden');
+
+  // У ній відбувається рендер карток
   const cocktailsId = event.target.getAttribute('data-id');
   const chosenElement = cocktails.find(item => item._id === cocktailsId);
   const modalContent = renderModalContent(chosenElement);
-  cocktailsCardInfo.insertAdjacentHTML('beforeend', modalContent);
+  modal.cocktailsModalContent.insertAdjacentHTML('beforeend', modalContent);
 
-  modalBtn = {
-    backdrop: document.querySelector('.cocktails-modal-backdrop'),
-    cocktailsModal: document.querySelector('.cocktails-modal'),
-    cocktailModaFavoriteBtn: document.querySelector('.add-favorite-btn'),
-    backBtn: document.querySelectorAll('.back-btn'),
-  };
+  const cocktailsModaFavoriteBtn = document.querySelector(
+    '.cocktail-add-favorite-btn'
+  );
+  cocktailsModaFavoriteBtn.setAttribute('data-id', cocktailsId);
+  const backBtn = document.querySelectorAll('.cocktail-back-btn');
 
-  modalBtn.cocktailModaFavoriteBtn.addEventListener(
-    'click',
-    handlerAddToFavotiteCocktail
+  //Закриття модалки при кліку на бекдроп
+  modal.backdrop.addEventListener('click', () => {
+    modal.cocktailsModalContent.innerHTML = '';
+    modal.backdrop.classList.add('is-hidden');
+    modal.cocktailsModal.classList.add('is-hidden');
+  });
+
+  const favouriteSvg = event.target.parentElement.querySelector(
+    '.cocktails-button-favorite'
+  );
+  cocktailsModaFavoriteBtn.addEventListener('click', event =>
+    handlerAddToFavotiteCocktail(event, favouriteSvg)
   );
 
   document.querySelectorAll('.ingredients-list').forEach(item => {
@@ -94,9 +120,8 @@ export function getCardInfo(event) {
         getIngredients(ingredientId).then(res => {
           currentIngredient = res[0];
           console.log(res[0]);
-
           const modalContentMarkup = modalIngredientContent(res[0]);
-          refs.ingredientModaContent.insertAdjacentHTML(
+          refs.ingredientModalContent.insertAdjacentHTML(
             'beforeend',
             modalContentMarkup
           );
@@ -107,7 +132,7 @@ export function getCardInfo(event) {
           refs.backdrop.classList.add('isShow');
           refs.ingredientModal.classList.add('isShow');
           setFavoriteButtonContent(ingredientId);
-          refs.ingredientModaFavoriteButton.addEventListener(
+          refs.ingredientModalFavoriteButton.addEventListener(
             'click',
             handleAddToFavorite
           );
@@ -116,31 +141,43 @@ export function getCardInfo(event) {
     });
   });
 
-  // Кнопка, що закриває модалку
-  modalBtn.backBtn.forEach(button =>
+  // Закриття модалки при кліку на кнопку
+  backBtn.forEach(button =>
     button.addEventListener('click', () => {
-      cocktailsCardInfo.innerHTML = '';
-      cocktailsCardInfo.classList.add('is-hidden');
+      modal.cocktailsModalContent.innerHTML = '';
+      modal.backdrop.classList.add('is-hidden');
+      modal.cocktailsModal.classList.add('is-hidden');
     })
   );
+
+  // Закриття модалки при кліку на іконку
+  modal.modalCloseBtn.addEventListener('click', () => {
+    modal.cocktailsModalContent.innerHTML = '';
+    modal.backdrop.classList.add('is-hidden');
+    modal.cocktailsModal.classList.add('is-hidden');
+  });
 }
 
-const handlerAddToFavotiteCocktail = e => {
-  const ADD_TO_FAVORITE = 'ADD TO FAVORITE';
-  const REMOVE_FROM_FAVORITE = 'REMOVE FROM FAVORITE';
+const handlerAddToFavotiteCocktail = (e, favouriteSvg) => {
   const id = e.target.getAttribute('data-id');
   const chosenCocktail = cocktails.find(item => item._id === id);
+  const cocktailsModaFavoriteBtn = document.querySelector(
+    '.cocktail-add-favorite-btn'
+  );
   const favoriteCocktails =
     JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+
   if (e.target.innerText === ADD_TO_FAVORITE) {
+    markAsFavorite(favouriteSvg);
     localStorage.setItem(
       'favoriteCocktails',
       JSON.stringify([...favoriteCocktails, chosenCocktail])
     );
-    modalBtn.cocktailModaFavoriteBtn.textContent = REMOVE_FROM_FAVORITE;
+    cocktailsModaFavoriteBtn.textContent = REMOVE_FROM_FAVORITE;
   } else {
     const filteredArr = favoriteCocktails.filter(item => item._id !== id);
     localStorage.setItem('favoriteCocktails', JSON.stringify(filteredArr));
-    modalBtn.cocktailModaFavoriteBtn.textContent = ADD_TO_FAVORITE;
+    cocktailsModaFavoriteBtn.textContent = ADD_TO_FAVORITE;
+    markAsFavorite(favouriteSvg);
   }
 };
