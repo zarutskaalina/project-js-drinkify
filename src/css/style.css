@@ -82,7 +82,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   body {
-    background-image: var(--bg-image-desktop);
+    /* background-image: var(--bg-image-desktop); */
     /* Центрирование по горизонтали, -191px от низа */
     /* background-position: center bottom -191px;  */
   }
