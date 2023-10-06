@@ -112,11 +112,17 @@
 // fun(cocktails);
 
 const ulList = document.querySelector('.cocktails-list');
+const forhiden = document.querySelector('.forhiden');
 
+// ця функція дістеє з локального і робить масив - ----------------------
 function createCocktails() {
   try {
     const theme = localStorage.getItem('currentLS');
     const cocktailsArr = JSON.parse(theme);
+    if (cocktailsArr.length > 0) {
+      console.log('55');
+      forhiden.setAttribute('hidden', 'hidden');
+    }
     return cocktailsArr;
   } catch (error) {
     console.log(error.name); // "SyntaxError"
@@ -125,8 +131,10 @@ function createCocktails() {
 }
 
 const cocktailsArr = createCocktails();
+
 console.log(cocktailsArr);
 
+// вункція створення карток з масиву------------------------------------
 function createCard(array) {
   const markupLoad = array
     .map(
@@ -147,11 +155,9 @@ function createCard(array) {
     .join(' ');
   ulList.innerHTML = markupLoad;
 }
+createCard(cocktailsArr);
 
-// createCard(cocktailsArr);
-
-ulList.addEventListener('click', onBtnDelCard);
-
+// видалення картки по кнопці------------------------------
 function onBtnDelCard(event) {
   const clickedElement = event.target;
   if (clickedElement.classList.contains('trash-btn')) {
@@ -170,26 +176,15 @@ function onBtnDelCard(event) {
     localStorage.setItem('currentLS', JSON.stringify(cocktailsArr));
 
     createCard(cocktailsArr);
+
+    if (cocktailsArr.length <= 0) {
+      console.log('56');
+      console.log(cocktailsArr.length);
+      forhiden.removeAttribute('hidden');
+    }
   }
 }
-
+ulList.addEventListener('click', onBtnDelCard);
 // currentLS
 
 // --------------------------------------------------------------------------
-
-// function main() {
-//   const postData = cocktailsArr;
-//   let currentPage = 1;
-//   let rows = 6;
-
-//   function displayList(arrData, rowPerPage, page) {
-//     const ulList = document.querySelector('.cocktails-list');
-//     const start = rowPerPage * page;
-//     const end = start + rowPerPage;
-//     const paginatedData = arrData.slice(start, end);
-//   }
-//   function displayPagination() {}
-//   function displayPaginationBtn() {}
-// }
-
-// main();
