@@ -118,8 +118,7 @@ export function getCardInfo(event) {
         const ingredientId = e.target.dataset.id;
 
         getIngredients(ingredientId).then(res => {
-          currentIngredient = res[0];
-          console.log(res[0]);
+          const currentIngredient = res[0];
           const modalContentMarkup = modalIngredientContent(res[0]);
           refs.ingredientModalContent.insertAdjacentHTML(
             'beforeend',

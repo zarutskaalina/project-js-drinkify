@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { getCardInfo } from './cocktails-modal';
 import { favoriteHandler } from './favorite';
