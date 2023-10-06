@@ -1,7 +1,7 @@
 import './js/header-dropdown';
 import './js/burger-menu';
-import './js/searchByLetter';
 import './js/get-random-cocktails';
-import './js/overlay-cocktails-learm-more.js';
+import './js/search-by-letter';
+import './js/search-by-word';
+import './js/cocktails-modal';
 import './js/ingredient-modal';
-import './js/searchByWord.js';
