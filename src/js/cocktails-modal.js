@@ -121,7 +121,7 @@ export function getCardInfo(event) {
           currentIngredient = res[0];
           console.log(res[0]);
           const modalContentMarkup = modalIngredientContent(res[0]);
-          refs.ingredientModaContent.insertAdjacentHTML(
+          refs.ingredientModalContent.insertAdjacentHTML(
             'beforeend',
             modalContentMarkup
           );
@@ -132,7 +132,7 @@ export function getCardInfo(event) {
           refs.backdrop.classList.add('isShow');
           refs.ingredientModal.classList.add('isShow');
           setFavoriteButtonContent(ingredientId);
-          refs.ingredientModaFavoriteButton.addEventListener(
+          refs.ingredientModalFavoriteButton.addEventListener(
             'click',
             handleAddToFavorite
           );

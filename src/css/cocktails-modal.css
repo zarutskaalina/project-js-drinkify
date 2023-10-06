@@ -7,11 +7,50 @@
   background: rgba(21, 21, 21, 0.6);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 99;
+  z-index: 50;
 }
 
 .is-hidden {
   display: none;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transform 300ms ease;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-close-btn {
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.modal-close-btn:hover {
+  transform: rotate(180deg);
+}
+
+.close-icon {
+  transform-origin: center;
+  transition: transform 300ms ease;
+}
+
+.modal-close-btn > .close-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary-color-text);
 }
 
 .cocktails-modal {
@@ -23,7 +62,7 @@
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 20px;
-  z-index: 100;
+  z-index: 60;
 }
 
 .cocktails-info {
@@ -55,7 +94,7 @@
   list-style-position: inside;
 }
 
-li {
+.ingredients-list > li {
   color: #242424cc;
 }
 
@@ -68,8 +107,8 @@ li {
   color: #242424cc;
 }
 
-li:hover,
-li:focus {
+.ingredients-list > li:hover,
+.ingredients-list > li:focus {
   color: #7e8fdd;
 }
 
