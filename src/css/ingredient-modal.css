@@ -35,7 +35,7 @@
   }
 }
 
-.ingredient-modal-close-btn {
+.modal-close-btn {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -51,7 +51,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .ingredient-modal-close-btn {
+  .modal-close-btn {
     top: 18px;
     right: 18px;
     width: 24px;
@@ -59,7 +59,7 @@
   }
 }
 
-.ingredient-modal-close-btn:hover {
+.modal-close-btn:hover {
   transform: rotate(180deg);
 }
 
@@ -68,7 +68,7 @@
   transition: transform 300ms ease;
 }
 
-.ingredient-modal-close-btn > .close-icon {
+.modal-close-btn > .close-icon {
   width: 20px;
   height: 20px;
   stroke: var(--primary-color-text);
