@@ -32,29 +32,25 @@ function renderIngredients() {
   cocktailsContainer.innerHTML = ingredientsCards;
 
   if (dataCocktails.length > 0) {
-  dataPlaceholder.style.display = "none";
+    dataPlaceholder.style.display = "none";
   };
   if (dataCocktails.length === 0) {
-  cocktailsContainer.style.display = "none";
+    cocktailsContainer.style.display = "none";
+    dataPlaceholder.style.display = "block";
   };
 };
 
 renderIngredients();
-
 
 function onDeleteCardBtn(event) {
   const clickedElement = event.target;
 
   if (clickedElement.classList.contains('ingredients-button-remove')) {
     const cocktailId = clickedElement.closest('.ingredient-card').getAttribute('data-id');
-
     const indexToDelete = dataCocktails.findIndex(cocktail => cocktail._id === cocktailId);
-
     dataCocktails.splice(indexToDelete, 1);
-
-    localStorage.setItem('currentLS', JSON.stringify(dataCocktails));
-
-    renderCocktails();
+    localStorage.setItem(currentLS, JSON.stringify(dataCocktails));
+    renderIngredients();
   }
 }
 

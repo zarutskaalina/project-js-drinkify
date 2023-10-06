@@ -2,17 +2,6 @@
     font-family: Poppins;
     padding: 80px 20px;
     color: var(--primary-color-text);
-    background-repeat: no-repeat;
-    background-size: contain;
-    /* background-color: var(--primary-color-interface); */
-/* #f8f9ff; */
-    /* background-image: linear-gradient(117deg,
-        rgba(248, 249, 255, 1) 84%,
-        rgba(156, 223, 223, 1) 104%); */
-
-    background-image: linear-gradient(292deg,
-                rgba(248, 249, 255, 1) 84%,
-                rgba(156, 223, 223, 1) 104%);
 }
 
 .ingredients-cards {
