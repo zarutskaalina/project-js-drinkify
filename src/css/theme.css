@@ -26,11 +26,10 @@
   --back-button-background: var(--secondary-button-backgroun);
   --back-button-accent-background: var(--secondary-button-accent-backgroun);
   --bg-color: rgb(248, 249, 255);
-  --bg-image: linear-gradient(
-    292deg,
-    rgba(248, 249, 255, 1) 84%,
-    rgba(156, 223, 223, 1) 104%
-  );
+  --bg-image-mob: url(/src/images/background/back-light-mob.webp);
+  --bg-image-tablet: url(/src/images/background/back-light-tablet.webp);
+  --bg-image-desktop: url(/src/images/background/back-light-desktop.webp);
+
   --bg-color-checked: transparent;
   --border-checked: var(--primary-black-color);
   --span-checked: var(--additional-accent-color);
@@ -46,7 +45,9 @@
     --secondary-button-accent-backgroun-dark
   );
   --bg-color: rgb(0, 0, 0);
-  --bg-iamge: none;
+  --bg-image-mob: url(/src/images/background/back-dark-mob.webp);
+  --bg-image-tablet: url(/src/images/background/back-dark-tablet.webp);
+  --bg-image-desktop: url(/src/images/background/back-dark-desktop.webp);
   --bg-color-checked: var(--additional-accent-color);
   --border-checked: var(--accent-color);
   --span-checked: var(--primary-white-color);
