@@ -1,9 +1,7 @@
-import { favoriteHandler } from "./favorite";
 import { getCardInfo } from "./cocktails-modal";
 import spriteUrl from '/src/images/sprite.svg';
 
 const cocktailsContainer = document.querySelector('.cocktails-list');
-console.log(cocktailsContainer);
 const currentLS = 'favoriteCocktails';
 const dataCocktails = JSON.parse(localStorage.getItem(currentLS));
 const dataPlaceholder = document.querySelector(".empty-search");
