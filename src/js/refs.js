@@ -1,14 +1,14 @@
 const backdrop = document.querySelector('.ingredient-modal-backdrop');
 const ingredientsLists = document.querySelectorAll('.ingredients-list');
 const ingredientModal = document.querySelector('.ingredient-modal');
-const ingredientModaCloseButton = document.querySelector('.modal-close-btn');
-const ingredientModaContent = document.querySelector(
+const ingredientModalCloseButton = document.querySelector('.ingredient-modal-close-btn');
+const ingredientModalContent = document.querySelector(
   '.ingredient-modal-content'
 );
-const ingredientModaFavoriteButton = document.querySelector(
+const ingredientModalFavoriteButton = document.querySelector(
   '.ingredient-modal-favorite-btn'
 );
-const ingredientModaBackButton = document.querySelector(
+const ingredientModalBackButton = document.querySelector(
   '.ingredient-modal-back-btn'
 );
 
@@ -16,8 +16,8 @@ export default {
   ingredientsLists,
   backdrop,
   ingredientModal,
-  ingredientModaCloseButton,
-  ingredientModaContent,
-  ingredientModaFavoriteButton,
-  ingredientModaBackButton,
+  ingredientModalCloseButton,
+  ingredientModalContent,
+  ingredientModalFavoriteButton,
+  ingredientModalBackButton,
 };

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { getCardInfo } from './cocktails-modal';
 import { favoriteHandler } from './favorite';
-import { chekFavorite } from './favorite';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const cocktailsListEl = document.querySelector(
@@ -51,12 +50,10 @@ export function renderCocktails(arr, container) {
 
   const favBtn = document.querySelectorAll('.cocktails-button-favorite');
   favBtn.forEach(bfv => {
-    chekFavorite(bfv);
-    bfv.addEventListener('click', favoriteHandler);
+    bfv.addEventListener('click', event => favoriteHandler(event, arr));
   });
 }
 
 fetchRandomCocktails(numberOfRandomCocktails(innerWidth)).then(res =>
   renderCocktails(res, cocktailsListEl)
 );
-
