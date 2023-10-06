@@ -32,7 +32,7 @@
     border: none;
     padding: 8px 14px;
     appearance: none;
-    background-image: url('../images/chevron-down.svg');
+    background-image: url('/src/images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
@@ -50,7 +50,7 @@
     border: none;
     padding: 8px 15px;
     appearance: none;
-    background-image: url('../images/chevron-up.svg');
+    background-image: url('/src/images/chevron-up.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
     justify-content: space-between;
@@ -125,8 +125,6 @@
   .choices.is-focused .choices__inner {
     background-color: var(--additional-accent-color);
     color: var(--primary-color-interface);
-
-    background-image: url('../images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
