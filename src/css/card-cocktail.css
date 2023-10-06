@@ -135,6 +135,7 @@ button:active {
     width: 228px;
     padding: 16px 55px;
     color: var(--secondary-color-interface);
+    background-color: transparent;
     font-size: 18px;
     line-height: 133%;
     letter-spacing: 0.36px;

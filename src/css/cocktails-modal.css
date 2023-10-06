@@ -60,7 +60,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: var(--bg-modal);
   border-radius: 20px;
   z-index: 60;
 }
@@ -76,6 +76,7 @@
 }
 
 .cocktails-title {
+  color: var(--title-modal);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -95,16 +96,16 @@
 }
 
 .ingredients-list > li {
-  color: #242424cc;
+  color: var(--li-ingredients);
 }
 
 .ingredient-element {
   border: none;
-  background: #fff;
+  background: transparent;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  color: #242424cc;
+  color: var(--li-ingredients);
 }
 
 .ingredients-list > li:hover,
@@ -118,10 +119,12 @@
 }
 
 .cocktails-ingredients-title {
+  color: var(--title-modal);
   margin-bottom: 46px;
 }
 
 .cocktails-instructions-title {
+  color: var(--title-modal);
   margin-bottom: 17px;
 }
 
@@ -129,7 +132,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: rgba(36, 36, 36, 0.5);
+  color: var(--primary-transparent-color-text);
   margin-bottom: 20px; /*40px */
 }
 
@@ -155,7 +158,8 @@
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.75;
-  background: rgba(36, 36, 36, 0.1);
+  color: var(--title-modal);
+  background: var(--bg-back-color);
 }
 
 .back-btn:hover,
