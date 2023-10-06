@@ -150,11 +150,18 @@ export async function searchCocktails(letter) {
       emptySearchElement.style.display = 'none';
       resultsList.insertAdjacentHTML('beforeend', markup);
       // избранное
+      const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+      learnMoreBtns.forEach(button => {
+        button.addEventListener('click', getCardInfo);
+      });
+
       const favBtn = document.querySelectorAll('.cocktails-button-favorite');
       favBtn.forEach(bfv => {
-        chekFavorite(bfv);
-        bfv.addEventListener('click', favoriteHandler);
+        bfv.addEventListener('click', event =>
+          favoriteHandler(event, cocktails)
+        );
       });
+
       paginator();
       console.log(resultsList);
     }
