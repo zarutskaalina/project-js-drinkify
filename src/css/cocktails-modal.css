@@ -14,6 +14,95 @@
   display: none;
 }
 
+.cocktails-modal {
+  position: fixed;
+  padding: 40px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 20px;
+  z-index: 60;
+}
+
+@media screen and (max-width: 320px) {
+  .cocktails-modal {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cocktails-modal {
+    width: 335px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* padding-top: 40px; */
+    /* height: 905px; */
+  }
+
+  .cocktails-title {
+    display: none;
+  }
+
+  .cocktails-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cocktails-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .cocktail-add-favorite-btn {
+    width: 100%;
+  }
+
+  .cocktail-back-btn {
+    width: 100%;
+  }
+
+  /* .modal-close-btn {
+    display: flex;
+    flex-direction: column;
+  } */
+}
+
+@media screen and (min-width: 768px) {
+  .cocktails-modal {
+    width: 600px;
+  }
+
+  .cocktails-info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cocktails-btn {
+    display: flex;
+    gap: 18px;
+  }
+
+  .cocktail-add-favorite-btn {
+    width: 251px;
+    height: 56px;
+  }
+
+  .cocktail-back-btn {
+    width: 172px;
+  }
+}
+
 .modal-close-btn {
   position: absolute;
   top: 14px;
@@ -51,24 +140,6 @@
   width: 20px;
   height: 20px;
   stroke: var(--primary-color-text);
-}
-
-.cocktails-modal {
-  position: fixed;
-  padding: 40px;
-  width: 600px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border-radius: 20px;
-  z-index: 60;
-}
-
-.cocktails-info {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
 }
 
 .cocktails-img {
@@ -130,11 +201,10 @@
   font-weight: 400;
   line-height: 20px;
   color: rgba(36, 36, 36, 0.5);
-  margin-bottom: 20px; /*40px */
+  margin-bottom: 40px;
 }
 
 .cocktail-add-favorite-btn {
-  width: 251px;
   height: 56px;
   border-radius: 12px;
   background: rgba(126, 143, 221, 1);
@@ -147,7 +217,6 @@
 }
 
 .cocktail-back-btn {
-  width: 172px;
   height: 56px;
   border-radius: 12px;
   border: none;
@@ -161,9 +230,4 @@
 .back-btn:hover,
 .back-btn:focus {
   background: #24242433;
-}
-
-.cocktails-btn {
-  display: flex;
-  gap: 18px;
 }
