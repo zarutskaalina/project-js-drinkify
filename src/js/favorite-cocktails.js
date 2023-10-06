@@ -1,64 +1,100 @@
-const ulList = document.querySelector('.cocktails-list');
+import { favoriteHandler } from "./favorite";
+import { getCardInfo } from "./cocktails-modal";
+import spriteUrl from '/src/images/sprite.svg';
 
-function createCocktails() {
-  try {
-    const theme = localStorage.getItem('currentLS');
-    const cocktailsArr = JSON.parse(theme);
-    return cocktailsArr;
-  } catch (error) {
-    console.log(error.name); // "SyntaxError"
-    console.log(error.message); // Unexpected token W in JSON at position 0
-  }
-}
+const cocktailsContainer = document.querySelector('.cocktails-list');
+console.log(cocktailsContainer);
+const currentLS = 'favoriteCocktails';
+const dataCocktails = JSON.parse(localStorage.getItem(currentLS));
+const dataPlaceholder = document.querySelector(".empty-search");
+console.log(dataCocktails);
 
-const cocktailsArr = createCocktails();
-console.log(cocktailsArr);
-
-function createCard(array) {
-  const markupLoad = array
-    .map(
-      array => `<li class="cocktails-item" id="${array._id}">
-                    <img class="cocktails-image" src="${array.thumb}" alt="foto ${array.thumb}" />
-                    <h3 class="cocktails-name">${array.title}</h3>
-                    <p class="cocktails-description">${array.description}</p>
+function createCard({_id, drinkThumb, drink, description}) {
+  return `<li class="cocktails-item" id="${_id}">
+                    <img class="cocktails-image" src="${drinkThumb}" alt="foto ${drink}" />
+                    <h3 class="cocktails-name">${drink}</h3>
+                    <p class="cocktails-description">${description}</p>
                     <div class="cocktails-buttons">
-                    <button class="cocktails-button" data-id="${array._id}">learn more</button>
+                    <button class="cocktails-button" data-id="${_id}">learn more</button>
                     <button class="cocktails-button-favorite trash-btn">
-                    <svg class="icon">
-                    <use href="../images/sprite.svg#icon-trash-mobile-white"></use>
+                    <svg class="icon-trash" width="18" height="18">
+                      <use href="${spriteUrl}#icon-trash-mobile-white"></use>
                     </svg>
                     </button>
                     </div>
           </li>`
-    )
-    .join(' ');
-  ulList.innerHTML = markupLoad;
-}
+};
 
-// createCard(cocktailsArr);
+function renderFavoriteCocktails(arr, container) {
+  const markup = arr.map(item => createCard(item)).join('');
+  container.innerHTML = markup;
+  const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+  learnMoreBtns.forEach(button => {
+    button.addEventListener('click', getCardInfo);
+  });
+  
+  if (dataCocktails.length > 0) {
+    dataPlaceholder.style.display = "none";
+  };
+  if (dataCocktails.length === 0) {
+    cocktailsContainer.style.display = "none";
+    dataPlaceholder.style.display = "block";
+  };
 
-ulList.addEventListener('click', onBtnDelCard);
+};
 
-function onBtnDelCard(event) {
+function onDeleteCardBtn(event) {
   const clickedElement = event.target;
+
   if (clickedElement.classList.contains('trash-btn')) {
-    const cocktailId = clickedElement
-      .closest('.cocktails-item')
-      .getAttribute('id');
+    const cocktailId = clickedElement.closest('.cocktails-item').getAttribute('data-id');
+    const indexToDelete = dataCocktails.findIndex(cocktail => cocktail._id === cocktailId);
+    dataCocktails.splice(indexToDelete, 1);
+    localStorage.setItem(currentLS, JSON.stringify(dataCocktails));
+    renderFavoriteCocktails(dataCocktails,cocktailsContainer);
+  };
+};
 
-    console.log(cocktailId);
+renderFavoriteCocktails(dataCocktails,cocktailsContainer);
+cocktailsContainer.addEventListener('click', onDeleteCardBtn);
 
-    const indexToDelete = cocktailsArr.findIndex(
-      cocktail => cocktail._id === cocktailId
-    );
+// function createCocktails() {
 
-    cocktailsArr.splice(indexToDelete, 1);
+//   try {
+//     const theme = localStorage.getItem(currentLS);
+//     const cocktailsArr = JSON.parse(theme);
+//     console.log(cocktailsArr);
+//     return
+//   } catch (error) {
+//     console.log(error.name); // "SyntaxError"
+//     console.log(error.message); // Unexpected token W in JSON at position 0
+//   }
+// }
 
-    localStorage.setItem('currentLS', JSON.stringify(cocktailsArr));
+// // createCard(cocktailsArr);
 
-    createCard(cocktailsArr);
-  }
-}
+// ulList.addEventListener('click', onBtnDelCard);
+
+// function onBtnDelCard(event) {
+//   const clickedElement = event.target;
+//   if (clickedElement.classList.contains('trash-btn')) {
+//     const cocktailId = clickedElement
+//       .closest('.cocktails-item')
+//       .getAttribute('id');
+
+//     console.log(cocktailId);
+
+//     const indexToDelete = cocktailsArr.findIndex(
+//       cocktail => cocktail._id === cocktailId
+//     );
+
+//     cocktailsArr.splice(indexToDelete, 1);
+
+//     localStorage.setItem('currentLS', JSON.stringify(cocktailsArr));
+
+//     createCard(cocktailsArr);
+//   }
+// }
 
 // currentLS
 

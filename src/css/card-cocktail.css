@@ -14,11 +14,13 @@ button:active {
 .cocktails-list {
   display: flex;
   flex-wrap: wrap;
-  text-align: start;
+  justify-content: flex-start;
   gap: 20px 0px;
   padding: 0;
 }
+
 .cocktails-item {
+  text-align: start;
   width: 335px;
   padding: 14px 14px 20px 14px;
   border-radius: 20px;
