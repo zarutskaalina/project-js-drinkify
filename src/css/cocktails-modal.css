@@ -10,12 +10,51 @@
   z-index: 50;
 }
 
-.cocktails-container.is-hidden {
+.is-hidden {
   display: none;
 }
 
-.cocktails-modal {
+.modal-close-btn {
   position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transform 300ms ease;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-close-btn {
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.modal-close-btn:hover {
+  transform: rotate(180deg);
+}
+
+.close-icon {
+  transform-origin: center;
+  transition: transform 300ms ease;
+}
+
+.modal-close-btn > .close-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary-color-text);
+}
+
+.cocktails-modal {
+  position: fixed;
   padding: 40px;
   width: 600px;
   left: 50%;
@@ -23,9 +62,10 @@
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 20px;
+  z-index: 60;
 }
 
-.cocktails-modal-content {
+.cocktails-info {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
@@ -54,7 +94,7 @@
   list-style-position: inside;
 }
 
-li {
+.ingredients-list > li {
   color: #242424cc;
 }
 
@@ -67,8 +107,8 @@ li {
   color: #242424cc;
 }
 
-li:hover,
-li:focus {
+.ingredients-list > li:hover,
+.ingredients-list > li:focus {
   color: #7e8fdd;
 }
 
@@ -93,7 +133,7 @@ li:focus {
   margin-bottom: 20px; /*40px */
 }
 
-.add-favorite-btn {
+.cocktail-add-favorite-btn {
   width: 251px;
   height: 56px;
   border-radius: 12px;
@@ -106,7 +146,7 @@ li:focus {
   border: none;
 }
 
-.back-btn {
+.cocktail-back-btn {
   width: 172px;
   height: 56px;
   border-radius: 12px;

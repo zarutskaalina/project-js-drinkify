@@ -89,7 +89,8 @@ export function createAlphabetButtons() {
     alphabetButtons.appendChild(button);
 
     // Добавляем асинхронный обработчик события для каждой кнопки
-    button.addEventListener('click', async () => {
+    button.addEventListener('click', async evt => {
+      evt.preventDefault();
       const selectedLetter = letter;
       paginatedList.innerHTML = '';
       console.log('paginatedList', paginatedList);
@@ -114,7 +115,9 @@ export function configureAlphabetSelect() {
   });
   paginatedList.innerHTML = '';
   // Добавляем обработчик события при выборе буквы в выпадающем списке
-  alphabetSelect.addEventListener('change', async () => {
+  alphabetSelect.addEventListener('change', async evt => {
+    evt.preventDefault();
+
     // Получаем выбранную букву или цифру
     const selectedLetter = alphabetSelect.value;
     paginatedList.innerHTML = '';
@@ -147,11 +150,18 @@ export async function searchCocktails(letter) {
       emptySearchElement.style.display = 'none';
       resultsList.insertAdjacentHTML('beforeend', markup);
       // избранное
+      const learnMoreBtns = document.querySelectorAll('.cocktails-button');
+      learnMoreBtns.forEach(button => {
+        button.addEventListener('click', getCardInfo);
+      });
+
       const favBtn = document.querySelectorAll('.cocktails-button-favorite');
       favBtn.forEach(bfv => {
-        chekFavorite(bfv);
-        bfv.addEventListener('click', favoriteHandler);
+        bfv.addEventListener('click', event =>
+          favoriteHandler(event, cocktails)
+        );
       });
+
       paginator();
       console.log(resultsList);
     }
