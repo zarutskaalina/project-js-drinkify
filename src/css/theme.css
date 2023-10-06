@@ -45,9 +45,7 @@
     --secondary-button-accent-backgroun-dark
   );
   --bg-color: rgb(0, 0, 0);
-  --bg-image-mob: url(/src/images/background/back-dark-mob.webp);
-  --bg-image-tablet: url(/src/images/background/back-dark-tablet.webp);
-  --bg-image-desktop: url(/src/images/background/back-dark-desktop.webp);
+  --bg-image: none;
   --bg-color-checked: var(--additional-accent-color);
   --border-checked: var(--accent-color);
   --span-checked: var(--primary-white-color);
