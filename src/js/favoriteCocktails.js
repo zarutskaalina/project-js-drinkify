@@ -1,4 +1,3 @@
-// import axios from 'axios';
 // const cocktails = [
 //   {
 //     _id: '1',
@@ -117,7 +116,7 @@ const forhiden = document.querySelector('.forhiden');
 // ця функція дістеє з локального і робить масив - ----------------------
 function createCocktails() {
   try {
-    const theme = localStorage.getItem('currentLS');
+    const theme = localStorage.getItem('favoriteCocktails');
     const cocktailsArr = JSON.parse(theme);
     if (cocktailsArr.length > 0) {
       console.log('55');
@@ -173,7 +172,7 @@ function onBtnDelCard(event) {
 
     cocktailsArr.splice(indexToDelete, 1);
 
-    localStorage.setItem('currentLS', JSON.stringify(cocktailsArr));
+    localStorage.setItem('favoriteCocktails', JSON.stringify(cocktailsArr));
 
     createCard(cocktailsArr);
 
