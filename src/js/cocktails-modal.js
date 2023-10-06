@@ -1,5 +1,5 @@
 import { getCocktails } from './cocktail-api';
-import { Notify } from 'notiflix';
+import { favoriteHandler, markAsFavorite } from './favorite';
 import { renderCocktails } from './get-random-cocktails';
 import { createMarkupCocktail } from './create-markup-cocktail';
 import { fetchRandomCocktails } from './get-random-cocktails';
@@ -17,6 +17,9 @@ getCocktails().then(data => {
   console.log(data);
 });
 
+const ADD_TO_FAVORITE = 'ADD TO FAVORITE';
+const REMOVE_FROM_FAVORITE = 'REMOVE FROM FAVORITE';
+
 console.log(cocktails);
 
 const modal = {
@@ -24,16 +27,17 @@ const modal = {
   cocktailsModal: document.querySelector('.cocktails-modal'),
   cocktailsModalContent: document.querySelector('.cocktails-modal-content'),
   modalCloseBtn: document.querySelector('.modal-close-btn'),
-  cocktailsModaFavoriteBtn: document.querySelector(
-    '.cocktail-add-favorite-btn'
-  ),
-  backBtn: document.querySelectorAll('.cocktail-back-btn'),
 };
 
 // Розмітка для модалки
 function renderModalContent(chosenElement) {
   const { _id, drink, glass, instructions, drinkThumb, ingredients } =
     chosenElement;
+  const favoriteCocktails =
+    JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+  const isCocktailInStorage =
+    favoriteCocktails.findIndex(item => item._id === _id) !== -1;
+  const btnText = !isCocktailInStorage ? ADD_TO_FAVORITE : REMOVE_FROM_FAVORITE;
   return `<div class="cocktails-info">
   <img
   src="${drinkThumb}"
@@ -65,7 +69,15 @@ function renderModalContent(chosenElement) {
 </div>
 
 <h3 class="cocktails-instructions-title"><b>INSTRUCTIONS:</b></h3>
-<p class="cocktails-instructions">${instructions}</p>`;
+<p class="cocktails-instructions">${instructions}</p>
+<div class="cocktails-btn">
+    <button class="cocktail-add-favorite-btn" type="button">
+      ${btnText}
+    </button>
+    <button class="cocktail-back-btn" type="button" data-modal-close>
+      BACK
+    </button>
+  </div>`;
 }
 
 // Фунуція для виклику модалки
@@ -80,6 +92,12 @@ export function getCardInfo(event) {
   const modalContent = renderModalContent(chosenElement);
   modal.cocktailsModalContent.insertAdjacentHTML('beforeend', modalContent);
 
+  const cocktailsModaFavoriteBtn = document.querySelector(
+    '.cocktail-add-favorite-btn'
+  );
+  cocktailsModaFavoriteBtn.setAttribute('data-id', cocktailsId);
+  const backBtn = document.querySelectorAll('.cocktail-back-btn');
+
   //Закриття модалки при кліку на бекдроп
   modal.backdrop.addEventListener('click', () => {
     modal.cocktailsModalContent.innerHTML = '';
@@ -87,14 +105,11 @@ export function getCardInfo(event) {
     modal.cocktailsModal.classList.add('is-hidden');
   });
 
-  // modal.cocktailModaFavoriteBtn.setAttribute(
-  //   'data-id',
-  //   cocktailsId
-  // );
-
-  modal.cocktailsModaFavoriteBtn.addEventListener(
-    'click',
-    handlerAddToFavotiteCocktail
+  const favouriteSvg = event.target.parentElement.querySelector(
+    '.cocktails-button-favorite'
+  );
+  cocktailsModaFavoriteBtn.addEventListener('click', event =>
+    handlerAddToFavotiteCocktail(event, favouriteSvg)
   );
 
   document.querySelectorAll('.ingredients-list').forEach(item => {
@@ -127,8 +142,7 @@ export function getCardInfo(event) {
   });
 
   // Закриття модалки при кліку на кнопку
-
-  modal.backBtn.forEach(button =>
+  backBtn.forEach(button =>
     button.addEventListener('click', () => {
       modal.cocktailsModalContent.innerHTML = '';
       modal.backdrop.classList.add('is-hidden');
@@ -144,45 +158,26 @@ export function getCardInfo(event) {
   });
 }
 
-const handlerAddToFavotiteCocktail = e => {
-  const ADD_TO_FAVORITE = 'ADD TO FAVORITE';
-  const REMOVE_FROM_FAVORITE = 'REMOVE FROM FAVORITE';
+const handlerAddToFavotiteCocktail = (e, favouriteSvg) => {
   const id = e.target.getAttribute('data-id');
-  console.log(id);
-  console.log(cocktails);
   const chosenCocktail = cocktails.find(item => item._id === id);
-  console.log(chosenCocktail);
+  const cocktailsModaFavoriteBtn = document.querySelector(
+    '.cocktail-add-favorite-btn'
+  );
   const favoriteCocktails =
     JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
 
   if (e.target.innerText === ADD_TO_FAVORITE) {
+    markAsFavorite(favouriteSvg);
     localStorage.setItem(
       'favoriteCocktails',
       JSON.stringify([...favoriteCocktails, chosenCocktail])
     );
-    modal.cocktailsModaFavoriteBtn.textContent = REMOVE_FROM_FAVORITE;
+    cocktailsModaFavoriteBtn.textContent = REMOVE_FROM_FAVORITE;
   } else {
     const filteredArr = favoriteCocktails.filter(item => item._id !== id);
     localStorage.setItem('favoriteCocktails', JSON.stringify(filteredArr));
-    modal.cocktailsModaFavoriteBtn.textContent = ADD_TO_FAVORITE;
+    cocktailsModaFavoriteBtn.textContent = ADD_TO_FAVORITE;
+    markAsFavorite(favouriteSvg);
   }
-
-  // resolveFavoriteCocktailBtn(cocktailsBtnId);
 };
-
-// const resolveFavoriteCocktailBtn = cocktailsBtnId => {
-//   const existingId = localStorage.getItem('favoriteCocktails');
-//   console.log(existingId);
-//   if (existingId) {
-//     const savedId = JSON.parse(localStorage.getItem('favoriteCocktails'));
-//     console.log();
-//     // const isCocktailInStorage = savedId.find(item => item._id === existingId);
-//     //   if (isCocktailInStorage) {
-//     //     cocktailsContainer.cocktailModaFavoriteBtn.textContent =
-//     //       'REMOVE FROM FAVORITE';
-//     //   } else {
-//     //     cocktailsContainer.cocktailModaFavoriteBtn.textContent =
-//     //       'ADD TO FAVORITE';
-//     //   }
-//   }
-// };
