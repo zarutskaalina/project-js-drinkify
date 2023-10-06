@@ -1,6 +1,6 @@
 @import url('./theme.css');
 @import url('./ingredients.css');
-@import url('./favorite-cocktails.css'); 
+@import url('./favorite-cocktails.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./burger-menu.css');
@@ -83,13 +83,13 @@ body {
   }
 }
 
-/* @media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   body {
-    background-image: var(--bg-image-desktop); 
-    Центрирование по горизонтали, -191px от низа 
-    background-position: center bottom -191px; 
+    background-image: var(--bg-image-desktop);
+    /* Центрирование по горизонтали, -191px от низа 
+    background-position: center bottom -191px;  */
   }
-} */
+}
 
 @media screen and (min-width: 320px) {
   .container {
