@@ -27,7 +27,7 @@
     width: 90px;
     height: 34px;
     background-color: rgba(126, 143, 221, 0.4);
-    color: var(--primary-color-interface);
+    color: #fdfdff;
     border-radius: 8px;
     border: none;
     padding: 8px 14px;
@@ -124,7 +124,7 @@
   /* Эти стили нужно применить к  choices__inner после того как выбор из списка сделан и выбранная буква отображается в choices__inner */
   .choices.is-focused .choices__inner {
     background-color: var(--additional-accent-color);
-    color: var(--primary-color-interface);
+    color: #fdfdff;
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
