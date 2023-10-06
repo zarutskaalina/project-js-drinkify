@@ -120,6 +120,10 @@ button:active {
     gap: 32px 16px;
   }
 
+  .cocktails-item {
+    width: calc((100% - 16px) / 2);
+  }
+
   .cocktails-image {
     width: 316px;
     min-height: 316px;
