@@ -37,7 +37,8 @@
   --bg-modal: rgb(253, 253, 255);
   --title-modal: var(--primary-black-color);
   --li-ingredients: #242424cc;
-  --bg-back-color: var(--secondary-button-backgroun);
+  --bg-back-color: #2424241a;
+  --bg-back-color-hover: #24242433;
 }
 
 [data-theme='dark'] {
@@ -57,7 +58,8 @@
   --bg-modal: rgb(35, 35, 48);
   --title-modal: var(--primary-white-color);
   --li-ingredients: #fdfdfffd;
-  --bg-back-color: var(--secondary-button-backgroun-dark);
+  --bg-back-color: #fdfdff1a;
+  --bg-back-color-hover: #fdfdff33;
 }
 
 /* background-color: rgba(var(--primary-color-text), var(--opacity-10)); */

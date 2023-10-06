@@ -162,6 +162,11 @@
   background: var(--bg-back-color);
 }
 
+.cocktail-back-btn:hover,
+.cocktail-back-btn:focus {
+  background: var(--bg-back-color-hover);
+}
+
 .back-btn:hover,
 .back-btn:focus {
   background: #24242433;
