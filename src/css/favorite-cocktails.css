@@ -149,7 +149,7 @@ button:active {
   .cocktails-button {
     width: 228px;
     padding: 16px 55px;
-    color: #242424;
+    color: var(--secondary-color-interface);
     font-size: 18px;
     line-height: 133%;
     letter-spacing: 0.36px;
