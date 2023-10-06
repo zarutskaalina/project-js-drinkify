@@ -67,7 +67,8 @@
 }
 
 .searching-results-title,
-.random-cocktails {
+.random-cocktails-title,
+.favorite-cocktails-title {
   text-align: start;
   margin-top: 0;
   margin-bottom: 40px;
@@ -123,7 +124,8 @@
   }
 
   .searching-results-title,
-  .random-cocktails {
+  .random-cocktails-title,
+  .favorite-cocktails-title {
     margin-bottom: 50px;
     font-size: 40px;
     line-height: 120%;
@@ -147,7 +149,8 @@
     } */
 
   .searching-results-title,
-  .random-cocktails {
+  .random-cocktails-title,
+  .favorite-cocktails-title {
     margin-bottom: 44px;
   }
 }

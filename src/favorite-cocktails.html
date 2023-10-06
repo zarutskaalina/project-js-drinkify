@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktails</title>
+    <link rel="icon" type="image/png" href="./images/favicon/logo.png" />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
     />
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/favorite-cocktails.css" />
-
-    <link rel="icon" type="image/png" href="./images/favicon/logo.png" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-
-    <title>Document</title>
   </head>
+
   <body>
     <include src="./partials/header.html"></include>
     <include src="./partials/burger-menu.html"></include>
     <main>
-      <section class="container-f">
+      <section class="container ingredients">
         <div>
-          <h2 class="title-fc">Favorite cocktails</h2>
+          <h2 class="favorite-cocktails-title">Favorite cocktails</h2>
           <ul class="cocktails-list list"></ul>
           <div class="empty-search forhiden">
             <svg class="icon" width="142px" height="122px">
@@ -40,10 +38,10 @@
           </div>
         </div>
       </section>
+      <include src="./partials/cocktails-modal.html"></include>
     </main>
-
     <include src="./partials/footer.html"></include>
     <include src="./partials/ingredient-modal.html"></include>
-    <script src="./js/favorite-cocktails.js"></script>
+    <script src="./cocktails.js" type="module"></script>
   </body>
 </html>
