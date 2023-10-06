@@ -73,6 +73,7 @@
 @media screen and (min-width: 768px) {
   .cocktails-modal {
     width: 600px;
+    height: 569px;
   }
 
   .cocktails-info {
