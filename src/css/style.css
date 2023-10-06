@@ -80,13 +80,14 @@ body {
     /* background-position: center bottom -183px;  */
   }
 }
-@media screen and (min-width: 1280px) {
+
+/* @media screen and (min-width: 1280px) {
   body {
-    /* background-image: var(--bg-image-desktop); */
-    /* Центрирование по горизонтали, -191px от низа */
-    /* background-position: center bottom -191px;  */
+    background-image: var(--bg-image-desktop); 
+    Центрирование по горизонтали, -191px от низа 
+    background-position: center bottom -191px; 
   }
-}
+} */
 
 @media screen and (min-width: 320px) {
   .container {
