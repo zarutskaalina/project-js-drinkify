@@ -29,7 +29,7 @@
 // };
 
 export function favoriteHandler(event, cocktails) {
-  console.log(cocktails);
+  // console.log(cocktails);
   const id = event.currentTarget.getAttribute('data-id');
   const favoriteCocktails =
     JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
