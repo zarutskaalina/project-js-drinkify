@@ -140,13 +140,18 @@
   width: 251px;
   height: 56px;
   border-radius: 12px;
-  background: rgba(126, 143, 221, 1);
+  background: var(--accent-color);
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.75;
   color: rgba(253, 253, 255, 1);
   border: none;
+}
+
+.cocktail-add-favorite-btn:hover,
+.cocktail-add-favorite-btn:focus {
+  background: var(--hover-btn-add-favorite);
 }
 
 .cocktail-back-btn {

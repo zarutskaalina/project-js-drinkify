@@ -16,6 +16,7 @@
   --opacity-50: 0.5;
   --opacity-20: 0.2;
   --opacity-10: 0.1;
+  --hover-btn-add-favorite: #6e7fcf;
 }
 
 [data-theme='light'] {
