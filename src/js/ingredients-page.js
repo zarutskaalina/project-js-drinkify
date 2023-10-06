@@ -1,24 +1,24 @@
-const cocktailsContainer = document.querySelector(".ingredients-cards");
+// const cocktailsContainer = document.querySelector(".ingredients-cards");
 
-import spriteUrl from '../images/sprite.svg';
+import spriteUrl from '/src/images/sprite.svg';
 
 const cocktailsContainer = document.querySelector(".ingredients-cards");
 const dataPlaceholder = document.querySelector(".ingredients-placeholder");
 
-
-const dataCocktails = JSON.parse(localStorage.getItem('currentLS'));
+const currentLS = 'ingredients';
+const dataCocktails = JSON.parse(localStorage.getItem(currentLS));
 
 let displayedCards = 6;
 
-function renderCocktails() {
+function renderIngredients() {
   if (!dataCocktails) return;
   const ingredientsCards = dataCocktails
     .slice(0, displayedCards)
-    .map((cocktail) => `
-    <li class="ingredient-card" data-id="${cocktail._id}">
-      <h2 class="ingredient-title">${cocktail.title}</h2>
-      <p class="alcohol-level">${cocktail.alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</p>
-      <p class="ingredient-description">${cocktail.description}</p>
+    .map(({_id, title, alcohol, description}) => `
+    <li class="ingredient-card" data-id="${_id}">
+      <h2 class="ingredient-title">${title}</h2>
+      <p class="alcohol-level">${alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</p>
+      <p class="ingredient-description">${description}</p>
       <div class="ingredients-buttons">
         <button type="button" class="learn-more-button button">learn more</button>
         <button type="button" class="ingredients-button-remove button">
@@ -39,7 +39,7 @@ function renderCocktails() {
   };
 };
 
-renderCocktails();
+renderIngredients();
 
 
 function onDeleteCardBtn(event) {
