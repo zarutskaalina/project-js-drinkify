@@ -27,12 +27,12 @@
     width: 90px;
     height: 34px;
     background-color: rgba(126, 143, 221, 0.4);
-    color: var(--primary-color-interface);
+    color: #fdfdff;
     border-radius: 8px;
     border: none;
     padding: 8px 14px;
     appearance: none;
-    background-image: url('../images/chevron-down.svg');
+    background-image: url('/src/images/chevron-down.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 
@@ -50,7 +50,7 @@
     border: none;
     padding: 8px 15px;
     appearance: none;
-    background-image: url('../images/chevron-up.svg');
+    background-image: url('/src/images/chevron-up.svg');
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
     justify-content: space-between;
@@ -124,9 +124,7 @@
   /* Эти стили нужно применить к  choices__inner после того как выбор из списка сделан и выбранная буква отображается в choices__inner */
   .choices.is-focused .choices__inner {
     background-color: var(--additional-accent-color);
-    color: var(--primary-color-interface);
-
-    background-image: url('../images/chevron-down.svg');
+    color: #fdfdff;
     background-repeat: no-repeat;
     background-position: 80%; /* Положение cвг */
 

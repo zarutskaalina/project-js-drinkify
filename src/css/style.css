@@ -63,8 +63,31 @@ body {
   background-image: var(--bg-image);
 
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  body {
+    background-image: var(--bg-image-mob);
+    /* Центрирование по центру */
+    background-position: top center;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    background-image: var(--bg-image-tablet);
+    /* Центрирование по горизонтали, -183px от низа */
+    /* background-position: center bottom -183px;  */
+  }
+}
+
+/* @media screen and (min-width: 1280px) {
+  body {
+    background-image: var(--bg-image-desktop); 
+    Центрирование по горизонтали, -191px от низа 
+    background-position: center bottom -191px; 
+  }
+} */
 
 @media screen and (min-width: 320px) {
   .container {
