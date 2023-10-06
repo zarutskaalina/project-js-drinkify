@@ -46,7 +46,7 @@
     --secondary-button-accent-backgroun-dark
   );
   --bg-color: rgb(0, 0, 0);
-  --bg-iamge: none;
+  --bg-image: none;
   --bg-color-checked: var(--additional-accent-color);
   --border-checked: var(--accent-color);
   --span-checked: var(--primary-white-color);
